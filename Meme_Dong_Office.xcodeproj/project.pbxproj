@@ -14,6 +14,9 @@
 		CAD34A782B2FF5380004345B /* Meme_Dong_OfficeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */; };
 		CAD34A822B2FF5380004345B /* Meme_Dong_OfficeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */; };
 		CAD34A842B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */; };
+		CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A932B3130A60004345B /* ColorSystem.swift */; };
+		CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A952B3130BE0004345B /* ComponentSystem.swift */; };
+		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		CAD34A7D2B2FF5380004345B /* Meme_Dong_OfficeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Meme_Dong_OfficeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITests.swift; sourceTree = "<group>"; };
 		CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
+		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
+		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +101,9 @@
 		CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */ = {
 			isa = PBXGroup;
 			children = (
-				CAD34A602B2FF5370004345B /* AppDelegate.swift */,
-				CAD34A622B2FF5370004345B /* SceneDelegate.swift */,
-				CAD34A642B2FF5370004345B /* ViewController.swift */,
+				CAD34A922B3130840004345B /* Resources */,
+				CAD34A912B31307D0004345B /* Design */,
+				CAD34A902B3130710004345B /* Views */,
 				CAD34A692B2FF5380004345B /* Assets.xcassets */,
 				CAD34A6E2B2FF5380004345B /* Info.plist */,
 			);
@@ -119,6 +125,33 @@
 				CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */,
 			);
 			path = Meme_Dong_OfficeUITests;
+			sourceTree = "<group>";
+		};
+		CAD34A902B3130710004345B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAD34A642B2FF5370004345B /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAD34A912B31307D0004345B /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				CAD34A932B3130A60004345B /* ColorSystem.swift */,
+				CAD34A952B3130BE0004345B /* ComponentSystem.swift */,
+				CAD34A972B3130D10004345B /* FontSystem.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		CAD34A922B3130840004345B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAD34A602B2FF5370004345B /* AppDelegate.swift */,
+				CAD34A622B2FF5370004345B /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +283,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
+				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
+				CAD34A982B3130D10004345B /* FontSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
