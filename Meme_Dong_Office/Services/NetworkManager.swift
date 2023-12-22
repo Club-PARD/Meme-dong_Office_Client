@@ -1,8 +1,15 @@
-//
-//  NetworkManager.swift
-//  Meme_Dong_Office
-//
-//  Created by hyungjin kim on 12/22/23.
-//
+import UIKit
 
-import Foundation
+class NetworkManager {
+    static let shared = NetworkManager()
+    private let session: URLSession
+
+    private init(session: URLSession = .shared) {
+        self.session = session
+    }
+
+    func fetchData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let task = session.dataTask(with: url, completionHandler: completion)
+        task.resume()
+    }
+}

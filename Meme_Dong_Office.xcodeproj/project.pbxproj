@@ -21,6 +21,7 @@
 		CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A932B3130A60004345B /* ColorSystem.swift */; };
 		CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A952B3130BE0004345B /* ComponentSystem.swift */; };
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
+		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
+		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
+				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
+				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,

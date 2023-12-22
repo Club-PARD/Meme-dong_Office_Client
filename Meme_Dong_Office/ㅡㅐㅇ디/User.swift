@@ -1,8 +1,4 @@
-//
-//  Model.swift
-//  Meme_Dong_Office
-//
-//  Created by hyungjin kim on 12/22/23.
-//
-
-import Foundation
+struct User: Codable {
+    var id: String
+    var name: String
+}
