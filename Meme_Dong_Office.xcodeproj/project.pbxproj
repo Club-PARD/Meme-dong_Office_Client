@@ -10,6 +10,7 @@
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
+		CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF52B354EA100E1D140 /* Extensions.swift */; };
 		CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A602B2FF5370004345B /* AppDelegate.swift */; };
 		CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A622B2FF5370004345B /* SceneDelegate.swift */; };
 		CAD34A652B2FF5370004345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A642B2FF5370004345B /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CA505EF52B354EA100E1D140 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CAD34A5D2B2FF5370004345B /* Meme_Dong_Office.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meme_Dong_Office.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A602B2FF5370004345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD34A622B2FF5370004345B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CA505EF42B354E8C00E1D140 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CA505EF52B354EA100E1D140 /* Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		CAD34A542B2FF5370004345B = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 		CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */ = {
 			isa = PBXGroup;
 			children = (
+				CA505EF42B354E8C00E1D140 /* Utilities */,
 				CA505EF12B354BF100E1D140 /* Services */,
 				CA505EEC2B354B9700E1D140 /* ViewModel */,
 				CA505EEB2B354B8A00E1D140 /* Model */,
@@ -322,6 +333,7 @@
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
+				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
