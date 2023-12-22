@@ -7,58 +7,58 @@
 
 import UIKit
 
-class UserViewModel {
-    private var user: User?
-    var userName: String {
-        return user?.name ?? "Loading..."
-    }
-
-    var userId: String {
-        return user?.id ?? "Loading..."
-    }
-
-    func fetchUserData(completion: @escaping () -> Void) {
-        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
-        print("visit")
-        NetworkManager.shared.fetchData(from: url) { [weak self] data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                let user = try JSONDecoder().decode(User.self, from: data)
-                self?.user = user
-                print(self?.userId ?? "null")
-                completion()
-            } catch {
-                print("Error decoding User: \(error)")
-            }
-        }
-    }
-}
-
 //class UserViewModel {
-//    private var users = [User]()
-//
-//    var numberOfUsers: Int {
-//        return users.count
+//    private var user: User?
+//    var userName: String {
+//        return user?.name ?? "Loading..."
 //    }
 //
-//    func userName(at index: Int) -> String {
-//        return users.indices.contains(index) ? users[index].name : "Unknown"
+//    var userId: String {
+//        return user?.id ?? "Loading..."
 //    }
 //
-//    func fetchUsersData(completion: @escaping () -> Void) {
+//    func fetchUserData(completion: @escaping () -> Void) {
 //        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
-//
-//        NetworkManager.shared.fetchData(from: url) { [weak self] data, _, error in
+//        print("visit")
+//        NetworkManager.shared.fetchData(from: url) { [weak self] data, response, error in
 //            guard let data = data, error == nil else { return }
 //            
 //            do {
-//                let decodedUsers = try JSONDecoder().decode([User].self, from: data)
-//                self?.users = decodedUsers
+//                let user = try JSONDecoder().decode(User.self, from: data)
+//                self?.user = user
+//                print(self?.userId ?? "null")
 //                completion()
 //            } catch {
-//                print("Error decoding Users: \(error)")
+//                print("Error decoding User: \(error)")
 //            }
 //        }
 //    }
 //}
+
+class UserViewModel {
+    private var users = [User]()
+
+    var numberOfUsers: Int {
+        return users.count
+    }
+
+    func userName(at index: Int) -> String {
+        return users.indices.contains(index) ? users[index].name : "Unknown"
+    }
+
+    func fetchUsersData(completion: @escaping () -> Void) {
+        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
+
+        NetworkManager.shared.fetchData(from: url) { [weak self] data, _, error in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                let decodedUsers = try JSONDecoder().decode([User].self, from: data)
+                self?.users = decodedUsers
+                completion()
+            } catch {
+                print("Error decoding Users: \(error)")
+            }
+        }
+    }
+}
