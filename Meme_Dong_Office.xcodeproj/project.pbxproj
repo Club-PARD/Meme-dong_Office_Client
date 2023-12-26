@@ -23,6 +23,7 @@
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
 		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
 		DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */; };
+		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meme_Dong_Office.entitlements; sourceTree = "<group>"; };
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
+		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				CA505EED2B354BB700E1D140 /* User.swift */,
+				DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */,
 			);
 			name = Model;
 			path = "ㅡㅐㅇ디";
@@ -345,6 +348,7 @@
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
+				DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,

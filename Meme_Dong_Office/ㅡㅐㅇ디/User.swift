@@ -1,8 +1,5 @@
-import Foundation
-
 struct AppleUser {
-    var userIdentifier: String
-    var fullName: String
+    var identityToken: String
     var email: String
-
+    var name: String
 }

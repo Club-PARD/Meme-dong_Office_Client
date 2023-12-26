@@ -48,45 +48,45 @@ import UIKit
 //    }
 //}
 
-class UserViewController: UIViewController, UITableViewDataSource {
-    var viewModel = UserViewModel()
-    var tableView: UITableView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // 테이블 뷰 초기화 및 설정
-        tableView = UITableView(frame: .zero, style: .plain)
-        tableView.dataSource = self
-        view.addSubview(tableView)
-
-        // 셀 등록
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UserCell")
-
-        // 제약 조건 설정
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
-        ])
-
-        // 데이터 로딩
-        viewModel.fetchUsersData {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfUsers
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath)
-        cell.textLabel?.text = viewModel.userName(at: indexPath.row)
-        return cell
-    }
-}
+//class UserViewController: UIViewController, UITableViewDataSource {
+//    var viewModel = UserViewModel()
+//    var tableView: UITableView!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // 테이블 뷰 초기화 및 설정
+//        tableView = UITableView(frame: .zero, style: .plain)
+//        tableView.dataSource = self
+//        view.addSubview(tableView)
+//
+//        // 셀 등록
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UserCell")
+//
+//        // 제약 조건 설정
+//        tableView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+//            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+//            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
+//        ])
+//
+//        // 데이터 로딩
+//        viewModel.fetchUsersData {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.numberOfUsers
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath)
+//        cell.textLabel?.text = viewModel.userName(at: indexPath.row)
+//        return cell
+//    }
+//}
