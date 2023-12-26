@@ -1,4 +1,8 @@
-struct User: Codable {
-    var id: String
-    var name: String
+import Foundation
+
+struct AppleUser {
+    var userIdentifier: String
+    var fullName: String
+    var email: String
+
 }

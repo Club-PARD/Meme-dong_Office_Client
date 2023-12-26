@@ -36,29 +36,31 @@ import UIKit
 //}
 
 class UserViewModel {
-    private var users = [User]()
+    private var users = [AppleUser]()
 
     var numberOfUsers: Int {
         return users.count
     }
 
     func userName(at index: Int) -> String {
-        return users.indices.contains(index) ? users[index].name : "Unknown"
+        return users.indices.contains(index) ? users[index].fullName : "Unknown"
     }
 
     func fetchUsersData(completion: @escaping () -> Void) {
-        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
-
-        NetworkManager.shared.fetchData(from: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else { return }
-            
-            do {
-                let decodedUsers = try JSONDecoder().decode([User].self, from: data)
-                self?.users = decodedUsers
-                completion()
-            } catch {
-                print("Error decoding Users: \(error)")
-            }
-        }
+//        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
+//        NetworkManager.shared.fetchData(from: url) { [weak self] data, _, error in
+//            guard let data = data, error == nil else { return }
+//            
+//            do {
+//                print("visit")
+//                let decodedUsers = try JSONDecoder().decode([User].self, from: data)
+//                self?.users = decodedUsers
+//                print(decodedUsers)
+//                print("visit")
+//                completion()
+//            } catch {
+//                print("Error decoding Users: \(error)")
+//            }
+//        }
     }
 }

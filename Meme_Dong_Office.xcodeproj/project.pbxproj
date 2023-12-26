@@ -21,6 +21,8 @@
 		CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A932B3130A60004345B /* ColorSystem.swift */; };
 		CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A952B3130BE0004345B /* ComponentSystem.swift */; };
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
+		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
+		DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,9 @@
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
+		DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meme_Dong_Office.entitlements; sourceTree = "<group>"; };
+		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
+		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				CA505EEF2B354BD500E1D140 /* UserViewModel.swift */,
+				DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 		CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */ = {
 			isa = PBXGroup;
 			children = (
+				DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */,
 				CA505EF42B354E8C00E1D140 /* Utilities */,
 				CA505EF12B354BF100E1D140 /* Services */,
 				CA505EEC2B354B9700E1D140 /* ViewModel */,
@@ -179,6 +186,7 @@
 			children = (
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
+				DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,11 +341,13 @@
 			files = (
 				CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
+				DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
+				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
@@ -502,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -528,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -29,10 +29,9 @@ class ViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        let secondVC = UserViewController()
+        let secondVC = AppleLoginViewController()
         present(secondVC, animated: true, completion: nil)
     }
-
 
 
 
