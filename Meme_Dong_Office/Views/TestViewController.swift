@@ -87,7 +87,7 @@ class TestViewController: UIViewController {
 
     @objc func button3Tapped(_ sender: UIButton) {
         print("Button 3 tapped")
-        let ViewController = AppleLoginViewController()
+        let ViewController = StudyViewController()
         let navigationController = UINavigationController(rootViewController: ViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)    }
