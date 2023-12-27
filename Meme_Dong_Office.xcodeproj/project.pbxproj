@@ -15,6 +15,10 @@
 		908423332B3BEE2C0023FFA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423322B3BEE2C0023FFA0 /* FirstViewController.swift */; };
 		908423352B3BEE360023FFA0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423342B3BEE360023FFA0 /* SecondViewController.swift */; };
 		908423372B3BEE950023FFA0 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423362B3BEE950023FFA0 /* BottomSheetViewController.swift */; };
+		9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423392B3C08A70023FFA0 /* LoginViewController.swift */; };
+		9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233B2B3C09890023FFA0 /* SignUpViewController.swift */; };
+		9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */; };
+		908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233F2B3C09D30023FFA0 /* OriginViewController.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
@@ -62,6 +66,10 @@
 		908423322B3BEE2C0023FFA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		908423342B3BEE360023FFA0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		908423362B3BEE950023FFA0 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		908423392B3C08A70023FFA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9084233B2B3C09890023FFA0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
+		9084233F2B3C09D30023FFA0 /* OriginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginViewController.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -122,6 +130,17 @@
 				908423362B3BEE950023FFA0 /* BottomSheetViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		908423382B3C08990023FFA0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9084233F2B3C09D30023FFA0 /* OriginViewController.swift */,
+				9084233B2B3C09890023FFA0 /* SignUpViewController.swift */,
+				9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */,
+				908423392B3C08A70023FFA0 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		CA505EEB2B354B8A00E1D140 /* Model */ = {
@@ -219,6 +238,7 @@
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423272B3BE9490023FFA0 /* TestViewController.swift */,
 				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
+				908423382B3C08990023FFA0 /* Login */,
 				9084232F2B3BEDA40023FFA0 /* Detail */,
 				9084232B2B3BE99E0023FFA0 /* AddViewController.swift */,
 				9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */,
@@ -381,6 +401,8 @@
 				908423372B3BEE950023FFA0 /* BottomSheetViewController.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */,
+				9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */,
+				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */,
 				CA505F3A2B3BF6A200E1D140 /* MainViewController.swift in Sources */,
@@ -389,6 +411,7 @@
 				DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */,
 				9084232C2B3BE99E0023FFA0 /* AddViewController.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
+				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
@@ -400,6 +423,7 @@
 				908423352B3BEE360023FFA0 /* SecondViewController.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
 				CAD34A982B3130D10004345B /* FontSystem.swift in Sources */,
+				908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

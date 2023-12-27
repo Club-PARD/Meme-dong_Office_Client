@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
 
     @objc func button2Tapped(_ sender: UIButton) {
         print("Button 2 tapped")
-        let ViewController = DetailViewController()
+        let ViewController = OriginViewController()
         let navigationController = UINavigationController(rootViewController: ViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)    }
