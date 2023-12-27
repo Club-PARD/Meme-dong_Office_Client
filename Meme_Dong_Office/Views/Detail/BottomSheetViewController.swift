@@ -39,6 +39,15 @@ class BottomSheetViewController: UIViewController {
         button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let applyButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Apply", for: .normal)
+        button.tintColor = .blue
+        button.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
 
     var defaultHeight: CGFloat = 550
 
@@ -50,32 +59,40 @@ class BottomSheetViewController: UIViewController {
     private func setupUI() {
         view.addSubview(dimmedView)
         view.addSubview(bottomSheetView)
-        
+
         dimmedView.alpha = 0.0
-        
+
         setupLayout()
-        
+
         bottomSheetView.addSubview(label)
         bottomSheetView.addSubview(editButton)
+        bottomSheetView.addSubview(applyButton)
 
-        
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: 20),
             label.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -20),
             label.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -20)
         ])
-        
+
         editButton.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             editButton.topAnchor.constraint(equalTo: label.topAnchor, constant: 10),
             editButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -20)
         ])
+
+        applyButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            applyButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 60),
+            applyButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -20)
+        ])
+
+        // dimmedView에 tapGestureRecognizer를 추가하는 대신 bottomSheetView에 추가
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        bottomSheetView.addGestureRecognizer(tapGestureRecognizer)
     }
-    
+
     private func showBottomSheet() {
         let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding: CGFloat = view.safeAreaInsets.bottom
@@ -90,6 +107,7 @@ class BottomSheetViewController: UIViewController {
     
     private func setupLayout() {
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
             dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -157,6 +175,7 @@ class BottomSheetViewController: UIViewController {
         bottomSheetView.addSubview(editTextField)
 
         editTextField.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             // 위치를 상단 왼쪽에 고정
             editTextField.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 20),
@@ -172,10 +191,6 @@ class BottomSheetViewController: UIViewController {
             self.label.alpha = 0.0
             self.editButton.isHidden = true
         }
-
-        // 텍스트 필드 외부를 탭하면 키보드를 닫고 UI를 복원합니다
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        dimmedView.addGestureRecognizer(tapGestureRecognizer)
     }
 
 
@@ -201,4 +216,11 @@ class BottomSheetViewController: UIViewController {
         label.text = trimmedText.isEmpty ? "기본 텍스트" : trimmedText
     }
 
+    @objc private func applyButtonTapped() {
+        // 텍스트 필드의 텍스트를 가져와서 레이블에 적용
+        updateLabelText(editTextField.text)
+
+        // 키보드를 닫고 UI를 복원
+        dismissKeyboard()
+    }
 }
