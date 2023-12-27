@@ -11,7 +11,7 @@ class StudyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .red
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +26,10 @@ class StudyViewController: UIViewController {
     }
     */
 
+}
+
+extension UIViewController {
+    @objc func injected() {
+        viewDidLoad()
+    }
 }
