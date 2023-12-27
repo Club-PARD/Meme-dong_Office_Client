@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
+		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
+		9084232C2B3BE99E0023FFA0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* AddViewController.swift */; };
+		9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9084232B2B3BE99E0023FFA0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -188,6 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
+				908423272B3BE9490023FFA0 /* TestViewController.swift */,
+				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
+				9084232B2B3BE99E0023FFA0 /* AddViewController.swift */,
+				9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */,
 				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
 				DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */,
 			);
@@ -346,12 +358,16 @@
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
+				9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */,
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */,
+				9084232C2B3BE99E0023FFA0 /* AddViewController.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
+				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
+				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
