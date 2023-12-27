@@ -31,5 +31,6 @@ class StudyViewController: UIViewController {
 extension UIViewController {
     @objc func injected() {
         viewDidLoad()
+        
     }
 }
