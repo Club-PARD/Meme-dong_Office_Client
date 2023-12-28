@@ -38,21 +38,36 @@ class LoginViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "이메일 입력"
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "비밀번호 입력 (영문/숫자/특수문자 조합 8-20자리)"
+        textField.placeholder = "비밀번호 입력"
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
+    let rememberMeSwitch: UISwitch = {
+        let uiSwitch = UISwitch()
+        uiSwitch.isOn = false // Set default value
+        uiSwitch.translatesAutoresizingMaskIntoConstraints = false
+        uiSwitch.addTarget(self, action: #selector(rememberMeSwitchChanged), for: .valueChanged)
+        return uiSwitch
+    }()
+    
+    let rememberMeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "로그인 정보 기억"
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    
     lazy var signUpButton: UIButton = {
         let signUp = UIButton(type: .system)
         signUp.setTitle("로그인", for: .normal)
@@ -99,6 +114,9 @@ class LoginViewController: UIViewController {
         view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
         
+        view.addSubview(rememberMeSwitch)
+        view.addSubview(rememberMeLabel)
+        
         view.addSubview(signUpButton)
         view.addSubview(findCredentialsButton)
 
@@ -116,6 +134,15 @@ class LoginViewController: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 40)
         ])
 
+        NSLayoutConstraint.activate([
+            rememberMeSwitch.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
+            rememberMeSwitch.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30)
+        ])
+
+        NSLayoutConstraint.activate([
+            rememberMeLabel.centerYAnchor.constraint(equalTo: rememberMeSwitch.centerYAnchor),
+            rememberMeLabel.leadingAnchor.constraint(equalTo: rememberMeSwitch.trailingAnchor, constant: 8)
+        ])
         
         NSLayoutConstraint.activate([
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -128,6 +155,7 @@ class LoginViewController: UIViewController {
             findCredentialsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             findCredentialsButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 16)
         ])
+        
         NSLayoutConstraint.activate([
             emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -8),
             emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
@@ -154,4 +182,11 @@ class LoginViewController: UIViewController {
         print("아이디/비밀번호 찾기 Button Tapped")
     }
 
+    @objc func rememberMeSwitchChanged(sender: UISwitch) {
+        if sender.isOn {
+            print("로그인 정보 기억 Enabled")
+        } else {
+            print("로그인 정보 기억 Disabled")
+        }
+    }
 }

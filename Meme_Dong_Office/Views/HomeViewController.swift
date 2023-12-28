@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
     @objc func button1Tapped(_ sender: UIButton) {
         // Handle button 1 tap actions here
         print("Button 1 tapped")
-        let ViewController = DetailViewController()
+        let ViewController = FirstViewController()
         let navigationController = UINavigationController(rootViewController: ViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
