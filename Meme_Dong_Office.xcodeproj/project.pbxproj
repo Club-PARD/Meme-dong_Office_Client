@@ -21,6 +21,7 @@
 		908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233F2B3C09D30023FFA0 /* OriginViewController.swift */; };
 		908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423412B3D27E60023FFA0 /* LoginAPICaller.swift */; };
 		908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423432B3D283F0023FFA0 /* LoginDataModel.swift */; };
+		90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B5BC722B3D4AF90069046A /* LearnViewController.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
@@ -74,6 +75,7 @@
 		9084233F2B3C09D30023FFA0 /* OriginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginViewController.swift; sourceTree = "<group>"; };
 		908423412B3D27E60023FFA0 /* LoginAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPICaller.swift; sourceTree = "<group>"; };
 		908423432B3D283F0023FFA0 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		90B5BC722B3D4AF90069046A /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 				908423432B3D283F0023FFA0 /* LoginDataModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		908423452B3D48CE0023FFA0 /* Study */ = {
+			isa = PBXGroup;
+			children = (
+				90B5BC722B3D4AF90069046A /* LearnViewController.swift */,
+			);
+			path = Study;
 			sourceTree = "<group>";
 		};
 		CA505EEB2B354B8A00E1D140 /* Model */ = {
@@ -244,6 +254,7 @@
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423272B3BE9490023FFA0 /* TestViewController.swift */,
 				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
+				908423452B3D48CE0023FFA0 /* Study */,
 				908423382B3C08990023FFA0 /* Login */,
 				9084232F2B3BEDA40023FFA0 /* Detail */,
 				9084232B2B3BE99E0023FFA0 /* AddViewController.swift */,
@@ -408,6 +419,7 @@
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */,
 				9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */,
+				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,
 				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */,
@@ -595,6 +607,7 @@
 				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meme_Dong_Office/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -626,6 +639,7 @@
 				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Meme_Dong_Office/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -652,6 +666,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YG4RD83Q9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -671,6 +686,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7YG4RD83Q9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;

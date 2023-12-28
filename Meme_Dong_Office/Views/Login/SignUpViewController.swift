@@ -11,23 +11,30 @@ class SignUpViewController: UIViewController {
 
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "(첫인사)에 오신 것을 환영합니다!"
+        label.text = "띵에 오신 것을 환영합니다!"
         label.textColor = .black
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "첫인사는 ~~ 학생들의 이름을 쉽게 기억하게 해주는 선생님들은 위한 서비스예요."
-        label.textColor = .black
+        label.text = "띵은 학기초에 학생들의 이름을 쉽고 빨리 기억하게 해주는 선생님들은 위한 서비스예요."
+        label.textColor = UIColor(
+            red: 151 / 255.0,
+            green: 151 / 255.0,
+            blue: 151 / 255.0,
+            alpha: 1.0
+        ) // RGB values for #979797
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "이메일"
@@ -54,29 +61,26 @@ class SignUpViewController: UIViewController {
     
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "이메일 입력"
+        textField.placeholder = "이메일을 입력해주세요"
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "비밀번호 입력 (영문/숫자/특수문자 조합 8-20자리)"
+        textField.placeholder = "비밀번호를 입력해주세요"
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
     lazy var confirmPasswordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "비밀번호 확인"
+        textField.placeholder = "비밀번호를 확인해주세요"
         textField.isSecureTextEntry = true
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -96,9 +100,13 @@ class SignUpViewController: UIViewController {
         signUp.setTitle("회원가입", for: .normal)
         signUp.translatesAutoresizingMaskIntoConstraints = false
         signUp.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        signUp.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
+        signUp.backgroundColor = .white
         signUp.setTitleColor(.black, for: .normal)
-        signUp.layer.cornerRadius = 8
+        signUp.layer.cornerRadius = 20.5
+        signUp.layer.borderWidth = 2
+        signUp.layer.borderColor = UIColor(red: 1.0, green: 0.84, blue: 0.0, alpha: 1.0).cgColor
+        signUp.titleLabel?.font = UIFont(name: "Pretendard", size: 17)
+        signUp.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
 
         return signUp
     }()
@@ -115,16 +123,16 @@ class SignUpViewController: UIViewController {
         view.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
-            welcomeLabel.heightAnchor.constraint(equalToConstant: 30)
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 86),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+            welcomeLabel.widthAnchor.constraint(equalToConstant: 234),
+            welcomeLabel.heightAnchor.constraint(equalToConstant: 25)
         ])
-        
+
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 39),
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
@@ -143,31 +151,31 @@ class SignUpViewController: UIViewController {
         view.addSubview(signUpButton)
 
         NSLayoutConstraint.activate([
-            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            emailTextField.widthAnchor.constraint(equalToConstant: 300),
-            emailTextField.heightAnchor.constraint(equalToConstant: 40)
+            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 352),
+            emailTextField.widthAnchor.constraint(equalToConstant: 343),
+            emailTextField.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         NSLayoutConstraint.activate([
-            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            passwordTextField.widthAnchor.constraint(equalToConstant: 300),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40)
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 400),
+            passwordTextField.widthAnchor.constraint(equalToConstant: 343),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         NSLayoutConstraint.activate([
             confirmPasswordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             confirmPasswordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100),
-            confirmPasswordTextField.widthAnchor.constraint(equalToConstant: 300),
-            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 40)
+            confirmPasswordTextField.widthAnchor.constraint(equalToConstant: 343),
+            confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         NSLayoutConstraint.activate([
-            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200),
-            signUpButton.widthAnchor.constraint(equalToConstant: 300),
-            signUpButton.heightAnchor.constraint(equalToConstant: 40)
+            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 572),
+            signUpButton.widthAnchor.constraint(equalToConstant: 343),
+            signUpButton.heightAnchor.constraint(equalToConstant: 43)
         ])
         
         NSLayoutConstraint.activate([

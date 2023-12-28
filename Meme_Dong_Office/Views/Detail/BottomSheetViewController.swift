@@ -36,7 +36,7 @@ class BottomSheetViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Edit", for: .normal)
         button.tintColor = .blue
-        button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+        button.addTarget(BottomSheetViewController.self, action: #selector(editButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -44,7 +44,7 @@ class BottomSheetViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Apply", for: .normal)
         button.tintColor = .blue
-        button.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
+        button.addTarget(BottomSheetViewController.self, action: #selector(applyButtonTapped), for: .touchUpInside)
         return button
     }()
     

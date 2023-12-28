@@ -11,13 +11,30 @@ class LoginViewController: UIViewController {
 
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "띵"
+        label.text = "띵에 오신 것을 환영합니다!"
         label.textColor = .black
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "띵은 학기초에 학생들의 이름을 쉽고 빨리 기억하게 해주는 선생님들은 위한 서비스예요."
+        label.textColor = UIColor(
+            red: 151 / 255.0,
+            green: 151 / 255.0,
+            blue: 151 / 255.0,
+            alpha: 1.0
+        ) // RGB values for #979797
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.text = "이메일"
@@ -55,7 +72,7 @@ class LoginViewController: UIViewController {
         let uiSwitch = UISwitch()
         uiSwitch.isOn = false // Set default value
         uiSwitch.translatesAutoresizingMaskIntoConstraints = false
-        uiSwitch.addTarget(self, action: #selector(rememberMeSwitchChanged), for: .valueChanged)
+        uiSwitch.addTarget(LoginViewController.self, action: #selector(rememberMeSwitchChanged), for: .valueChanged)
         return uiSwitch
     }()
     
@@ -73,10 +90,12 @@ class LoginViewController: UIViewController {
         signUp.setTitle("로그인", for: .normal)
         signUp.translatesAutoresizingMaskIntoConstraints = false
         signUp.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        signUp.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
+        signUp.backgroundColor = UIColor(red: 1.0, green: 0.84, blue: 0.0, alpha: 1.0)
         signUp.setTitleColor(.black, for: .normal)
-        signUp.layer.cornerRadius = 8
-
+        signUp.layer.cornerRadius = 20.5
+        signUp.titleLabel?.font = UIFont(name: "Pretendard", size: 17)
+        signUp.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        
         return signUp
     }()
     
@@ -96,14 +115,23 @@ class LoginViewController: UIViewController {
         setupWelcomeLabels()
 
     }
+    
     func setupWelcomeLabels() {
         view.addSubview(welcomeLabel)
+        view.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
-            welcomeLabel.heightAnchor.constraint(equalToConstant: 30)
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 86),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+            welcomeLabel.widthAnchor.constraint(equalToConstant: 234),
+            welcomeLabel.heightAnchor.constraint(equalToConstant: 25)
+        ])
+
+        NSLayoutConstraint.activate([
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 39),
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -145,10 +173,10 @@ class LoginViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 200),
-            signUpButton.widthAnchor.constraint(equalToConstant: 300),
-            signUpButton.heightAnchor.constraint(equalToConstant: 40)
+            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 572),
+            signUpButton.widthAnchor.constraint(equalToConstant: 343),
+            signUpButton.heightAnchor.constraint(equalToConstant: 43)
         ])
         
         NSLayoutConstraint.activate([
