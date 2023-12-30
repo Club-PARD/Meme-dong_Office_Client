@@ -13,7 +13,7 @@ class OriginViewController: UIViewController {
         let label = UILabel()
         label.text = "띵"
         label.textColor = .black
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 43)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -23,7 +23,13 @@ class OriginViewController: UIViewController {
         let label = UILabel()
         label.text = "새학기를 준비하는 선생님들을 위한 서비스"
         label.textColor = .black
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.textColor = UIColor(
+            red: 151 / 255.0,
+            green: 151 / 255.0,
+            blue: 151 / 255.0,
+            alpha: 1.0
+        )
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,22 +87,25 @@ class OriginViewController: UIViewController {
         view.addSubview(imageView)
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 89),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 290),
             imageView.widthAnchor.constraint(equalToConstant: 172),
-            imageView.heightAnchor.constraint(equalToConstant: 168),
+            imageView.heightAnchor.constraint(equalToConstant: 168)
         ])
+
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 133),
+//            welcomeLabel.widthAnchor.constraint(equalToConstant: 234),
+//            welcomeLabel.heightAnchor.constraint(equalToConstant: 25)
         ])
-        
+
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 10),
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 198),
+//            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
+//            descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     

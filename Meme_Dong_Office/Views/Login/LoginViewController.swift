@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+        
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "띵에 오신 것을 환영합니다!"
@@ -35,67 +35,70 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.text = "이메일"
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    func makeTextField(withPlaceholder placeholder: String) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.borderStyle = .none
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.clearButtonMode = .whileEditing // 오른쪽에 X 버튼 표시
 
-    lazy var passwordLabel: UILabel = {
-        let label = UILabel()
-        label.text = "비밀번호"
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+        // Customize clear button
+        if let clearButton = textField.value(forKey: "_clearButton") as? UIButton {
+            clearButton.setImage(UIImage(systemName: "xmark"), for: .normal) // 이미지 설정
+            clearButton.tintColor = .gray // 색상 설정
+            clearButton.contentMode = .scaleAspectFit
+            clearButton.translatesAutoresizingMaskIntoConstraints = false
+
+            NSLayoutConstraint.activate([
+                clearButton.widthAnchor.constraint(equalToConstant: 10), // 너비 조절
+                clearButton.heightAnchor.constraint(equalToConstant: 10) // 높이 조절
+            ])
+        }
+        
+        // Add bottom line
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = .black
+        bottomLine.translatesAutoresizingMaskIntoConstraints = false
+        textField.addSubview(bottomLine)
+
+        NSLayoutConstraint.activate([
+            bottomLine.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            bottomLine.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
+            bottomLine.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+            bottomLine.heightAnchor.constraint(equalToConstant: 1)
+        ])
+
+        return textField
+    }
     
     lazy var emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "이메일 입력"
-        textField.borderStyle = .roundedRect
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+        return makeTextField(withPlaceholder: "이메일을 입력해주세요")
     }()
 
     lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "비밀번호 입력"
+        let textField = makeTextField(withPlaceholder: "비밀번호를 입력해주세요")
         textField.isSecureTextEntry = true
-        textField.borderStyle = .roundedRect
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
-    let rememberMeSwitch: UISwitch = {
-        let uiSwitch = UISwitch()
-        uiSwitch.isOn = false // Set default value
-        uiSwitch.translatesAutoresizingMaskIntoConstraints = false
-        uiSwitch.addTarget(LoginViewController.self, action: #selector(rememberMeSwitchChanged), for: .valueChanged)
-        return uiSwitch
-    }()
-    
-    let rememberMeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "로그인 정보 기억"
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     
     lazy var signUpButton: UIButton = {
         let signUp = UIButton(type: .system)
         signUp.setTitle("로그인", for: .normal)
         signUp.translatesAutoresizingMaskIntoConstraints = false
         signUp.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        signUp.backgroundColor = UIColor(red: 1.0, green: 0.84, blue: 0.0, alpha: 1.0)
-        signUp.setTitleColor(.black, for: .normal)
+        signUp.backgroundColor = UIColor(
+            red: 208 / 255.0,
+            green: 208 / 255.0,
+            blue: 208 / 255.0,
+            alpha: 1.0
+        )
+        signUp.setTitleColor(.white, for: .normal)
         signUp.layer.cornerRadius = 20.5
+        signUp.layer.borderWidth = 2
+        signUp.layer.borderColor = UIColor.clear.cgColor
         signUp.titleLabel?.font = UIFont(name: "Pretendard", size: 17)
         signUp.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        
+
         return signUp
     }()
     
@@ -113,8 +116,30 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         setupTextFields()
         setupWelcomeLabels()
-
+        configureSignUpButtonColor()
     }
+    
+    func configureSignUpButtonColor() {
+        let isEmailTextFieldEmpty = emailTextField.text?.isEmpty ?? true
+        let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty ?? true
+        let shouldChangeButtonColor = !isEmailTextFieldEmpty && !isPasswordTextFieldEmpty
+
+        // 색상 설정
+        signUpButton.backgroundColor = shouldChangeButtonColor ? UIColor(
+            red: 255 / 255.0,
+            green: 214 / 255.0,
+            blue: 0 / 255.0,
+            alpha: 1.0
+        ) : UIColor(
+            red: 208 / 255.0,
+            green: 208 / 255.0,
+            blue: 208 / 255.0,
+            alpha: 1.0
+        )
+
+        signUpButton.setTitleColor(shouldChangeButtonColor ? .black : .white, for: .normal)
+    }
+
     
     func setupWelcomeLabels() {
         view.addSubview(welcomeLabel)
@@ -136,42 +161,30 @@ class LoginViewController: UIViewController {
     }
     
     func setupTextFields() {
-        view.addSubview(emailLabel)
         view.addSubview(emailTextField)
-        
-        view.addSubview(passwordLabel)
         view.addSubview(passwordTextField)
-        
-        view.addSubview(rememberMeSwitch)
-        view.addSubview(rememberMeLabel)
-        
         view.addSubview(signUpButton)
+        
         view.addSubview(findCredentialsButton)
 
-        NSLayoutConstraint.activate([
-            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            emailTextField.widthAnchor.constraint(equalToConstant: 300),
-            emailTextField.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
-        NSLayoutConstraint.activate([
-            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            passwordTextField.widthAnchor.constraint(equalToConstant: 300),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40)
-        ])
-
-        NSLayoutConstraint.activate([
-            rememberMeSwitch.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
-            rememberMeSwitch.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30)
-        ])
-
-        NSLayoutConstraint.activate([
-            rememberMeLabel.centerYAnchor.constraint(equalTo: rememberMeSwitch.centerYAnchor),
-            rememberMeLabel.leadingAnchor.constraint(equalTo: rememberMeSwitch.trailingAnchor, constant: 8)
-        ])
         
+        NSLayoutConstraint.activate([
+            emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 342),
+            emailTextField.widthAnchor.constraint(equalToConstant: 343),
+            emailTextField.heightAnchor.constraint(equalToConstant: 20)
+        ])
+
+        NSLayoutConstraint.activate([
+            passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 417),
+            passwordTextField.widthAnchor.constraint(equalToConstant: 343),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 20)
+        ])
+
         NSLayoutConstraint.activate([
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 572),
@@ -183,19 +196,6 @@ class LoginViewController: UIViewController {
             findCredentialsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             findCredentialsButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 16)
         ])
-        
-        NSLayoutConstraint.activate([
-            emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -8),
-            emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            emailLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -8),
-            passwordLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
-            passwordLabel.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor)
-        ])
-
     }
     
     @objc func signUpButtonTapped() {
@@ -210,11 +210,17 @@ class LoginViewController: UIViewController {
         print("아이디/비밀번호 찾기 Button Tapped")
     }
 
-    @objc func rememberMeSwitchChanged(sender: UISwitch) {
-        if sender.isOn {
-            print("로그인 정보 기억 Enabled")
-        } else {
-            print("로그인 정보 기억 Disabled")
-        }
+    @objc func textFieldDidChange() {
+        configureSignUpButtonColor()
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // TextField의 입력이 변경될 때마다 호출되는 델리게이트 메서드
+        // 여기에서는 textFieldDidChange 함수를 호출하여 SignUpButton의 색상을 업데이트합니다.
+        textFieldDidChange()
+        return true
     }
 }
