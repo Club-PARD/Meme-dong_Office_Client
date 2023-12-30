@@ -102,7 +102,7 @@
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
-		DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meme_Dong_Office.entitlements; sourceTree = "<group>"; };
+		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
 		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				CA665C942B3FC61700F4FD26 /* Table */,
-				DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */,
+				DAC187682B3AA34C00A397E4 /* Think.entitlements */,
 				CA505EF42B354E8C00E1D140 /* Utilities */,
 				CA505EF12B354BF100E1D140 /* Services */,
 				CA505EEC2B354B9700E1D140 /* ViewModel */,
