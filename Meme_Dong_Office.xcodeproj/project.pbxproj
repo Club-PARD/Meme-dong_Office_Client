@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
 		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
-		9084232C2B3BE99E0023FFA0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* AddViewController.swift */; };
+		9084232C2B3BE99E0023FFA0 /* SelectRowsColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */; };
 		9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */; };
 		908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423302B3BEDDC0023FFA0 /* DetailViewController.swift */; };
 		908423332B3BEE2C0023FFA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423322B3BEE2C0023FFA0 /* FirstViewController.swift */; };
@@ -27,6 +27,7 @@
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
 		CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF52B354EA100E1D140 /* Extensions.swift */; };
 		CA505F3A2B3BF6A200E1D140 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505F392B3BF6A200E1D140 /* MainViewController.swift */; };
+		CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */; };
 		CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A602B2FF5370004345B /* AppDelegate.swift */; };
 		CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A622B2FF5370004345B /* SceneDelegate.swift */; };
 		CAD34A652B2FF5370004345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A642B2FF5370004345B /* ViewController.swift */; };
@@ -63,7 +64,7 @@
 /* Begin PBXFileReference section */
 		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		9084232B2B3BE99E0023FFA0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRowsColumn.swift; sourceTree = "<group>"; };
 		9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		908423302B3BEDDC0023FFA0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		908423322B3BEE2C0023FFA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA505EF52B354EA100E1D140 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA505F392B3BF6A200E1D140 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		CAD34A5D2B2FF5370004345B /* Meme_Dong_Office.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meme_Dong_Office.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A602B2FF5370004345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD34A622B2FF5370004345B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		CA665C942B3FC61700F4FD26 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */,
+				CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		CAD34A542B2FF5370004345B = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +228,7 @@
 		CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */ = {
 			isa = PBXGroup;
 			children = (
+				CA665C942B3FC61700F4FD26 /* Table */,
 				DAC187682B3AA34C00A397E4 /* Meme_Dong_Office.entitlements */,
 				CA505EF42B354E8C00E1D140 /* Utilities */,
 				CA505EF12B354BF100E1D140 /* Services */,
@@ -257,7 +269,6 @@
 				908423452B3D48CE0023FFA0 /* Study */,
 				908423382B3C08990023FFA0 /* Login */,
 				9084232F2B3BEDA40023FFA0 /* Detail */,
-				9084232B2B3BE99E0023FFA0 /* AddViewController.swift */,
 				9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */,
 				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
 				DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */,
@@ -427,7 +438,7 @@
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */,
-				9084232C2B3BE99E0023FFA0 /* AddViewController.swift in Sources */,
+				9084232C2B3BE99E0023FFA0 /* SelectRowsColumn.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
@@ -438,6 +449,7 @@
 				908423332B3BEE2C0023FFA0 /* FirstViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
+				CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */,
 				908423352B3BEE360023FFA0 /* SecondViewController.swift in Sources */,
 				908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
