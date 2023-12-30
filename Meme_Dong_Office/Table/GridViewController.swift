@@ -83,9 +83,10 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cellSize: CGFloat = 30
         let basespacing: CGFloat = 2
         let spacenum = CGFloat(gridColumns) - 1
-        let totalCellWidth = (cellSize * CGFloat(gridColumns) + (basespacing * spacenum)) /
-        let dynamicSpacing = calculateDynamicSpacing(totalWidth: totalCellWidth, columns: gridColumns)
-        let totalCellHeight = (cellSize * CGFloat(gridRows)) + (dynamicSpacing * CGFloat(gridRows - 1))
+        let totalCellWidth = (cellSize * CGFloat(gridColumns))
+//        let totalCellWidth = (cellSize * CGFloat(gridColumns) + (basespacing * spacenum))
+        let dynamicSpacing = calculateDynamicSpacing(totalWidth: totalCellWidth, columns: gridColumns, cellsize: cellSize)
+        let totalCellHeight = (cellSize * CGFloat(gridRows)) + (basespacing * CGFloat(gridRows - 1))
 
 
         NSLayoutConstraint.activate([
@@ -94,7 +95,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             rectangleBox.widthAnchor.constraint(equalToConstant: 100),
             rectangleBox.heightAnchor.constraint(equalToConstant: 30),
             
-            collectionView.widthAnchor.constraint(equalToConstant: view.bounds.width),
+            collectionView.widthAnchor.constraint(equalToConstant: totalCellWidth),
             collectionView.heightAnchor.constraint(equalToConstant: totalCellHeight),
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -20)
@@ -112,9 +113,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    private func calculateDynamicSpacing(totalWidth: CGFloat, columns: Int) -> CGFloat {
-        let cellSize: CGFloat = 30
-        let totalSpacing = totalWidth - (cellSize * CGFloat(columns))
+    private func calculateDynamicSpacing(totalWidth: CGFloat, columns: Int, cellsize: CGFloat) -> CGFloat {
+        let totalSpacing = totalWidth - (cellsize * CGFloat(columns))
         return totalSpacing / CGFloat(columns - 1)
     }
 
