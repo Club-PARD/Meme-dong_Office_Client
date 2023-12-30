@@ -21,6 +21,7 @@
 		908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233F2B3C09D30023FFA0 /* OriginViewController.swift */; };
 		908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423412B3D27E60023FFA0 /* LoginAPICaller.swift */; };
 		908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423432B3D283F0023FFA0 /* LoginDataModel.swift */; };
+		909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */; };
 		90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B5BC722B3D4AF90069046A /* LearnViewController.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
@@ -75,6 +76,7 @@
 		9084233F2B3C09D30023FFA0 /* OriginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginViewController.swift; sourceTree = "<group>"; };
 		908423412B3D27E60023FFA0 /* LoginAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPICaller.swift; sourceTree = "<group>"; };
 		908423432B3D283F0023FFA0 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		90B5BC722B3D4AF90069046A /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				908423392B3C08A70023FFA0 /* LoginViewController.swift */,
 				908423412B3D27E60023FFA0 /* LoginAPICaller.swift */,
 				908423432B3D283F0023FFA0 /* LoginDataModel.swift */,
+				909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
+				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
