@@ -1,6 +1,6 @@
 //
 //  SignUpViewController.swift
-//  Meme_Dong_Office
+//  Think
 //
 //  Created by 김민섭 on 12/27/23.
 //

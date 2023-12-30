@@ -1,14 +1,14 @@
 //
-//  Meme_Dong_OfficeTests.swift
-//  Meme_Dong_OfficeTests
+//  ThinkTests.swift
+//  ThinkTests
 //
 //  Created by hyungjin kim on 12/18/23.
 //
 
 import XCTest
-@testable import Meme_Dong_Office
+@testable import Think
 
-final class Meme_Dong_OfficeTests: XCTestCase {
+final class ThinkTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

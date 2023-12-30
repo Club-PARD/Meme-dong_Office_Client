@@ -33,9 +33,9 @@
 		CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A622B2FF5370004345B /* SceneDelegate.swift */; };
 		CAD34A652B2FF5370004345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A642B2FF5370004345B /* ViewController.swift */; };
 		CAD34A6A2B2FF5380004345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD34A692B2FF5380004345B /* Assets.xcassets */; };
-		CAD34A782B2FF5380004345B /* Meme_Dong_OfficeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */; };
-		CAD34A822B2FF5380004345B /* Meme_Dong_OfficeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */; };
-		CAD34A842B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */; };
+		CAD34A782B2FF5380004345B /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A772B2FF5380004345B /* ThinkTests.swift */; };
+		CAD34A822B2FF5380004345B /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A812B2FF5380004345B /* ThinkUITests.swift */; };
+		CAD34A842B2FF5380004345B /* ThinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A832B2FF5380004345B /* ThinkUITestsLaunchTests.swift */; };
 		CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A932B3130A60004345B /* ColorSystem.swift */; };
 		CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A952B3130BE0004345B /* ComponentSystem.swift */; };
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
@@ -95,10 +95,10 @@
 		CAD34A692B2FF5380004345B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD34A6E2B2FF5380004345B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAD34A732B2FF5380004345B /* ThinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeTests.swift; sourceTree = "<group>"; };
+		CAD34A772B2FF5380004345B /* ThinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkTests.swift; sourceTree = "<group>"; };
 		CAD34A7D2B2FF5380004345B /* ThinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITests.swift; sourceTree = "<group>"; };
-		CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CAD34A812B2FF5380004345B /* ThinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITests.swift; sourceTree = "<group>"; };
+		CAD34A832B2FF5380004345B /* ThinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		CAD34A762B2FF5380004345B /* ThinkTests */ = {
 			isa = PBXGroup;
 			children = (
-				CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */,
+				CAD34A772B2FF5380004345B /* ThinkTests.swift */,
 			);
 			path = ThinkTests;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 		CAD34A802B2FF5380004345B /* ThinkUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */,
-				CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */,
+				CAD34A812B2FF5380004345B /* ThinkUITests.swift */,
+				CAD34A832B2FF5380004345B /* ThinkUITestsLaunchTests.swift */,
 			);
 			path = ThinkUITests;
 			sourceTree = "<group>";
@@ -495,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAD34A782B2FF5380004345B /* Meme_Dong_OfficeTests.swift in Sources */,
+				CAD34A782B2FF5380004345B /* ThinkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,8 +503,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAD34A842B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift in Sources */,
-				CAD34A822B2FF5380004345B /* Meme_Dong_OfficeUITests.swift in Sources */,
+				CAD34A842B2FF5380004345B /* ThinkUITestsLaunchTests.swift in Sources */,
+				CAD34A822B2FF5380004345B /* ThinkUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +718,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-OfficeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.ThinkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -738,7 +738,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-OfficeTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.ThinkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -755,12 +755,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-OfficeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.ThinkUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Meme_Dong_Office;
+				TEST_TARGET_NAME = Think;
 			};
 			name = Debug;
 		};
@@ -772,12 +772,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-OfficeUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.ThinkUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Meme_Dong_Office;
+				TEST_TARGET_NAME = Think;
 			};
 			name = Release;
 		};

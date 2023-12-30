@@ -1,6 +1,6 @@
 //
 //  MainViewController.swift
-//  Meme_Dong_Office
+//  Think
 //
 //  Created by hyungjin kim on 12/27/23.
 //

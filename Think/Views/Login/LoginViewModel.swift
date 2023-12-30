@@ -1,6 +1,6 @@
 //
 //  LoginViewModel.swift
-//  Meme_Dong_Office
+//  Think
 //
 //  Created by 김민섭 on 12/29/23.
 //

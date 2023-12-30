@@ -1,6 +1,6 @@
 //
 //  AddClassViewController.swift
-//  Meme_Dong_Office
+//  Think
 //
 //  Created by 이신원 on 12/30/23.
 //
