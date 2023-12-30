@@ -86,15 +86,15 @@
 		CA505EF52B354EA100E1D140 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA505F392B3BF6A200E1D140 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
-		CAD34A5D2B2FF5370004345B /* Meme_Dong_Office.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meme_Dong_Office.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD34A5D2B2FF5370004345B /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A602B2FF5370004345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD34A622B2FF5370004345B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CAD34A642B2FF5370004345B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CAD34A692B2FF5380004345B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD34A6E2B2FF5380004345B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAD34A732B2FF5380004345B /* Meme_Dong_OfficeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Meme_Dong_OfficeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD34A732B2FF5380004345B /* ThinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeTests.swift; sourceTree = "<group>"; };
-		CAD34A7D2B2FF5380004345B /* Meme_Dong_OfficeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Meme_Dong_OfficeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD34A7D2B2FF5380004345B /* ThinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITests.swift; sourceTree = "<group>"; };
 		CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme_Dong_OfficeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
@@ -215,9 +215,9 @@
 		CAD34A542B2FF5370004345B = {
 			isa = PBXGroup;
 			children = (
-				CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */,
-				CAD34A762B2FF5380004345B /* Meme_Dong_OfficeTests */,
-				CAD34A802B2FF5380004345B /* Meme_Dong_OfficeUITests */,
+				CAD34A5F2B2FF5370004345B /* Think */,
+				CAD34A762B2FF5380004345B /* ThinkTests */,
+				CAD34A802B2FF5380004345B /* ThinkUITests */,
 				CAD34A5E2B2FF5370004345B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -225,14 +225,14 @@
 		CAD34A5E2B2FF5370004345B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CAD34A5D2B2FF5370004345B /* Meme_Dong_Office.app */,
-				CAD34A732B2FF5380004345B /* Meme_Dong_OfficeTests.xctest */,
-				CAD34A7D2B2FF5380004345B /* Meme_Dong_OfficeUITests.xctest */,
+				CAD34A5D2B2FF5370004345B /* Think.app */,
+				CAD34A732B2FF5380004345B /* ThinkTests.xctest */,
+				CAD34A7D2B2FF5380004345B /* ThinkUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CAD34A5F2B2FF5370004345B /* Meme_Dong_Office */ = {
+		CAD34A5F2B2FF5370004345B /* Think */ = {
 			isa = PBXGroup;
 			children = (
 				CA665C942B3FC61700F4FD26 /* Table */,
@@ -247,24 +247,24 @@
 				CAD34A692B2FF5380004345B /* Assets.xcassets */,
 				CAD34A6E2B2FF5380004345B /* Info.plist */,
 			);
-			path = Meme_Dong_Office;
+			path = Think;
 			sourceTree = "<group>";
 		};
-		CAD34A762B2FF5380004345B /* Meme_Dong_OfficeTests */ = {
+		CAD34A762B2FF5380004345B /* ThinkTests */ = {
 			isa = PBXGroup;
 			children = (
 				CAD34A772B2FF5380004345B /* Meme_Dong_OfficeTests.swift */,
 			);
-			path = Meme_Dong_OfficeTests;
+			path = ThinkTests;
 			sourceTree = "<group>";
 		};
-		CAD34A802B2FF5380004345B /* Meme_Dong_OfficeUITests */ = {
+		CAD34A802B2FF5380004345B /* ThinkUITests */ = {
 			isa = PBXGroup;
 			children = (
 				CAD34A812B2FF5380004345B /* Meme_Dong_OfficeUITests.swift */,
 				CAD34A832B2FF5380004345B /* Meme_Dong_OfficeUITestsLaunchTests.swift */,
 			);
-			path = Meme_Dong_OfficeUITests;
+			path = ThinkUITests;
 			sourceTree = "<group>";
 		};
 		CAD34A902B3130710004345B /* Views */ = {
@@ -316,9 +316,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CAD34A5C2B2FF5370004345B /* Meme_Dong_Office */ = {
+		CAD34A5C2B2FF5370004345B /* Think */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAD34A872B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_Office" */;
+			buildConfigurationList = CAD34A872B2FF5380004345B /* Build configuration list for PBXNativeTarget "Think" */;
 			buildPhases = (
 				CAD34A592B2FF5370004345B /* Sources */,
 				CAD34A5A2B2FF5370004345B /* Frameworks */,
@@ -328,14 +328,14 @@
 			);
 			dependencies = (
 			);
-			name = Meme_Dong_Office;
+			name = Think;
 			productName = Meme_Dong_Office;
-			productReference = CAD34A5D2B2FF5370004345B /* Meme_Dong_Office.app */;
+			productReference = CAD34A5D2B2FF5370004345B /* Think.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CAD34A722B2FF5380004345B /* Meme_Dong_OfficeTests */ = {
+		CAD34A722B2FF5380004345B /* ThinkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAD34A8A2B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_OfficeTests" */;
+			buildConfigurationList = CAD34A8A2B2FF5380004345B /* Build configuration list for PBXNativeTarget "ThinkTests" */;
 			buildPhases = (
 				CAD34A6F2B2FF5380004345B /* Sources */,
 				CAD34A702B2FF5380004345B /* Frameworks */,
@@ -346,14 +346,14 @@
 			dependencies = (
 				CAD34A752B2FF5380004345B /* PBXTargetDependency */,
 			);
-			name = Meme_Dong_OfficeTests;
+			name = ThinkTests;
 			productName = Meme_Dong_OfficeTests;
-			productReference = CAD34A732B2FF5380004345B /* Meme_Dong_OfficeTests.xctest */;
+			productReference = CAD34A732B2FF5380004345B /* ThinkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CAD34A7C2B2FF5380004345B /* Meme_Dong_OfficeUITests */ = {
+		CAD34A7C2B2FF5380004345B /* ThinkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAD34A8D2B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_OfficeUITests" */;
+			buildConfigurationList = CAD34A8D2B2FF5380004345B /* Build configuration list for PBXNativeTarget "ThinkUITests" */;
 			buildPhases = (
 				CAD34A792B2FF5380004345B /* Sources */,
 				CAD34A7A2B2FF5380004345B /* Frameworks */,
@@ -364,9 +364,9 @@
 			dependencies = (
 				CAD34A7F2B2FF5380004345B /* PBXTargetDependency */,
 			);
-			name = Meme_Dong_OfficeUITests;
+			name = ThinkUITests;
 			productName = Meme_Dong_OfficeUITests;
-			productReference = CAD34A7D2B2FF5380004345B /* Meme_Dong_OfficeUITests.xctest */;
+			productReference = CAD34A7D2B2FF5380004345B /* ThinkUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -392,7 +392,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CAD34A582B2FF5370004345B /* Build configuration list for PBXProject "Meme_Dong_Office" */;
+			buildConfigurationList = CAD34A582B2FF5370004345B /* Build configuration list for PBXProject "Think" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -405,9 +405,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CAD34A5C2B2FF5370004345B /* Meme_Dong_Office */,
-				CAD34A722B2FF5380004345B /* Meme_Dong_OfficeTests */,
-				CAD34A7C2B2FF5380004345B /* Meme_Dong_OfficeUITests */,
+				CAD34A5C2B2FF5370004345B /* Think */,
+				CAD34A722B2FF5380004345B /* ThinkTests */,
+				CAD34A7C2B2FF5380004345B /* ThinkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -501,12 +501,12 @@
 /* Begin PBXTargetDependency section */
 		CAD34A752B2FF5380004345B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CAD34A5C2B2FF5370004345B /* Meme_Dong_Office */;
+			target = CAD34A5C2B2FF5370004345B /* Think */;
 			targetProxy = CAD34A742B2FF5380004345B /* PBXContainerItemProxy */;
 		};
 		CAD34A7F2B2FF5380004345B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CAD34A5C2B2FF5370004345B /* Meme_Dong_Office */;
+			target = CAD34A5C2B2FF5370004345B /* Think */;
 			targetProxy = CAD34A7E2B2FF5380004345B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -636,12 +636,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Think/Think.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 69PT5BP5W8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Meme_Dong_Office/Info.plist;
+				INFOPLIST_FILE = Think/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -655,8 +656,9 @@
 					"-Xlinker",
 					"-interposable",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-Office";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.Think;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -668,12 +670,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Meme_Dong_Office/Meme_Dong_Office.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Think/Think.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 69PT5BP5W8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Meme_Dong_Office/Info.plist;
+				INFOPLIST_FILE = Think/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -683,8 +686,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.PARD.Meme-Dong-Office";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PARD.Think;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -707,7 +711,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meme_Dong_Office.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meme_Dong_Office";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Think.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Think";
 			};
 			name = Debug;
 		};
@@ -727,7 +731,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meme_Dong_Office.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Meme_Dong_Office";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Think.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Think";
 			};
 			name = Release;
 		};
@@ -768,7 +772,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CAD34A582B2FF5370004345B /* Build configuration list for PBXProject "Meme_Dong_Office" */ = {
+		CAD34A582B2FF5370004345B /* Build configuration list for PBXProject "Think" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAD34A852B2FF5380004345B /* Debug */,
@@ -777,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAD34A872B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_Office" */ = {
+		CAD34A872B2FF5380004345B /* Build configuration list for PBXNativeTarget "Think" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAD34A882B2FF5380004345B /* Debug */,
@@ -786,7 +790,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAD34A8A2B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_OfficeTests" */ = {
+		CAD34A8A2B2FF5380004345B /* Build configuration list for PBXNativeTarget "ThinkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAD34A8B2B2FF5380004345B /* Debug */,
@@ -795,7 +799,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAD34A8D2B2FF5380004345B /* Build configuration list for PBXNativeTarget "Meme_Dong_OfficeUITests" */ = {
+		CAD34A8D2B2FF5380004345B /* Build configuration list for PBXNativeTarget "ThinkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAD34A8E2B2FF5380004345B /* Debug */,
