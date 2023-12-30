@@ -8,7 +8,12 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-        
+    var loginViewModel = LoginViewModel()
+    
+    var name: String = ""
+    var email: String = ""
+    var password: String = ""
+    
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "띵에 오신 것을 환영합니다!"
@@ -199,6 +204,24 @@ class LoginViewController: UIViewController {
     }
     
     @objc func signUpButtonTapped() {
+        email = emailTextField.text!
+        password = passwordTextField.text!
+
+        let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email, password: password)
+        
+        if isLoginchecked {
+            print("✅ success")
+            
+            let changeViewController = SetNameViewController()
+            let navigationController = UINavigationController(rootViewController: changeViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+        }
+        
+        else {
+            print("🚨 Invalid Login")
+        }
+        
         print("Sign Up Button Tapped")
         let changeViewController = SetNameViewController()
         let navigationController = UINavigationController(rootViewController: changeViewController)

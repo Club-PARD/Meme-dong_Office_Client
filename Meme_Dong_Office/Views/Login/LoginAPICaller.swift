@@ -11,7 +11,7 @@ let urlLink = "http://13.125.210.242:8080/" // 서버 주소
 
 // MARK: - Create _ 데이터를 서버에 추가하는 함수
 class LoginAPICaller {
-    static let shared = LoginAPICaller() 
+    static let shared = LoginAPICaller()
     
     func makeSignUpPostRequest(with email: String, password: String, name: String)-> Bool {
         // 서버 링크가 유효한지 확인
@@ -24,15 +24,15 @@ class LoginAPICaller {
         request.httpMethod = "POST"
         // json 형식으로 데이터 전송할 것임
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         // POST로 요청할 경우 : json 형식으로 데이터 넘기기
         let body:[String: AnyHashable] = [
-            "email": "string",
-            "password": "string",
-            "name": "string"
+            "email": email,
+            "password": password,
+            "name": name
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-
+        
         // data task 생성하기
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             // 응답 처리하기
@@ -54,21 +54,21 @@ class LoginAPICaller {
         task.resume()
         return true
     }
-
+    
     // MARK: - Login -> 로그인 정보를 구현하는 함수
     func makeLoginRequest(with email: String, password: String) -> Bool{
         guard let encodedName = email.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             print("Encoding failed")
             return false
         }
-
+        
         let urlString = "http://13.125.210.242:8080/api/v1/auth/token"
-
+        
         guard let url = URL(string: urlString) else {
             print("🚨 Invalid URL")
             return false
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -77,9 +77,11 @@ class LoginAPICaller {
             "email": email,
             "password": password
         ]
-
+        
+        print(email)
+        
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-
+        
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else {
                 print("🚨 \(error?.localizedDescription ?? "Unknown error")")
@@ -95,7 +97,7 @@ class LoginAPICaller {
         task.resume()
         return true
     }
-
+}
     //func deleteRequest(name: String) {
     //    let urlString = "http://3.35.236.83/pard/delete/\(name)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     //
@@ -122,6 +124,4 @@ class LoginAPICaller {
     //    }
     //    task.resume()
     //}
-
-}
 

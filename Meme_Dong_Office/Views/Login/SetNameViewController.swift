@@ -10,9 +10,9 @@ import UIKit
 class SetNameViewController: UIViewController {
     var loginViewModel = LoginViewModel()
     
-    var name: String?
-    var email: String?
-    var password: String?
+    var name: String = ""
+    var email: String = ""
+    var password: String = ""
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -188,26 +188,29 @@ class SetNameViewController: UIViewController {
         print("Sign Up Button Tapped")
         
         name = confirmPasswordTextField.text!
-        print(email)
-        print(password)
-        print(name)
         
-        let isChecked = LoginAPICaller.shared.makeSignUpPostRequest(with: email!, password: password!, name: name!)
+        let isChecked = LoginAPICaller.shared.makeSignUpPostRequest(with: email, password: password, name: name)
         
         if isChecked {
-            let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email!, password: password!)
-            
-            if isLoginchecked {
-                print("✅ success")
-                
-                let changeViewController = SetNameViewController()
-                let navigationController = UINavigationController(rootViewController: changeViewController)
-                navigationController.modalPresentationStyle = .fullScreen
-                present(navigationController, animated: true, completion: nil)
-            }
-            else {
-                print("🚨 Invalid Login")
-            }
+            print("✅ success")
+
+//            let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email, password: password)
+//            
+//            if isLoginchecked {
+//                print("✅ success")
+//                
+            let changeViewController = SetNameViewController()
+            let navigationController = UINavigationController(rootViewController: changeViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+//            }
+//            else {
+//                print("🚨 Invalid Login")
+//            }
+        }
+        
+        else {
+            print("🚨 Invalid signUp")
         }
     }
 }
