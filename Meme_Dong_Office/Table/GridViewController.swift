@@ -81,10 +81,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         let cellSize: CGFloat = 30
-        let spacing: CGFloat = 2 // Base spacing for layout
-        let dynamicSpacing = calculateDynamicSpacing(columns: gridColumns)
-        let totalCellWidth = (cellSize * CGFloat(gridColumns)) + (dynamicSpacing * CGFloat(gridColumns - 1))
-        let totalCellHeight = (cellSize * CGFloat(gridRows)) + (spacing * CGFloat(gridRows - 1))
+        let basespacing: CGFloat = 2
+        let spacenum = CGFloat(gridColumns) - 1
+        let totalCellWidth = (cellSize * CGFloat(gridColumns) + (basespacing * spacenum)) /
+        let dynamicSpacing = calculateDynamicSpacing(totalWidth: totalCellWidth, columns: gridColumns)
+        let totalCellHeight = (cellSize * CGFloat(gridRows)) + (dynamicSpacing * CGFloat(gridRows - 1))
+
 
         NSLayoutConstraint.activate([
             rectangleBox.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * (3.5 / 7.0)),
@@ -92,11 +94,12 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             rectangleBox.widthAnchor.constraint(equalToConstant: 100),
             rectangleBox.heightAnchor.constraint(equalToConstant: 30),
             
+            collectionView.widthAnchor.constraint(equalToConstant: view.bounds.width),
             collectionView.heightAnchor.constraint(equalToConstant: totalCellHeight),
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            collectionView.widthAnchor.constraint(equalToConstant: totalCellWidth),
-            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -20),
+            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -20)
         ])
+
         if gridColumns % 2 == 0 {
             // Set up constraints for the buttons only if they are added to the view
             NSLayoutConstraint.activate([
@@ -109,13 +112,11 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    private func calculateDynamicSpacing(columns: Int) -> CGFloat {
-        let baseSpacing = 5
-        let spacingIncrement = 10
-        let columnDifference = max(0, 8 - columns)
-        return CGFloat(baseSpacing + spacingIncrement * columnDifference)
+    private func calculateDynamicSpacing(totalWidth: CGFloat, columns: Int) -> CGFloat {
+        let cellSize: CGFloat = 30
+        let totalSpacing = totalWidth - (cellSize * CGFloat(columns))
+        return totalSpacing / CGFloat(columns - 1)
     }
-
 
     // UICollectionViewDataSource methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
