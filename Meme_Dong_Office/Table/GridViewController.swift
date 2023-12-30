@@ -62,11 +62,19 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         
+        let cellSize: CGFloat = 30
+        let basespacing: CGFloat = 2
+        let spacenum = CGFloat(gridColumns) - 1
+        let totalCellWidth = (cellSize * 8) + ((cellSize/2) * 7)
+//        let totalCellWidth = (cellSize * CGFloat(gridColumns) + (basespacing * spacenum))
+        let dynamicSpacing = calculateDynamicSpacing(totalWidth: totalCellWidth, columns: gridColumns, cellsize: cellSize)
+        let totalCellHeight = (cellSize * CGFloat(gridRows)) + (basespacing * CGFloat(gridRows - 1))
+        
         // Calculate dynamic spacing based on the number of columns
-        let baseSpacing = 5
-        let spacingIncrement = 10
-        let columnDifference = max(0, 8 - gridColumns)
-        layout.minimumInteritemSpacing = CGFloat(baseSpacing + spacingIncrement * columnDifference)
+//        let baseSpacing = 5
+//        let spacingIncrement = 10
+//        let columnDifference = max(0, 8 - gridColumns)
+        layout.minimumInteritemSpacing = dynamicSpacing
         layout.minimumLineSpacing = 2
 
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -83,7 +91,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cellSize: CGFloat = 30
         let basespacing: CGFloat = 2
         let spacenum = CGFloat(gridColumns) - 1
-        let totalCellWidth = (cellSize * CGFloat(gridColumns))
+        let totalCellWidth = (cellSize * 8) + ((cellSize/2) * 7)
 //        let totalCellWidth = (cellSize * CGFloat(gridColumns) + (basespacing * spacenum))
         let dynamicSpacing = calculateDynamicSpacing(totalWidth: totalCellWidth, columns: gridColumns, cellsize: cellSize)
         let totalCellHeight = (cellSize * CGFloat(gridRows)) + (basespacing * CGFloat(gridRows - 1))
