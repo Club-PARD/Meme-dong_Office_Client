@@ -10,7 +10,6 @@
 		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
 		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
 		9084232C2B3BE99E0023FFA0 /* SelectRowsColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */; };
-		9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */; };
 		908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423302B3BEDDC0023FFA0 /* DetailViewController.swift */; };
 		908423332B3BEE2C0023FFA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423322B3BEE2C0023FFA0 /* FirstViewController.swift */; };
 		908423352B3BEE360023FFA0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423342B3BEE360023FFA0 /* SecondViewController.swift */; };
@@ -43,6 +42,9 @@
 		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
 		DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */; };
 		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
+		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
+		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
+		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +69,6 @@
 		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRowsColumn.swift; sourceTree = "<group>"; };
-		9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		908423302B3BEDDC0023FFA0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		908423322B3BEE2C0023FFA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		908423342B3BEE360023FFA0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +106,9 @@
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
 		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
+		DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTextViewController.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +280,7 @@
 		CAD34A902B3130710004345B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAD9B1952B3FEFD000C9F06C /* AddClass */,
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423272B3BE9490023FFA0 /* TestViewController.swift */,
 				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
@@ -283,7 +288,6 @@
 				908423452B3D48CE0023FFA0 /* Study */,
 				908423382B3C08990023FFA0 /* Login */,
 				9084232F2B3BEDA40023FFA0 /* Detail */,
-				9084232D2B3BE9A90023FFA0 /* StudyViewController.swift */,
 				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
 				DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */,
 				CA505F392B3BF6A200E1D140 /* MainViewController.swift */,
@@ -308,6 +312,16 @@
 				CAD34A622B2FF5370004345B /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DAD9B1952B3FEFD000C9F06C /* AddClass */ = {
+			isa = PBXGroup;
+			children = (
+				DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */,
+				DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */,
+				DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */,
+			);
+			path = AddClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +461,6 @@
 				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,
 				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
-				9084232E2B3BE9A90023FFA0 /* StudyViewController.swift in Sources */,
 				CA505F3A2B3BF6A200E1D140 /* MainViewController.swift in Sources */,
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
@@ -455,6 +468,8 @@
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumn.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
+				DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */,
+				DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
 				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
@@ -462,6 +477,7 @@
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
 				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
+				DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */,
 				908423332B3BEE2C0023FFA0 /* FirstViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
