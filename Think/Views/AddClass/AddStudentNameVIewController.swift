@@ -69,23 +69,28 @@ class AddStudentNameVIewController:UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "추가하기"
-        
-        //ios 15부터 적용
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
-
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-
-        
-        
         view.backgroundColor = UIColor.backgroundGrey
+        setupNav()
+        
         view.addSubview(addCameraIconButton)
         view.addSubview(addPlusIconButton)
         view.addSubview(addLabel)
         
         setupConstraints()
+    }
+    
+    func setupNav(){
+        navigationItem.title = "추가하기"
+        
+        //ios 15부터 적용
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
+        
+        appearance.shadowColor = nil
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
     }
     
     func setupConstraints(){
