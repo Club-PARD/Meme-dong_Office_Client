@@ -38,7 +38,7 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.white
         view.addSubview(student_add_label)
         view.addSubview(student_add_button)
         

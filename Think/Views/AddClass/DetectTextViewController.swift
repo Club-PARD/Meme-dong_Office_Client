@@ -50,6 +50,7 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
     func updateImageView(with image: UIImage) {
         self.incomingImage = image
         self.imageView.image = image
+        print(image)
         // 필요한 경우 텍스트 인식 과정을 여기에서 다시 수행
         detectText(from: image)
     }

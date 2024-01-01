@@ -38,9 +38,8 @@ extension CameraHandler: UIImagePickerControllerDelegate, UINavigationController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         picker.dismiss(animated: true)
-        
+        print("실행")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
             if currentViewController is AddBottomSheetViewController {
                 if let detectVC = detectTextViewController {
                     detectVC.updateImageView(with: image)
