@@ -49,6 +49,8 @@
 		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
 		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
 		DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */; };
+		DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37B2B43286F00204063 /* ClassModel.swift */; };
+		DAF0B37E2B432B6800204063 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37D2B432B6800204063 /* StudentModel.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTextViewController.swift; sourceTree = "<group>"; };
 		DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentNameVIewController.swift; sourceTree = "<group>"; };
+		DAF0B37B2B43286F00204063 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
+		DAF0B37D2B432B6800204063 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +197,8 @@
 			children = (
 				CA505EED2B354BB700E1D140 /* User.swift */,
 				DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */,
+				DAF0B37B2B43286F00204063 /* ClassModel.swift */,
+				DAF0B37D2B432B6800204063 /* StudentModel.swift */,
 			);
 			name = Model;
 			path = "ㅡㅐㅇ디";
@@ -483,12 +489,14 @@
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
 				DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */,
 				DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */,
+				DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */,
 				DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
 				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */,
 				90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */,
+				DAF0B37E2B432B6800204063 /* StudentModel.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
 				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
