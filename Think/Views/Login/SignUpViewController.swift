@@ -9,7 +9,6 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     var loginViewModel = LoginViewModel()
-    //var loginData = LoginViewModel(email: "", password: "", name: "")
 
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
@@ -29,7 +28,7 @@ class SignUpViewController: UIViewController {
             green: 151 / 255.0,
             blue: 151 / 255.0,
             alpha: 1.0
-        ) // RGB values for #979797
+        )
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
@@ -42,18 +41,18 @@ class SignUpViewController: UIViewController {
         textField.placeholder = placeholder
         textField.borderStyle = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.clearButtonMode = .whileEditing // 오른쪽에 X 버튼 표시
+        textField.clearButtonMode = .whileEditing
 
         // Customize clear button
         if let clearButton = textField.value(forKey: "_clearButton") as? UIButton {
-            clearButton.setImage(UIImage(systemName: "xmark"), for: .normal) // 이미지 설정
-            clearButton.tintColor = .gray // 색상 설정
+            clearButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+            clearButton.tintColor = .gray
             clearButton.contentMode = .scaleAspectFit
             clearButton.translatesAutoresizingMaskIntoConstraints = false
 
             NSLayoutConstraint.activate([
-                clearButton.widthAnchor.constraint(equalToConstant: 10), // 너비 조절
-                clearButton.heightAnchor.constraint(equalToConstant: 10) // 높이 조절
+                clearButton.widthAnchor.constraint(equalToConstant: 10),
+                clearButton.heightAnchor.constraint(equalToConstant: 10)
             ])
         }
         
@@ -96,11 +95,11 @@ class SignUpViewController: UIViewController {
         label.textColor = UIColor(red: 0x97 / 255.0, green: 0x97 / 255.0, blue: 0x97 / 255.0, alpha: 1.0)
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 11) // Adjust the font size
+        label.font = UIFont.systemFont(ofSize: 11)
         return label
     }()
 
-    
+
     lazy var signUpButton: UIButton = {
         let signUp = UIButton(type: .system)
         signUp.setTitle("회원가입", for: .normal)
@@ -129,6 +128,10 @@ class SignUpViewController: UIViewController {
         setupTextFields()
         setupWelcomeLabels()
         configureSignUpButtonColor()
+        emailTextField.becomeFirstResponder()
+        passwordTextField.becomeFirstResponder()
+        confirmPasswordTextField.becomeFirstResponder()
+
     }
     
     func configureSignUpButtonColor() {
@@ -137,6 +140,8 @@ class SignUpViewController: UIViewController {
         let isConfirmPasswordTextFieldEmpty = confirmPasswordTextField.text?.isEmpty ?? true
 
         let shouldChangeButtonColor = !isEmailTextFieldEmpty && !isPasswordTextFieldEmpty && !isConfirmPasswordTextFieldEmpty
+
+        signUpButton.isEnabled = shouldChangeButtonColor
 
         // 색상 설정
         signUpButton.backgroundColor = shouldChangeButtonColor ? UIColor(
@@ -172,6 +177,13 @@ class SignUpViewController: UIViewController {
             descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+    func isPasswordValid(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
+    }
+
     
     func setupTextFields() {
         view.addSubview(emailTextField)
@@ -221,17 +233,30 @@ class SignUpViewController: UIViewController {
         ])
     }
     
+    
     @objc func signUpButtonTapped() {
-
         print("Sign Up Button Tapped")
-        
+
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let confirmPassword = confirmPasswordTextField.text else {
+            return
+        }
+
+        guard isPasswordValid(password) else {
+            // 비밀번호가 조건에 맞지 않으면 경고 메시지를 표시하거나 처리할 로직을 추가할 수 있습니다.
+            print("🚨 Invalid password")
+            return
+        }
+
         let changeViewController = SetNameViewController()
-        changeViewController.email = emailTextField.text!
-        changeViewController.password = passwordTextField.text!
+        changeViewController.email = email
+        changeViewController.password = password
         let navigationController = UINavigationController(rootViewController: changeViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
+
     
     @objc func textFieldDidChange() {
         configureSignUpButtonColor()

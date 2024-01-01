@@ -45,7 +45,14 @@ class LoginAPICaller {
                 let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 // 정상적으로 response를 받은 경우, notification center를 사용하여 알림 보내기
                 print("✅ success: \(response)")
-                //makeLoginRequest(with: String, password: String)
+                
+                // 실제 서버로부터 받은 액세스 토큰과 리프레시 토큰으로 교체
+                let accessToken = "yourAccessToken"
+                let refreshToken = "yourRefreshToken"
+                                
+                // `TokenManager`를 사용하여 토큰 저장
+                TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+
             } catch {
                 print("🚨 ", error)
             }

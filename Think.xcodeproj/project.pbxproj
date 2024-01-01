@@ -23,6 +23,8 @@
 		909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */; };
 		909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */; };
 		90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B5BC722B3D4AF90069046A /* LearnViewController.swift */; };
+		90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE461E2B429E740026E264 /* PracticeViewController.swift */; };
+		90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE46202B42ACB00026E264 /* TokenManager.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
 		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
@@ -82,6 +84,8 @@
 		909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
 		90B5BC722B3D4AF90069046A /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		90CE461E2B429E740026E264 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		90CE46202B42ACB00026E264 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				908423412B3D27E60023FFA0 /* LoginAPICaller.swift */,
 				908423432B3D283F0023FFA0 /* LoginDataModel.swift */,
 				909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */,
+				90CE46202B42ACB00026E264 /* TokenManager.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */,
+				90CE461E2B429E740026E264 /* PracticeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */,
+				90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
 				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
@@ -486,6 +493,7 @@
 				908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
 				908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */,
+				90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */,
 				CAD34A982B3130D10004345B /* FontSystem.swift in Sources */,
 				908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */,
 			);

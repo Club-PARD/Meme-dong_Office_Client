@@ -180,6 +180,7 @@ class SetNameViewController: UIViewController {
         signUpButton.setTitleColor(isTextFieldEmpty ? .white : .black, for: .normal)
     }
     
+    
     @objc func textFieldDidChange() {
         configureSignUpButtonColor()
     }
@@ -193,23 +194,20 @@ class SetNameViewController: UIViewController {
         
         if isChecked {
             print("✅ success")
-
-//            let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email, password: password)
-//            
-//            if isLoginchecked {
-//                print("✅ success")
-//                
+            
+            // 실제 서버로부터 받은 액세스 토큰과 리프레시 토큰으로 교체
+            let accessToken = "yourAccessToken"
+            let refreshToken = "yourRefreshToken"
+            
+            // `TokenManager`를 사용하여 토큰 저장
+            TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+            
             let changeViewController = SetNameViewController()
             let navigationController = UINavigationController(rootViewController: changeViewController)
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
-//            }
-//            else {
-//                print("🚨 Invalid Login")
-//            }
-        }
-        
-        else {
+
+        } else {
             print("🚨 Invalid signUp")
         }
     }
