@@ -284,8 +284,10 @@ class AddBottomSheetViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("추가 촬영", for: .normal)
         button.tintColor = .black
-        button.backgroundColor = UIColor.disabled
+        button.backgroundColor = UIColor.white
         button.layer.cornerRadius = 22
+        button.layer.borderWidth = 2
+        button.layer.borderColor = CGColor.mainYellow
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         
         
