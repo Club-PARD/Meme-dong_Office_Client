@@ -31,6 +31,7 @@
 		CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF52B354EA100E1D140 /* Extensions.swift */; };
 		CA505F3A2B3BF6A200E1D140 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505F392B3BF6A200E1D140 /* MainViewController.swift */; };
 		CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */; };
+		CA665C9A2B42DF7800F4FD26 /* CompositionalLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C992B42DF7800F4FD26 /* CompositionalLayoutViewController.swift */; };
 		CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A602B2FF5370004345B /* AppDelegate.swift */; };
 		CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A622B2FF5370004345B /* SceneDelegate.swift */; };
 		CAD34A652B2FF5370004345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A642B2FF5370004345B /* ViewController.swift */; };
@@ -92,6 +93,7 @@
 		CA505EF52B354EA100E1D140 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA505F392B3BF6A200E1D140 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		CA665C992B42DF7800F4FD26 /* CompositionalLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutViewController.swift; sourceTree = "<group>"; };
 		CAD34A5D2B2FF5370004345B /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A602B2FF5370004345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD34A622B2FF5370004345B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				9084232B2B3BE99E0023FFA0 /* SelectRowsColumn.swift */,
 				CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */,
+				CA665C992B42DF7800F4FD26 /* CompositionalLayoutViewController.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,
 				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
+				CA665C9A2B42DF7800F4FD26 /* CompositionalLayoutViewController.swift in Sources */,
 				CA505F3A2B3BF6A200E1D140 /* MainViewController.swift in Sources */,
 				DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
