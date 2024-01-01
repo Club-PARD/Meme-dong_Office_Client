@@ -48,6 +48,7 @@
 		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
 		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
 		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
+		DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTextViewController.swift; sourceTree = "<group>"; };
+		DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentNameVIewController.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,6 +331,7 @@
 				DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */,
 				DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */,
 				DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */,
+				DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */,
 			);
 			path = AddClass;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumn.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
+				DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */,
 				DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */,
 				DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */,
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
