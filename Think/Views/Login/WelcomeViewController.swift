@@ -7,16 +7,20 @@
 
 import UIKit
 
-class OriginViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
-    lazy var welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "띵"
-        label.textColor = .black
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 43)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    let thinkImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "think")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    let logoImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "Logo")
+        image.contentMode = .scaleAspectFit
+        return image
     }()
 
     lazy var descriptionLabel: UILabel = {
@@ -75,30 +79,27 @@ class OriginViewController: UIViewController {
     }
 
     func setupWelcomeLabels() {
-        view.addSubview(welcomeLabel)
+        view.addSubview(thinkImage)
         view.addSubview(descriptionLabel)
+        view.addSubview(logoImage)
         
-        let imageView = UIImageView()
         
-        imageView.image = UIImage(named: "Logo")
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(imageView)
+        thinkImage.translatesAutoresizingMaskIntoConstraints = false
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 89),
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 290),
-            imageView.widthAnchor.constraint(equalToConstant: 172),
-            imageView.heightAnchor.constraint(equalToConstant: 168)
+            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 89),
+            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 290),
+            logoImage.widthAnchor.constraint(equalToConstant: 172),
+            logoImage.heightAnchor.constraint(equalToConstant: 168)
         ])
 
         
         NSLayoutConstraint.activate([
-            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 133),
-//            welcomeLabel.widthAnchor.constraint(equalToConstant: 234),
-//            welcomeLabel.heightAnchor.constraint(equalToConstant: 25)
+            thinkImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            thinkImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 123),
+            thinkImage.widthAnchor.constraint(equalToConstant: 183),
+            thinkImage.heightAnchor.constraint(equalToConstant: 44)
         ])
 
         NSLayoutConstraint.activate([
@@ -131,16 +132,26 @@ class OriginViewController: UIViewController {
     @objc func loginButtonTapped() {
         print("Login Button Tapped")
         let changeViewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(changeViewController, animated: true)
     }
 
     @objc func signUpButtonTapped() {
         print("Sign Up Button Tapped")
         let changeViewController = SignUpViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(changeViewController, animated: true)
     }
 }

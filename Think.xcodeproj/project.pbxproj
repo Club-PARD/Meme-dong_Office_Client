@@ -17,7 +17,7 @@
 		9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423392B3C08A70023FFA0 /* LoginViewController.swift */; };
 		9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233B2B3C09890023FFA0 /* SignUpViewController.swift */; };
 		9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */; };
-		908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233F2B3C09D30023FFA0 /* OriginViewController.swift */; };
+		908423402B3C09D30023FFA0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233F2B3C09D30023FFA0 /* WelcomeViewController.swift */; };
 		908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423412B3D27E60023FFA0 /* LoginAPICaller.swift */; };
 		908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423432B3D283F0023FFA0 /* LoginDataModel.swift */; };
 		909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */; };
@@ -79,7 +79,7 @@
 		908423392B3C08A70023FFA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9084233B2B3C09890023FFA0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
-		9084233F2B3C09D30023FFA0 /* OriginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginViewController.swift; sourceTree = "<group>"; };
+		9084233F2B3C09D30023FFA0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		908423412B3D27E60023FFA0 /* LoginAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPICaller.swift; sourceTree = "<group>"; };
 		908423432B3D283F0023FFA0 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		908423382B3C08990023FFA0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9084233F2B3C09D30023FFA0 /* OriginViewController.swift */,
+				9084233F2B3C09D30023FFA0 /* WelcomeViewController.swift */,
 				9084233B2B3C09890023FFA0 /* SignUpViewController.swift */,
 				9084233D2B3C09AA0023FFA0 /* SetNameViewController.swift */,
 				908423392B3C08A70023FFA0 /* LoginViewController.swift */,
@@ -499,7 +499,7 @@
 				908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */,
 				90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */,
 				CAD34A982B3130D10004345B /* FontSystem.swift in Sources */,
-				908423402B3C09D30023FFA0 /* OriginViewController.swift in Sources */,
+				908423402B3C09D30023FFA0 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
