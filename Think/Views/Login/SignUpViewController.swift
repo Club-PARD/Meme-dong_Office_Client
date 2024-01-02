@@ -283,6 +283,12 @@ class SignUpViewController: UIViewController {
     @objc func textFieldDidChange() {
         configureSignUpButtonColor()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true) // 현재 활성화된 키보드를 닫습니다.
+    }
+
 }
 
 extension SignUpViewController: UITextFieldDelegate {
