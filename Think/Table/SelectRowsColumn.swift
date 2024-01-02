@@ -7,10 +7,9 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     var gridColumns = 8 // Track the number of columns in the grid
     var boxes: [Bool] = Array(repeating: false, count: 64) // Initial 8x8 grid
     
-    let rectangleBox = UIView()
+    let teacherTable = UIView()
     let rowLabel = UILabel()
     let columnLabel = UILabel()
-    let selectionLabel = UILabel()
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -21,7 +20,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .backgroundGrey
         return collectionView
     }()
 
@@ -54,23 +53,55 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         view.addSubview(columnPicker)
         view.addSubview(rowLabel)
         view.addSubview(columnLabel)
-        view.addSubview(selectionLabel)
-        setupRectangleBox()
+        setupTeacherTable()
         setupLabels()
         setupConfirmButton()
     }
     
-    private func setupRectangleBox() {
-        rectangleBox.backgroundColor = .red
-        rectangleBox.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(rectangleBox)
+    private func setupTeacherTable() {
+        teacherTable.backgroundColor = .darkGray // Change color to dark grey
+        teacherTable.translatesAutoresizingMaskIntoConstraints = false
+        teacherTable.layer.cornerRadius = 10
+        teacherTable.layer.masksToBounds = true
+        view.addSubview(teacherTable)
+
+        // Create and setup the label
+        let boxLabel = UILabel()
+        boxLabel.text = "교탁" // Replace with your actual label text
+        boxLabel.textColor = .white // Set the text color that contrasts well with dark grey
+        boxLabel.textAlignment = .center
+        boxLabel.translatesAutoresizingMaskIntoConstraints = false
+        teacherTable.addSubview(boxLabel) // Add the label to the rectangleBox
+
+        // Constraints for the label to center it within rectangleBox
+        NSLayoutConstraint.activate([
+            boxLabel.centerXAnchor.constraint(equalTo: teacherTable.centerXAnchor),
+            boxLabel.centerYAnchor.constraint(equalTo: teacherTable.centerYAnchor)
+        ])
     }
+
 
     private func setupConfirmButton() {
         confirmButton.setTitle("Confirm", for: .normal)
         confirmButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(confirmButton)
+    }
+    
+    //confirm button UI and function
+    @objc func confirmTapped() {
+        let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
+        let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
+
+        // Create gridDisplayVC using the custom initializer
+//        let gridDisplayVC = GridDisplayViewController(rows: selectedRow, columns: selectedColumn)
+        let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
+
+        // If using a navigation controller
+        navigationController?.pushViewController(gridDisplayVC, animated: true)
+
+        // Or, presenting the view controller modally
+        // present(gridDisplayVC, animated: true, completion: nil)
     }
 
     private func setupLabels() {
@@ -82,20 +113,30 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         columnLabel.textAlignment = .center
         columnLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        selectionLabel.textAlignment = .center
-        selectionLabel.textColor = .black
-        selectionLabel.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupConstraints() {
         let spacing: CGFloat = 2
-        let totalSpacing = (2 * spacing) + (CGFloat(gridColumns - 1) * spacing)
-        let width = (view.bounds.width - totalSpacing) / CGFloat(gridColumns)
-        let collectionViewHeight = width * CGFloat(gridColumns) + CGFloat(gridColumns - 1) * spacing
+        let columnSpacing = (2 * spacing) + (CGFloat(gridColumns - 1) * spacing)
+        let rowSpacing = (2 * spacing) + (CGFloat(7) * spacing) // Assuming 8 rows, spacing for 7 gaps
+
+        let itemWidth = (view.bounds.width - columnSpacing) / CGFloat(gridColumns)
+        let itemHeight = itemWidth - 5
+        let numberOfRows = boxes.count / gridColumns
+        let collectionViewHeight = (itemHeight * CGFloat(numberOfRows)) + rowSpacing
+
         let pickerWidth: CGFloat = 80 // Adjust as needed
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            
+            //선생님 박스. 위치가 화면에 고정되어 있어 디바이스마다 다를수도..
+            teacherTable.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * (3.5 / 7.0)),
+            teacherTable.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            teacherTable.widthAnchor.constraint(equalToConstant: 100), // Set the width as needed
+            teacherTable.heightAnchor.constraint(equalToConstant: 30),  // Set the height as needed
+            
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+//            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight),
@@ -105,26 +146,19 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
             rowPicker.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
 
             rowLabel.trailingAnchor.constraint(equalTo: rowPicker.trailingAnchor),
-            rowLabel.topAnchor.constraint(equalTo: rowPicker.bottomAnchor, constant: 5),
+            rowLabel.bottomAnchor.constraint(equalTo: rowPicker.topAnchor, constant: 5),
 
             columnPicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             columnPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
             columnPicker.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
 
             columnLabel.leadingAnchor.constraint(equalTo: columnPicker.leadingAnchor),
-            columnLabel.topAnchor.constraint(equalTo: columnPicker.bottomAnchor, constant: 5),
-
-            selectionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
-            selectionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            columnLabel.bottomAnchor.constraint(equalTo: columnPicker.topAnchor, constant: 5),
 
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
-            //선생님 박스. 위치가 화면에 고정되어 있어 디바이스마다 다를수도..
-            rectangleBox.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * (3.5 / 7.0)),
-            rectangleBox.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            rectangleBox.widthAnchor.constraint(equalToConstant: 100), // Set the width as needed
-            rectangleBox.heightAnchor.constraint(equalToConstant: 30)  // Set the height as needed
+           
             
         ])
     }
@@ -146,26 +180,10 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         let spacing: CGFloat = 2
         let totalSpacing = (2 * spacing) + (CGFloat(7) * spacing) // Spacing for 8 columns
         let width = (collectionView.bounds.width - totalSpacing) / 8 // Width for 8-column grid
-        return CGSize(width: width, height: width)
+        let height = width - 5
+        return CGSize(width: width, height: height)
     }
     
-    
-
-    //confirm button UI and function
-    @objc func confirmTapped() {
-        let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
-        let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
-
-        // Create gridDisplayVC using the custom initializer
-//        let gridDisplayVC = GridDisplayViewController(rows: selectedRow, columns: selectedColumn)
-        let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
-
-        // If using a navigation controller
-        navigationController?.pushViewController(gridDisplayVC, animated: true)
-
-        // Or, presenting the view controller modally
-        // present(gridDisplayVC, animated: true, completion: nil)
-    }
 
 
     // UIPickerViewDelegate and DataSource Methods
@@ -211,7 +229,6 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         }
 
         collectionView.reloadData()
-        updateSelectionLabel()
     }
 
 
@@ -233,11 +250,4 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
         collectionView.reloadData()
     }
-
-    func updateSelectionLabel() {
-        let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
-        let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
-        selectionLabel.text = "Selected Rows: \(selectedRow), Selected Columns: \(selectedColumn)"
-    }
 }
-
