@@ -101,8 +101,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // Use properties from CustomGridLayout for totalCellWidth and totalCellHeight
         let spacenum = CGFloat(layout.gridColumns) - 1
-        let totalCellWidth = (layout.cellSize * CGFloat(layout.gridColumns)) + (layout.baseSpacing * spacenum)
-        let totalCellHeight = (layout.cellSize * CGFloat(gridRows)) + (layout.baseHeight * CGFloat(gridRows - 1))
+        let totalCellWidth = (layout.cellSize.width * CGFloat(layout.gridColumns)) + (layout.baseSpacing * spacenum)
+        let totalCellHeight = (layout.cellSize.height * CGFloat(gridRows)) + (layout.baseHeight * CGFloat(gridRows - 1))
         
         NSLayoutConstraint.activate([
             rectangleBox.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * (3.5 / 7.0)),
