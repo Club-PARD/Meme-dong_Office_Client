@@ -49,6 +49,12 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         view.backgroundColor = .hintGrey
         setupViews()
         setupConstraints()
+        // Set initial picker selection to 4
+        rowPicker.selectRow(3, inComponent: 0, animated: false)
+        columnPicker.selectRow(3, inComponent: 0, animated: false)
+
+        // Update the grid based on the initial selection
+        updateSelectionFromPickers()
     }
 
     private func setupViews() {
@@ -62,6 +68,8 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         setupTeacherTable()
         setupLabels()
         setupConfirmButton()
+        setupNav() // Call the function to setup navigation bar
+
     }
     
     private func setupTeacherTable() {
@@ -106,8 +114,21 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
 
     private func setupConfirmButton() {
-        confirmButton.setTitle("Confirm", for: .normal)
+        confirmButton.setTitle("완료", for: .normal)
+        confirmButton.backgroundColor = UIColor.systemYellow // Use a custom yellow color if needed
+        confirmButton.setTitleColor(UIColor.black, for: .normal) // Set the text color
+        confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium) // Set the font and size
+
+        // To get the full rounded corners, set the cornerRadius to half of the height of the button.
+        confirmButton.layer.cornerRadius = 22 // Assuming the height of your button is 44
+
+        // Set shadows if needed
+        confirmButton.layer.shadowColor = UIColor.black.cgColor
+        confirmButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        confirmButton.layer.shadowRadius = 4
+        confirmButton.layer.shadowOpacity = 0.1
         confirmButton.addTarget(self, action: #selector(confirmTapped), for: .touchUpInside)
+
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(confirmButton)
     }
@@ -129,11 +150,11 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     }
 
     private func setupLabels() {
-        rowLabel.text = "Rows"
+        rowLabel.text = "세로"
         rowLabel.textAlignment = .center
         rowLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        columnLabel.text = "Columns"
+        columnLabel.text = "가로"
         columnLabel.textAlignment = .center
         columnLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -149,10 +170,11 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         let collectionViewHeight = (itemHeight * CGFloat(numberOfRows-2))
 
         let pickerWidth: CGFloat = 80 // Adjust as needed
+        let pickerHeight: CGFloat = 140 // Adjust as needed
 
         NSLayoutConstraint.activate([
             
-            backGroundBox1.bottomAnchor.constraint(equalTo: teacherTable.bottomAnchor, constant: 30),
+            backGroundBox1.bottomAnchor.constraint(equalTo: teacherTable.bottomAnchor, constant: 25),
             backGroundBox1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             backGroundBox1.widthAnchor.constraint(equalToConstant: 340), // Set the width as needed
             backGroundBox1.heightAnchor.constraint(equalToConstant: 340),  // Set the height as needed
@@ -174,24 +196,26 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight),
 
-            rowPicker.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -20),
+            rowPicker.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -100),
             rowPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
-            rowPicker.heightAnchor.constraint(equalToConstant: pickerWidth),
+            rowPicker.heightAnchor.constraint(equalToConstant: pickerHeight),
             rowPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
 
-            rowLabel.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -20),
+            rowLabel.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -120),
             rowLabel.bottomAnchor.constraint(equalTo: rowPicker.topAnchor, constant: 5),
 
-            columnPicker.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 20),
+            columnPicker.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 100),
             columnPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
-            columnPicker.heightAnchor.constraint(equalToConstant: pickerWidth),
+            columnPicker.heightAnchor.constraint(equalToConstant: pickerHeight),
             columnPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
 
-            columnLabel.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 20),
+            columnLabel.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 120),
             columnLabel.bottomAnchor.constraint(equalTo: columnPicker.topAnchor, constant: 5),
-
+            
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            confirmButton.topAnchor.constraint(equalTo: backGroundBox2.bottomAnchor, constant: 40),
+            confirmButton.widthAnchor.constraint(equalToConstant: 340), // Width of the button
+            confirmButton.heightAnchor.constraint(equalToConstant: 44) // Height of the button
             
            
             
@@ -285,4 +309,22 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
         collectionView.reloadData()
     }
+    
+
+   // 전환된 화면에 viewDidLoad 에 추가해줄 nav 함수
+    func setupNav(){
+            navigationItem.title = "추가하기"
+            
+            //ios 15부터 적용
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
+            
+            appearance.shadowColor = nil
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        }
 }
+
+
+

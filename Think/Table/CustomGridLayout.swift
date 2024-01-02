@@ -10,7 +10,7 @@ class CustomGridLayout: UICollectionViewFlowLayout {
 
     init(columns: Int) {
         self.gridColumns = columns
-        self.baseSpacing = 15 + ((8 - CGFloat(gridColumns)) * 10)
+        self.baseSpacing = 10 + ((8 - CGFloat(gridColumns)) * 8)
         self.baseHeight = 2
         self.cellSize = CGSize(width: 30, height: 25)
         super.init()
