@@ -233,10 +233,6 @@ class LoginViewController: UIViewController {
         }
         
         print("Sign Up Button Tapped")
-        let changeViewController = SetNameViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
     }
     
     @objc func findCredentialsButtonTapped() {
