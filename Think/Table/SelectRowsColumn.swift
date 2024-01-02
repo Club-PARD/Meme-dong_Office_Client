@@ -8,6 +8,10 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     var boxes: [Bool] = Array(repeating: false, count: 64) // Initial 8x8 grid
     
     let teacherTable = UIView()
+    
+    let backGroundBox1 = UIView()
+    let backGroundBox2 = UIView()
+
     let rowLabel = UILabel()
     let columnLabel = UILabel()
 
@@ -20,7 +24,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .backgroundGrey
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
 
@@ -42,12 +46,14 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .hintGrey
         setupViews()
         setupConstraints()
     }
 
     private func setupViews() {
+        setupBackGroundBox()
+        setupBackGroundBox2()
         view.addSubview(collectionView)
         view.addSubview(rowPicker)
         view.addSubview(columnPicker)
@@ -79,6 +85,24 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
             boxLabel.centerYAnchor.constraint(equalTo: teacherTable.centerYAnchor)
         ])
     }
+
+    private func setupBackGroundBox() {
+        backGroundBox1.backgroundColor = .white // Change color to dark grey
+        backGroundBox1.translatesAutoresizingMaskIntoConstraints = false
+        backGroundBox1.layer.cornerRadius = 10
+        backGroundBox1.layer.masksToBounds = true
+        view.addSubview(backGroundBox1)
+    }
+    
+    private func setupBackGroundBox2() {
+           backGroundBox2.backgroundColor = .white // Set the desired color
+           backGroundBox2.translatesAutoresizingMaskIntoConstraints = false
+           backGroundBox2.layer.cornerRadius = 10
+           backGroundBox2.layer.masksToBounds = true
+           view.addSubview(backGroundBox2)
+
+           // Add any additional configuration for backGroundBox2 here if necessary
+       }
 
 
     private func setupConfirmButton() {
@@ -118,16 +142,25 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     private func setupConstraints() {
         let spacing: CGFloat = 2
         let columnSpacing = (2 * spacing) + (CGFloat(gridColumns - 1) * spacing)
-        let rowSpacing = (2 * spacing) + (CGFloat(7) * spacing) // Assuming 8 rows, spacing for 7 gaps
 
         let itemWidth = (view.bounds.width - columnSpacing) / CGFloat(gridColumns)
         let itemHeight = itemWidth - 5
         let numberOfRows = boxes.count / gridColumns
-        let collectionViewHeight = (itemHeight * CGFloat(numberOfRows)) + rowSpacing
+        let collectionViewHeight = (itemHeight * CGFloat(numberOfRows-2))
 
         let pickerWidth: CGFloat = 80 // Adjust as needed
 
         NSLayoutConstraint.activate([
+            
+            backGroundBox1.bottomAnchor.constraint(equalTo: teacherTable.bottomAnchor, constant: 30),
+            backGroundBox1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            backGroundBox1.widthAnchor.constraint(equalToConstant: 340), // Set the width as needed
+            backGroundBox1.heightAnchor.constraint(equalToConstant: 340),  // Set the height as needed
+            
+            backGroundBox2.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 50),
+            backGroundBox2.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            backGroundBox2.widthAnchor.constraint(equalToConstant: 340), // Set the width as needed
+            backGroundBox2.heightAnchor.constraint(equalToConstant: 168),  // Set the height as needed
             
             //선생님 박스. 위치가 화면에 고정되어 있어 디바이스마다 다를수도..
             teacherTable.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height * (3.5 / 7.0)),
@@ -135,24 +168,26 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
             teacherTable.widthAnchor.constraint(equalToConstant: 100), // Set the width as needed
             teacherTable.heightAnchor.constraint(equalToConstant: 30),  // Set the height as needed
             
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            collectionView.bottomAnchor.constraint(equalTo:  teacherTable.topAnchor, constant: -10),
 //            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight),
 
-            rowPicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            rowPicker.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -20),
             rowPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
-            rowPicker.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+            rowPicker.heightAnchor.constraint(equalToConstant: pickerWidth),
+            rowPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
 
-            rowLabel.trailingAnchor.constraint(equalTo: rowPicker.trailingAnchor),
+            rowLabel.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -20),
             rowLabel.bottomAnchor.constraint(equalTo: rowPicker.topAnchor, constant: 5),
 
-            columnPicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            columnPicker.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 20),
             columnPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
-            columnPicker.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
+            columnPicker.heightAnchor.constraint(equalToConstant: pickerWidth),
+            columnPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
 
-            columnLabel.leadingAnchor.constraint(equalTo: columnPicker.leadingAnchor),
+            columnLabel.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 20),
             columnLabel.bottomAnchor.constraint(equalTo: columnPicker.topAnchor, constant: 5),
 
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
