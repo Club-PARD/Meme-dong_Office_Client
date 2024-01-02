@@ -33,7 +33,6 @@ class PracticeViewController: UIViewController {
         let spacing: CGFloat = 10.0 // 셀과 셀 간격
 
         return UICollectionViewCompositionalLayout { (section, environment) -> NSCollectionLayoutSection? in
-            // 섹션에 대한 레이아웃 정의
             // 예: 그리드로 배치된 아이템들
             let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / CGFloat(self.columns)), heightDimension: .fractionalHeight(0.10 / CGFloat(self.rows))))
             item.contentInsets = NSDirectionalEdgeInsets(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
