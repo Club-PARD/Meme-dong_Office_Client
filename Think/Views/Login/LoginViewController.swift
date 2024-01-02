@@ -16,26 +16,20 @@ class LoginViewController: UIViewController {
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "띵에 오신 것을 환영합니다!"
+        label.text = "로그인"
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 21)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "띵은 학기초에 학생들의 이름을 쉽고 빨리 기억하게 해주는 선생님들은 위한 서비스예요."
-        label.textColor = UIColor(
-            red: 151 / 255.0,
-            green: 151 / 255.0,
-            blue: 151 / 255.0,
-            alpha: 1.0
-        ) // RGB values for #979797
+        label.text = "계정 정보를 입력해주세요 "
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -111,7 +105,12 @@ class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("아이디/비밀번호 찾기", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIColor(
+            red: 151 / 255.0,
+            green: 151 / 255.0,
+            blue: 151 / 255.0,
+            alpha: 1.0
+        ), for: .normal)
         button.addTarget(self, action: #selector(findCredentialsButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -151,17 +150,28 @@ class LoginViewController: UIViewController {
         view.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 86),
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
-            welcomeLabel.widthAnchor.constraint(equalToConstant: 234),
-            welcomeLabel.heightAnchor.constraint(equalToConstant: 25)
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 163),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 59),
+            welcomeLabel.widthAnchor.constraint(equalToConstant: 70),
+            welcomeLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
 
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 39),
-            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 138)
+        ])
+        
+        let lineView = UIView()
+        lineView.backgroundColor = .gray
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(lineView)
+                
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8), // Adjust the spacing as needed
+            lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
@@ -178,28 +188,28 @@ class LoginViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 342),
+            emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 235),
             emailTextField.widthAnchor.constraint(equalToConstant: 343),
             emailTextField.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         NSLayoutConstraint.activate([
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 417),
+            passwordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 315),
             passwordTextField.widthAnchor.constraint(equalToConstant: 343),
             passwordTextField.heightAnchor.constraint(equalToConstant: 20)
         ])
 
         NSLayoutConstraint.activate([
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 572),
+            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 768),
             signUpButton.widthAnchor.constraint(equalToConstant: 343),
             signUpButton.heightAnchor.constraint(equalToConstant: 43)
         ])
         
         NSLayoutConstraint.activate([
-            findCredentialsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            findCredentialsButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 16)
+            findCredentialsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 142),
+            findCredentialsButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 728)
         ])
     }
     
@@ -224,13 +234,9 @@ class LoginViewController: UIViewController {
         
         print("Sign Up Button Tapped")
         let changeViewController = SetNameViewController()
-//        let navigationController = UINavigationController(rootViewController: changeViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-//        present(navigationController, animated: true, completion: nil)
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        navigationController?.pushViewController(changeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
     
     @objc func findCredentialsButtonTapped() {

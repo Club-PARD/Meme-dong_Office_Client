@@ -16,39 +16,23 @@ class SetNameViewController: UIViewController {
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
-        label.text = "선생님에 대해 소개해주세요!"
+        label.text = "회원가입"
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 21)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var confirmPasswordLabel: UILabel = {
         let label = UILabel()
-        label.text = "~~~ 실명을 입력해주세요."
-        label.textColor = .black
-        label.textColor = UIColor(
-            red: 151 / 255.0,
-            green: 151 / 255.0,
-            blue: 151 / 255.0,
-            alpha: 1.0
-        ) // RGB values for #979797
+        label.text = "계정 정보를 입력해주세요 "
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 21)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    //    lazy var confirmPasswordTextField: UITextField = {
-    //        let textField = UITextField()
-    //        textField.placeholder = "이름 입력"
-    //        textField.isSecureTextEntry = true
-    //        textField.borderStyle = .roundedRect
-    //        textField.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
-    //        textField.translatesAutoresizingMaskIntoConstraints = false
-    //        return textField
-    //    }()
     
     func makeTextField(withPlaceholder placeholder: String) -> UITextField {
         let textField = UITextField()
@@ -123,12 +107,24 @@ class SetNameViewController: UIViewController {
         view.addSubview(welcomeLabel)
         
         NSLayoutConstraint.activate([
-            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 86),
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
-            welcomeLabel.widthAnchor.constraint(equalToConstant: 234), // Set width to 234
-            welcomeLabel.heightAnchor.constraint(equalToConstant: 25), // Set height to 25
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 163),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 59),
+            welcomeLabel.widthAnchor.constraint(equalToConstant: 70),
+            welcomeLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
         
+        let lineView = UIView()
+        lineView.backgroundColor = .gray
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(lineView)
+                
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8), // Adjust the spacing as needed
+            lineView.heightAnchor.constraint(equalToConstant: 1)
+        ])
         
     }
     func setupTextFields() {
@@ -140,23 +136,21 @@ class SetNameViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             confirmPasswordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            confirmPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 439),
+            confirmPasswordTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 235),
             confirmPasswordTextField.widthAnchor.constraint(equalToConstant: 343),
             confirmPasswordTextField.heightAnchor.constraint(equalToConstant: 43)
         ])
         
         NSLayoutConstraint.activate([
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 572),
+            signUpButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 768),
             signUpButton.widthAnchor.constraint(equalToConstant: 343),
             signUpButton.heightAnchor.constraint(equalToConstant: 43)
         ])
         
         NSLayoutConstraint.activate([
-            confirmPasswordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 94),
-            confirmPasswordLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
-            confirmPasswordLabel.widthAnchor.constraint(equalToConstant: 205), // Set width to 234
-            confirmPasswordLabel.heightAnchor.constraint(equalToConstant: 20), // Set height to 25
+            confirmPasswordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
+            confirmPasswordLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 138)
         ])
     }
     

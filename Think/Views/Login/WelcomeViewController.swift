@@ -115,9 +115,7 @@ class WelcomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 79),
-            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 187),
-//            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
-//            descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 187)
         ])
     }
     

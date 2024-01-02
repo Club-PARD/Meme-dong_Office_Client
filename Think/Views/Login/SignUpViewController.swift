@@ -37,7 +37,6 @@ class SignUpViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.clearButtonMode = .whileEditing
 
-        // Customize clear button
         if let clearButton = textField.value(forKey: "_clearButton") as? UIButton {
             clearButton.setImage(UIImage(systemName: "xmark"), for: .normal)
             clearButton.tintColor = .gray
@@ -49,8 +48,7 @@ class SignUpViewController: UIViewController {
                 clearButton.heightAnchor.constraint(equalToConstant: 10)
             ])
         }
-        
-        // Add bottom line
+            
         let bottomLine = UIView()
         bottomLine.backgroundColor = .black
         bottomLine.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +123,6 @@ class SignUpViewController: UIViewController {
         emailTextField.becomeFirstResponder()
         passwordTextField.becomeFirstResponder()
         confirmPasswordTextField.becomeFirstResponder()
-
     }
     
     func configureSignUpButtonColor() {
@@ -137,7 +134,6 @@ class SignUpViewController: UIViewController {
 
         signUpButton.isEnabled = shouldChangeButtonColor
 
-        // 색상 설정
         signUpButton.backgroundColor = shouldChangeButtonColor ? UIColor(
             red: 255 / 255.0,
             green: 214 / 255.0,
@@ -156,6 +152,14 @@ class SignUpViewController: UIViewController {
     func setupWelcomeLabels() {
         view.addSubview(welcomeLabel)
         view.addSubview(descriptionLabel)
+//        view.addSubview(backButton)
+//
+//        NSLayoutConstraint.activate([
+//            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+//            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+//            backButton.widthAnchor.constraint(equalToConstant: 30),
+//            backButton.heightAnchor.constraint(equalToConstant: 30)
+//        ])
         
         NSLayoutConstraint.activate([
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 163),
@@ -168,9 +172,11 @@ class SignUpViewController: UIViewController {
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26),
             descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 138)
         ])
+        
         let lineView = UIView()
-        lineView.backgroundColor = .black
+        lineView.backgroundColor = .gray
         lineView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(lineView)
                 
         NSLayoutConstraint.activate([
@@ -193,13 +199,11 @@ class SignUpViewController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(confirmPasswordTextField)
         view.addSubview(confirmPasswordCheckLabel)
-
         view.addSubview(signUpButton)
 
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         confirmPasswordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-
         
         NSLayoutConstraint.activate([
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
@@ -236,6 +240,21 @@ class SignUpViewController: UIViewController {
         ])
     }
     
+//    lazy var backButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+//        button.tintColor = .black
+//        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
+//    
+//    @objc func backButtonTapped() {
+//        let changeViewController = SetNameViewController()
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
+//    }
     
     @objc func signUpButtonTapped() {
         print("Sign Up Button Tapped")
