@@ -1,29 +1,33 @@
+//
+//  WelcomeViewController.swift
+//  Think
+//
+//  Created by 김민섭 on 12/27/23.
+//
 
-<<<<<<< HEAD:Think/Views/Login/OriginViewController.swift
-=======
 import UIKit
 
 class WelcomeViewController: UIViewController {
 
-    let thinkImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "think")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    let logoImage: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "Logo")
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
+    func addLogoImage() {
+        let logoImageView = UIImageView(image: UIImage(named: "think"))
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImageView)
+        
+        NSLayoutConstraint.activate([
+            logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 105),
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 119),
+            logoImageView.widthAnchor.constraint(equalToConstant: 183),
+            logoImageView.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "새학기를 준비하는 선생님들을 위한 서비스"
         label.textColor = .black
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.textColor = UIColor(
             red: 151 / 255.0,
             green: 151 / 255.0,
@@ -36,6 +40,15 @@ class WelcomeViewController: UIViewController {
         return label
     }()
 
+    lazy var welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "계속함으로써 이용약관 및 개인정보처리방침에 동의합니다."
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     lazy var loginButton: UIButton = {
         let login = UIButton(type: .system)
@@ -72,35 +85,37 @@ class WelcomeViewController: UIViewController {
         view.backgroundColor = .white
         setupButtons()
         setupWelcomeLabels()
+        addLogoImage()
     }
 
     func setupWelcomeLabels() {
-        view.addSubview(thinkImage)
+        view.addSubview(welcomeLabel)
         view.addSubview(descriptionLabel)
-        view.addSubview(logoImage)
         
+        let imageView = UIImageView()
         
-        thinkImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "Logo")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(imageView)
 
         NSLayoutConstraint.activate([
-            logoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 89),
-            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 290),
-            logoImage.widthAnchor.constraint(equalToConstant: 172),
-            logoImage.heightAnchor.constraint(equalToConstant: 168)
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 263),
+            imageView.widthAnchor.constraint(equalToConstant: 173),
+            imageView.heightAnchor.constraint(equalToConstant: 209)
         ])
 
         
         NSLayoutConstraint.activate([
-            thinkImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            thinkImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 123),
-            thinkImage.widthAnchor.constraint(equalToConstant: 183),
-            thinkImage.heightAnchor.constraint(equalToConstant: 44)
+            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70), // 좌측을 기준으로 70
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 790), // 상단을 기준으로 790
         ])
 
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 198),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 79),
+            descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 187),
 //            descriptionLabel.widthAnchor.constraint(equalToConstant: 315),
 //            descriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
@@ -112,43 +127,33 @@ class WelcomeViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 521),
+            loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 534),
             loginButton.widthAnchor.constraint(equalToConstant: 343),
             loginButton.heightAnchor.constraint(equalToConstant: 43)
         ])
 
         NSLayoutConstraint.activate([
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 8),
+            signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
             signUpButton.widthAnchor.constraint(equalToConstant: 343),
             signUpButton.heightAnchor.constraint(equalToConstant: 43)
         ])
     }
 
+    
     @objc func loginButtonTapped() {
         print("Login Button Tapped")
         let changeViewController = LoginViewController()
-//        let navigationController = UINavigationController(rootViewController: changeViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-//        present(navigationController, animated: true, completion: nil)
-        
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        navigationController?.pushViewController(changeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 
     @objc func signUpButtonTapped() {
         print("Sign Up Button Tapped")
         let changeViewController = SignUpViewController()
-//        let navigationController = UINavigationController(rootViewController: changeViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-//        present(navigationController, animated: true, completion: nil)
-        
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        navigationController?.pushViewController(changeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
 }
->>>>>>> a3398da1c14697a1147ad4444a8d78fecd810bb8:Think/Views/Login/WelcomeViewController.swift
