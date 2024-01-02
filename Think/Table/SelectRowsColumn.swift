@@ -136,7 +136,9 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = boxes[indexPath.row] ? UIColor.blue : UIColor.gray
+        cell.backgroundColor = boxes[indexPath.row] ? UIColor.systemYellow : UIColor.gray
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         return cell
     }
 
@@ -156,7 +158,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
         // Create gridDisplayVC using the custom initializer
 //        let gridDisplayVC = GridDisplayViewController(rows: selectedRow, columns: selectedColumn)
-        let gridDisplayVC = CompositionalLayoutViewController(rows: selectedRow, columns: selectedColumn)
+        let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
 
         // If using a navigation controller
         navigationController?.pushViewController(gridDisplayVC, animated: true)
