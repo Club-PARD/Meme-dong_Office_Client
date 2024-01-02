@@ -224,9 +224,13 @@ class LoginViewController: UIViewController {
         
         print("Sign Up Button Tapped")
         let changeViewController = SetNameViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(changeViewController, animated: true)
     }
     
     @objc func findCredentialsButtonTapped() {

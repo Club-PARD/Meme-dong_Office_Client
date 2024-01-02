@@ -156,7 +156,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
         // Create gridDisplayVC using the custom initializer
 //        let gridDisplayVC = GridDisplayViewController(rows: selectedRow, columns: selectedColumn)
-        let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
+        let gridDisplayVC = CompositionalLayoutViewController(rows: selectedRow, columns: selectedColumn)
 
         // If using a navigation controller
         navigationController?.pushViewController(gridDisplayVC, animated: true)

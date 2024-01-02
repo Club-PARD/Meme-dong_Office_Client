@@ -11,81 +11,127 @@ import UniformTypeIdentifiers
 
 class AddClassViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let cameraHandler = CameraHandler.shared
+    let thinkImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "think")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
     
-    let student_add_label:UILabel = {
+    
+    let logoLabel: UILabel = {
         let label = UILabel()
-        label.text = "학생명단 추가"
+        label.text = "김땡땡 선생님 안녕하세요"
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
-    let student_add_button:UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .gray
+    let profileButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
         
-        //SF symbol에서 camera 아이콘 사용
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 50,weight: .bold)
-        let symbolImage = UIImage(systemName: "camera", withConfiguration: symbolConfig)
-        
+        let symbolImage = UIImage(named: "profileIconCircle")
         button.setImage(symbolImage, for: .normal)
-        
-        button.tintColor = .white
-        
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
         
         return button
     }()
+    
+    let addButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .white
+        
+        //SF symbol에서 camera 아이콘 사용
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 122,weight: .ultraLight)
+        let symbolImage = UIImage(systemName: "plus.circle", withConfiguration: symbolConfig)
+        button.setImage(symbolImage, for: .normal)
+        button.tintColor = UIColor.mainYellow
+        button.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    let addLabel:UILabel = {
+        let label = UILabel()
+        label.text = "버튼을 눌러 학생을 추가해주세요"
+        label.textColor = UIColor.introGrey
+        label.font = UIFont.systemFont(ofSize: 20)
+        return label
+    }()
+    
+    let backgroundImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "thinkCharacter1")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(student_add_label)
-        view.addSubview(student_add_button)
+        view.addSubview(thinkImage)
+        view.addSubview(logoLabel)
+        view.addSubview(profileButton)
+        view.addSubview(addButton)
+        view.addSubview(addLabel)
+        view.addSubview(backgroundImage)
         
-        student_add_button.addTarget(self, action: #selector(promptPhotoSelection), for: .touchUpInside)
         setupConstraints()
     }
     
     func setupConstraints(){
-        student_add_label.translatesAutoresizingMaskIntoConstraints = false
-        student_add_button.translatesAutoresizingMaskIntoConstraints = false
+        thinkImage.translatesAutoresizingMaskIntoConstraints = false
+        logoLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addLabel.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            student_add_button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            student_add_button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            thinkImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            thinkImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            thinkImage.widthAnchor.constraint(equalToConstant: 68),
+            thinkImage.heightAnchor.constraint(equalToConstant: 18),
             
-            student_add_label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            student_add_label.bottomAnchor.constraint(equalTo: student_add_button.topAnchor, constant: -20),
+            profileButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            profileButton.widthAnchor.constraint(equalToConstant: 32),
+            profileButton.heightAnchor.constraint(equalToConstant: 32),
+            
+            logoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            logoLabel.topAnchor.constraint(equalTo: thinkImage.bottomAnchor, constant: 70),
+            
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            addLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addLabel.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 10),
+            
+            
+            backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             
         ])
         
     }
     
     
-    @objc func promptPhotoSelection() {
-        cameraHandler.currentViewController = self // 현재 뷰 컨트롤러 참조 설정
+    @objc func profileButtonAction() {
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    }
+    
+    @objc func addButtonAction(){
         
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAction = UIAlertAction(title: "카메라", style: .default) { _ in
-                self.cameraHandler.openCamera()
-            }
-            alertController.addAction(cameraAction)
-        }
-        
-        let galleryAction = UIAlertAction(title: "사진 보관함", style: .default) { _ in
-            self.cameraHandler.openPhotoLibrary()
-        }
-        alertController.addAction(galleryAction)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true)
-        
-        
-        
+        let changeViewController = AddStudentNameVIewController()
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(changeViewController, animated: true)
     }
     
 }

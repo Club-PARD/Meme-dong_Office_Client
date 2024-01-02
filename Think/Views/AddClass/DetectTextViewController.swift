@@ -14,6 +14,14 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
     var textObservations = [VNRecognizedTextObservation]()
     var studentNameList = [String]()
     
+    let introLabel: UILabel = {
+        let label = UILabel()
+        label.text = "학생의 이름을 모두 선택해주세요"
+        label.textColor = UIColor.introGrey
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+    
     let bottomSheetVC = AddBottomSheetViewController()
     let scrollView: UIScrollView = UIScrollView()
     
@@ -21,11 +29,11 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
-        view.backgroundColor = .white
+        
         view.addSubview(scrollView)
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = .backgroundGrey
         
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -41,6 +49,8 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.isUserInteractionEnabled = true
         //view.addSubview(imageView)
         scrollView.addSubview(imageView)
+        scrollView.addSubview(introLabel)
+        
         
         setupImageViewConstraints()
         
@@ -50,16 +60,33 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
     func updateImageView(with image: UIImage) {
         self.incomingImage = image
         self.imageView.image = image
+        print(image)
         // 필요한 경우 텍스트 인식 과정을 여기에서 다시 수행
         detectText(from: image)
     }
     
 
     func setupNav(){
-        self.navigationItem.title = "추가하기"
+        navigationItem.title = "추가하기"
+        
+        //ios 15부터 적용
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
+        
+        appearance.shadowColor = nil
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
     }
     
     func setupImageViewConstraints() {
+        introLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            introLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            introLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+        ])
+        
         if let imageToDetect = incomingImage {
             imageView.image = imageToDetect
 
@@ -69,22 +96,25 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
 
             imageView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                imageView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-                imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-                imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                imageView.topAnchor.constraint(equalTo: introLabel.topAnchor, constant: 10),
+                imageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 25),
+                imageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -25),
                 imageView.heightAnchor.constraint(equalToConstant: imageViewHeight),
-                imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+                imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -50)
             ])
 
             // 스크롤 뷰의 contentSize를 계산합니다.
-            // 이미지 뷰의 높이와 추가적인 400픽셀 높이를 더합니다.
             let scrollHeight = view.frame.height * 0.4
             let totalContentHeight = imageViewHeight + scrollHeight
             scrollView.contentSize = CGSize(width: view.frame.width, height: totalContentHeight)
 
-            // 이미지 뷰의 bottomAnchor를 스크롤 뷰의 bottomAnchor에 연결합니다.
+    
             imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -scrollHeight).isActive = true
-
+            
+            imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
+            
+            
             detectText(from: imageToDetect)
         }
     }
@@ -252,9 +282,13 @@ class AddBottomSheetViewController: UIViewController {
     
     let additionalAddButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("추가 촬영 및 업로드", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitle("추가 촬영", for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = UIColor.white
+        button.layer.cornerRadius = 22
+        button.layer.borderWidth = 2
+        button.layer.borderColor = CGColor.mainYellow
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         
         
         button.addTarget(self, action: #selector(additionalAddButtonAction), for: .touchUpInside)
@@ -262,25 +296,22 @@ class AddBottomSheetViewController: UIViewController {
         return button
     }()
     
-    let additionalLabel: UILabel = {
-        let label = UILabel()
-        label.text = "추가 촬영을 원하시면 버튼을 눌러서 명단을 추가해주세요!"
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .gray
-        
-        return label
-    }()
+//    let additionalLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "추가 촬영을 원하시면 버튼을 눌러서 명단을 추가해주세요!"
+//        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+//        label.textColor = .gray
+//        
+//        return label
+//    }()
     
     let nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("다음", for: .normal)
         button.tintColor = .black
-        //button.backgroundColor = UIColor(red: 1.0, green: 214/255, blue: 0.0, alpha: 1.0)
-        button.layer.cornerRadius = 20.5
-        button.layer.borderWidth = 2
-        button.layer.borderColor = CGColor(red: 1.0, green: 84, blue: 0.0, alpha: 1.0)
-        //button.titleLabel?.font = UIFont(name: "Pretendard", size: 17)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold).self
+        button.backgroundColor = UIColor.mainYellow
+        button.layer.cornerRadius = 22
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         button.addTarget(BottomSheetViewController.self, action: #selector(nextButtonAction), for: .touchUpInside)
         
         return button
@@ -328,13 +359,11 @@ class AddBottomSheetViewController: UIViewController {
     func setupUI(){
         view.addSubview(titleLabel)
         view.addSubview(selectedStudentNameLabel)
-        view.addSubview(additionalLabel)
         view.addSubview(additionalAddButton)
         view.addSubview(nextButton)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         selectedStudentNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        additionalLabel.translatesAutoresizingMaskIntoConstraints = false
         additionalAddButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -347,14 +376,17 @@ class AddBottomSheetViewController: UIViewController {
             selectedStudentNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             selectedStudentNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             //selectedStudentNameLabel.heightAnchor.constraint(equalToConstant: 40),
-            additionalAddButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            additionalAddButton.bottomAnchor.constraint(equalTo: additionalLabel.topAnchor, constant: -5),
-            additionalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            additionalLabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
-            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 343),
-            nextButton.heightAnchor.constraint(equalToConstant: 43)
+            additionalAddButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            additionalAddButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
+            additionalAddButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            additionalAddButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            
+            
+            nextButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+            nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            nextButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
     }
