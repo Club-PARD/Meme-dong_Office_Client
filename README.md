@@ -21,10 +21,22 @@
 
 <div align="center">
 
-| **고지연** | **김민제** | **양희지** | **지창언** |
-| :------: |  :------: | :------: | :------: |
-| [<img src="https://avatars.githubusercontent.com/u/106502312?v=4" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615) | [<img src="https://avatars.githubusercontent.com/u/112460466?v=4" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://avatars.githubusercontent.com/u/112460506?v=4" height=150 width=150> <br/> @heejiyang](https://github.com/heejiyang) | [<img src="https://avatars.githubusercontent.com/u/76766459?v=4" height=150 width=150> <br/> @journey-ji](https://github.com/journey-ji) |
+| **김민섭** | **김형진** | **이신원** |
+| :------: |  :------: | :------: |
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615) | [<img src="[https://avatars.githubusercontent.com/u/112460466?v=4](https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840)" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="[https://avatars.githubusercontent.com/u/112460506?v=4](https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b)" height=150 width=150> <br/> @heejiyang](https://github.com/heejiyang) | 
 
+
+![image 97](https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af)
+![image 96](https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840)
+
+![image 93](https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b)
+![image 92](https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0)
+
+![image 95](https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5)
+![image 94](https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1)
+
+
+https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af
 </div>
 
 <br>
