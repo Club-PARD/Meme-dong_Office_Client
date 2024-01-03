@@ -121,6 +121,9 @@ class LoginViewController: UIViewController {
         setupTextFields()
         setupWelcomeLabels()
         configureSignUpButtonColor()
+        hideKeyboardWhenTappedAround()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     func configureSignUpButtonColor() {
@@ -243,13 +246,22 @@ class LoginViewController: UIViewController {
         configureSignUpButtonColor()
     }
     
+
+
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+        
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // TextField의 입력이 변경될 때마다 호출되는 델리게이트 메서드
-        // 여기에서는 textFieldDidChange 함수를 호출하여 SignUpButton의 색상을 업데이트합니다.
-        textFieldDidChange()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }
