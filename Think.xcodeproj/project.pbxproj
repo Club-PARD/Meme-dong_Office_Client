@@ -45,6 +45,8 @@
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
 		DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48F02B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift */; };
 		DA1A48F32B45476500C86F80 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */; };
+		DA1A48FC2B45DB2900C86F80 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */; };
+		DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */; };
 		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
 		DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */; };
 		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
@@ -117,6 +119,8 @@
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
 		DA1A48F02B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 		CAD34A902B3130710004345B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA1A48FA2B45DB1A00C86F80 /* Home */,
 				DAD9B1952B3FEFD000C9F06C /* AddClass */,
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423272B3BE9490023FFA0 /* TestViewController.swift */,
@@ -338,6 +343,15 @@
 				CAD34A622B2FF5370004345B /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA1A48FA2B45DB1A00C86F80 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */,
+				DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DAD9B1952B3FEFD000C9F06C /* AddClass */ = {
@@ -504,6 +518,7 @@
 				908423312B3BEDDC0023FFA0 /* DetailViewController.swift in Sources */,
 				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
+				DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */,
 				909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */,
 				90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */,
 				DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */,
@@ -518,6 +533,7 @@
 				CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */,
 				908423352B3BEE360023FFA0 /* SecondViewController.swift in Sources */,
 				908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */,
+				DA1A48FC2B45DB2900C86F80 /* HomePageViewController.swift in Sources */,
 				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
 				908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */,
 				90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */,

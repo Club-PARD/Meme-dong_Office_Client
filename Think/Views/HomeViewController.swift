@@ -90,7 +90,22 @@ class HomeViewController: UIViewController {
         backBarButtonItem.tintColor = .black
         navigationItem.backBarButtonItem = backBarButtonItem
         
-        let changeViewController = LearnViewController(rows: 5, columns: 6, spacing: false)
+        let changeViewController = HomePageViewController(rows: 5, columns: 6, spacing: true)
         navigationController?.pushViewController(changeViewController, animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //ios 15부터 적용
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
+        
+        appearance.shadowColor = nil
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
+        // 필요하다면 여기서 추가적인 네비게이션 바 스타일 설정을 할 수 있습니다.
+    }
+
 }

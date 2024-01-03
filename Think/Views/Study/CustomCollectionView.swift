@@ -3,17 +3,19 @@ import UIKit
 class CustomCollectionView: UICollectionViewFlowLayout {
             
     var gridColumns: Int
-    var cellHeight: CGFloat = 54
-    var cellWidth: CGFloat = 60
+    var cellHeight: CGFloat
+    var cellWidth: CGFloat
     var baseHeight: CGFloat
     var useAlternatingSpacing: Bool
     var baseSpacing: CGFloat
 
-    init(columns: Int, spacing: Bool) {
+    init(columns: Int, spacing: Bool, cellHeight:CGFloat, cellWidth:CGFloat) {
         self.gridColumns = columns
         self.useAlternatingSpacing = spacing
         self.baseSpacing = 15 + ((8 - CGFloat(gridColumns)) * 10)
         self.baseHeight = 2
+        self.cellHeight = cellHeight
+        self.cellWidth = cellWidth
         super.init()
         setupLayout()
     }
