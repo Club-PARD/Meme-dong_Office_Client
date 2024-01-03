@@ -437,13 +437,13 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         
         NSLayoutConstraint.activate([
             rectangleBox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            rectangleBox.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: (view.frame.width-200)/2 + 20),
+            rectangleBox.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -75),
             rectangleBox.widthAnchor.constraint(equalToConstant: 300),
             rectangleBox.heightAnchor.constraint(equalToConstant: 30),
             
             collectionView.widthAnchor.constraint(equalToConstant: totalCellWidth),
             collectionView.heightAnchor.constraint(equalToConstant: totalCellHeight),
-            collectionView.centerXAnchor.constraint(equalTo: view.leadingAnchor, constant: (view.frame.width-200)/2 + 20),
+            collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -75),
             //collectionView.topAnchor.constraint(equalTo: view.topAnchor)
             collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -10)
         ])
