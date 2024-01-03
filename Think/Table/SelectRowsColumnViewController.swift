@@ -1,7 +1,8 @@
 import UIKit
 
-class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate, UIPickerViewDataSource {
+class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var studentNames: [String] = []
     let confirmButton = UIButton(type: .system)
 
     var gridColumns = 8 // Track the number of columns in the grid
@@ -47,6 +48,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .hintGrey
+        setupNav()
         setupViews()
         setupConstraints()
         // Set initial picker selection to 4
@@ -111,7 +113,17 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
 
            // Add any additional configuration for backGroundBox2 here if necessary
        }
+    
+    private func setupLabels() {
+        rowLabel.text = "세로"
+        rowLabel.textAlignment = .center
+        rowLabel.translatesAutoresizingMaskIntoConstraints = false
 
+        columnLabel.text = "가로"
+        columnLabel.textAlignment = .center
+        columnLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    }
 
     private func setupConfirmButton() {
         confirmButton.setTitle("완료", for: .normal)
@@ -138,8 +150,6 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
         let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
 
-        // Create gridDisplayVC using the custom initializer
-//        let gridDisplayVC = GridDisplayViewController(rows: selectedRow, columns: selectedColumn)
         let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
 
         // If using a navigation controller
@@ -149,15 +159,13 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
         // present(gridDisplayVC, animated: true, completion: nil)
     }
 
-    private func setupLabels() {
-        rowLabel.text = "세로"
-        rowLabel.textAlignment = .center
-        rowLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        columnLabel.text = "가로"
-        columnLabel.textAlignment = .center
-        columnLabel.translatesAutoresizingMaskIntoConstraints = false
-
+    @objc func addButtonAction(){
+        
+        let changeViewController = AddStudentNameVIewController()
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.pushViewController(changeViewController, animated: true)
     }
 
     private func setupConstraints() {
@@ -312,18 +320,19 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
     
 
    // 전환된 화면에 viewDidLoad 에 추가해줄 nav 함수
-    func setupNav(){
-            navigationItem.title = "추가하기"
-            
-            //ios 15부터 적용
-            let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
-            
-            appearance.shadowColor = nil
+    func setupNav() {
+        navigationItem.title = "추가하기"
+        
+        // iOS 15 styling
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.white
+        appearance.shadowColor = nil
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        }
 }
 
 
