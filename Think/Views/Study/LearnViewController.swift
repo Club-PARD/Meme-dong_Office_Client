@@ -556,7 +556,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
         
-        appearance.shadowColor = nil
+        //appearance.shadowColor = nil
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
