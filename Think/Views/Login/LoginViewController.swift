@@ -222,7 +222,7 @@ class LoginViewController: UIViewController {
         if isLoginchecked {
             print("✅ success")
             
-            let changeViewController = SetNameViewController()
+            let changeViewController = AddClassViewController()
             let navigationController = UINavigationController(rootViewController: changeViewController)
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)

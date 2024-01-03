@@ -196,7 +196,7 @@ class SetNameViewController: UIViewController {
             // `TokenManager`를 사용하여 토큰 저장
             TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
             
-            let changeViewController = SetNameViewController()
+            let changeViewController = AddClassViewController()
             let navigationController = UINavigationController(rootViewController: changeViewController)
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
