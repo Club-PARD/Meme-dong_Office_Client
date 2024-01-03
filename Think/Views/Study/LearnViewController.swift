@@ -226,8 +226,8 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         
         
         // 이미지와 텍스트 간격 조절
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 20)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: -10)
 
 
             // 버튼의 다른 스타일 설정
@@ -237,7 +237,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
             button.layer.borderColor = UIColor.lightGray.cgColor
             //button.tintColor = UIColor.lightGray // 이미지와 텍스트 색상
         button.addTarget(self, action: #selector(selectionAction(sender:)), for: .touchUpInside)
-        button.contentEdgeInsets =  UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
+        button.contentEdgeInsets =  UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 30)
             return button
         
     }
@@ -411,7 +411,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     // MARK: - collectionView 등록
     private func setupCollectionView() {
-        let layout = CustomCollectionView(columns: gridColumns, spacing: spacing)
+        let layout = CustomCollectionView(columns: gridColumns, spacing: spacing,cellHeight:55, cellWidth:60)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(LearnCustomCollectionViewCell.self, forCellWithReuseIdentifier: LearnCustomCollectionViewCell.identifier)
         collectionView.delegate = self
@@ -602,7 +602,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.shouldSupportAllOrientation = false
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         appDelegate.shouldSupportAllOrientation = true
     }
@@ -622,6 +622,6 @@ extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
-    
 }
+
 
