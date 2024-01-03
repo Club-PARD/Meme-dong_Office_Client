@@ -33,31 +33,29 @@ class LoginAPICaller {
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
-        // data task 생성하기
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            // 응답 처리하기
             guard let data = data, error == nil else {
                 print("🚨 Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             do {
-                // 데이터를 성공적으로 받은 경우, 해당 데이터를 JSON으로 파싱하기
-                let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                // 정상적으로 response를 받은 경우, notification center를 사용하여 알림 보내기
-                print("✅ success: \(response)")
-                
-                // 실제 서버로부터 받은 액세스 토큰과 리프레시 토큰으로 교체
-                let accessToken = "yourAccessToken"
-                let refreshToken = "yourRefreshToken"
-                                
-                // `TokenManager`를 사용하여 토큰 저장
-                TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
-
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                    // 토큰 추출
+                    let accessToken = jsonResponse["accessToken"] as? String
+                    let refreshToken = jsonResponse["refreshToken"] as? String
+                    print("✅ success: \(jsonResponse)")
+                    print("✅ success: \(accessToken)")
+                    print("✅ success: \(refreshToken)")
+                    
+                    // 추출된 토큰을 TokenManager를 통해 저장
+                    if let accessToken = accessToken, let refreshToken = refreshToken {
+                        TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    }
+                }
             } catch {
                 print("🚨 ", error)
             }
         }
-        // 시작하기. 꼭 적어줘야 함 !
         task.resume()
         return true
     }
