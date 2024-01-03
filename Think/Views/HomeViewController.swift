@@ -86,6 +86,10 @@ class HomeViewController: UIViewController {
         present(navigationController, animated: true, completion: nil)    }
     
     @objc func button3Tapped(_ sender: UIButton) {
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        
         let changeViewController = LearnViewController(rows: 5, columns: 6, spacing: false)
         navigationController?.pushViewController(changeViewController, animated: true)
     }
