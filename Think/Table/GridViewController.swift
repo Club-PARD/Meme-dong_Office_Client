@@ -41,8 +41,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func configureUI() {
         view.backgroundColor = .hintGrey
         setupNav()
-        setupBackGroundBox()    // Setup for backGroundBox1
-        setupBackGroundBox2()   // Setup for backGroundBox2
+        setupBackGroundBox()
+        setupBackGroundBox2()
         setupTeacherTable()
 
         setupCollectionView()
@@ -54,7 +54,19 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setupImageButton()
         setupConstraints()
     }
+    // MARK: - Collection view
+    private func setupCollectionView() {
+        let layout = CustomGridLayout(columns: gridColumns)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        view.addSubview(collectionView)
     
+    }
+    
+    // MARK: - ConfirmButton
     private func setupConfirmButton() {
         confirmButton.setTitle("시작하기", for: .normal)
         confirmButton.backgroundColor = UIColor.systemYellow // Use a custom yellow color if needed
@@ -122,6 +134,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
+    // MARK: - Two buttons
     private func setupButtons() {
         configureButton(buttonOne, title: "1줄")
         buttonOne.addTarget(self, action: #selector(adjustSpacingForOneButton), for: .touchUpInside)
@@ -181,7 +194,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-    
+    // MARK: - Image Buttons
     private func setupImageButton() {
         view.addSubview(imageButton)
         configureImageButton(imageButton, imageNormal: "sortingOption")
@@ -236,22 +249,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
 
-
-
-
     
-    private func setupCollectionView() {
-        let layout = CustomGridLayout(columns: gridColumns)
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = .white
-        view.addSubview(collectionView)
-    
-    }
-    
-    
+    // MARK: - Constraints
     private func setupConstraints() {
         guard let layout = collectionView.collectionViewLayout as? CustomGridLayout else {
             return
@@ -317,6 +316,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    // MARK: - Collection View Settings
     // UICollectionViewDataSource methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gridRows * gridColumns
@@ -330,6 +330,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    // MARK: - Navigation Bar
     // 전환된 화면에 viewDidLoad 에 추가해줄 nav 함수
      func setupNav(){
              navigationItem.title = "추가하기"

@@ -265,7 +265,7 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
 
 
 
-class AddBottomSheetViewController: UIViewController {
+class AddBottomSheetViewController: UIViewController{
     
     var studentNameList = [String]()
     let cameraHandler = CameraHandler.shared
@@ -312,17 +312,23 @@ class AddBottomSheetViewController: UIViewController {
         button.backgroundColor = UIColor.mainYellow
         button.layer.cornerRadius = 22
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        button.addTarget(BottomSheetViewController.self, action: #selector(nextButtonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         
         return button
     }()
     
     var selectedStudentNameLabel:UILabel = UILabel()
     
-    @objc func nextButtonAction(){
+    @objc func nextButtonAction() {
         let sortedStudentNameList = studentNameList.sorted { $0.localizedCompare($1) == .orderedAscending }
-        print(sortedStudentNameList)
+        let changeViewController = SelectRowsColumnViewController()
+        changeViewController.studentNames = sortedStudentNameList
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationController?.pushViewController(changeViewController, animated: true)
     }
+
     
     @objc func additionalAddButtonAction(){
         cameraHandler.currentViewController = self // 현재 뷰 컨트롤러 참조 설정

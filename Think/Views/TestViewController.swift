@@ -80,7 +80,7 @@ class TestViewController: UIViewController {
 
     @objc func button2Tapped(_ sender: UIButton) {
         print("Button 2 tapped")
-        let ViewController = SelectRowsColumn()
+        let ViewController = SelectRowsColumnViewController()
         let navigationController = UINavigationController(rootViewController: ViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)    }
