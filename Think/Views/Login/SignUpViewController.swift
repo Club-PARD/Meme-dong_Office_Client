@@ -120,9 +120,7 @@ class SignUpViewController: UIViewController {
         setupTextFields()
         setupWelcomeLabels()
         configureSignUpButtonColor()
-        emailTextField.becomeFirstResponder()
-        passwordTextField.becomeFirstResponder()
-        confirmPasswordTextField.becomeFirstResponder()
+        hideKeyboardWhenTappedAround()
     }
     
     func configureSignUpButtonColor() {
@@ -284,17 +282,30 @@ class SignUpViewController: UIViewController {
         configureSignUpButtonColor()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        view.endEditing(true) // 현재 활성화된 키보드를 닫습니다.
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+        
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
+        // 화면 터치 시 키보드를 숨기는 기능을 추가합니다.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        dismissKeyboard()
+    }
 }
 
+// UITextFieldDelegate 프로토콜을 준수하는 부분을 확장하여 구현합니다.
 extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // TextField의 입력이 변경될 때마다 호출되는 델리게이트 메서드
-        // 여기에서는 textFieldDidChange 함수를 호출하여 SignUpButton의 색상을 업데이트합니다.
         textFieldDidChange()
         return true
     }
