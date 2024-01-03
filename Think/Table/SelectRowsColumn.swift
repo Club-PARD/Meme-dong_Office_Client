@@ -213,7 +213,7 @@ class SelectRowsColumn: UIViewController, UICollectionViewDelegate, UICollection
             columnLabel.bottomAnchor.constraint(equalTo: columnPicker.topAnchor, constant: 5),
             
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            confirmButton.topAnchor.constraint(equalTo: backGroundBox2.bottomAnchor, constant: 40),
+            confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             confirmButton.widthAnchor.constraint(equalToConstant: 340), // Width of the button
             confirmButton.heightAnchor.constraint(equalToConstant: 44) // Height of the button
             
