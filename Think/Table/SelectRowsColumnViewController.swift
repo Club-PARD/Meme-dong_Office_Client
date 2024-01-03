@@ -48,6 +48,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .hintGrey
+        print(studentNames)
         setupNav()
         setupViews()
         setupConstraints()
@@ -151,21 +152,13 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
         let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
 
         let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
+        gridDisplayVC.studentNames = studentNames
 
         // If using a navigation controller
         navigationController?.pushViewController(gridDisplayVC, animated: true)
 
         // Or, presenting the view controller modally
         // present(gridDisplayVC, animated: true, completion: nil)
-    }
-
-    @objc func addButtonAction(){
-        
-        let changeViewController = AddStudentNameVIewController()
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        navigationController?.pushViewController(changeViewController, animated: true)
     }
 
     private func setupConstraints() {
