@@ -51,6 +51,8 @@ class LoginAPICaller {
                     if let accessToken = accessToken {
                         TokenManager.shared.saveTokens(accessToken: accessToken)
                     }
+                    
+                    
                 }
             } catch {
                 print("🚨 ", error)
@@ -61,17 +63,20 @@ class LoginAPICaller {
     }
     
     // MARK: - Login -> 로그인 정보를 구현하는 함수
-    func makeLoginRequest(with email: String, password: String) -> Bool{
+    func makeLoginRequest(with email: String, password: String, completion: @escaping (Bool) -> Void){
+        print("here")
         guard let encodedName = email.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             print("Encoding failed")
-            return false
+            completion(false)
+            return
         }
         
         let urlString = "http://13.125.210.242:8080/api/v1/auth/token"
         
         guard let url = URL(string: urlString) else {
             print("🚨 Invalid URL")
-            return false
+            completion(false)
+            return
         }
         
         var request = URLRequest(url: url)
@@ -90,13 +95,14 @@ class LoginAPICaller {
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else {
                 print("🚨 \(error?.localizedDescription ?? "Unknown error")")
+                completion(false)
                 return
             }
             do {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                     // 토큰 추출
                     let accessToken = jsonResponse["accessToken"] as? String
-//                    let refreshToken = jsonResponse["refreshToken"] as? String
+                    
                     print("✅ success: \(jsonResponse)")
                     print("✅ success: \(accessToken)")
                     
@@ -104,13 +110,21 @@ class LoginAPICaller {
                     if let accessToken = accessToken {
                         TokenManager.shared.saveTokens(accessToken: accessToken)
                     }
+                    
+                    let userId = jsonResponse["userId"] as? Int
+                    if let id = userId {
+                        print(id)
+                        UserViewModel.shared.user.id = id
+                        print(UserViewModel.shared.user.id)
+                    }
+                    completion(true)
                 }
             } catch {
                 print("🚨 ", error)
+                completion(false)
             }
         }
         task.resume()
-        return true
     }
 }
     //func deleteRequest(name: String) {

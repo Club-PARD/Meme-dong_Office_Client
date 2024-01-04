@@ -48,7 +48,6 @@
 		DA1A48FC2B45DB2900C86F80 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */; };
 		DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */; };
 		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
-		DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */; };
 		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
 		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
 		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
@@ -123,7 +122,6 @@
 		DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
-		DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleUserViewModel.swift; sourceTree = "<group>"; };
 		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				CA505EEF2B354BD500E1D140 /* UserViewModel.swift */,
-				DAC1876B2B3AABAB00A397E4 /* AppleUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 			files = (
 				CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
-				DAC1876C2B3AABAB00A397E4 /* AppleUserViewModel.swift in Sources */,
 				9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */,
 				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,
 				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,

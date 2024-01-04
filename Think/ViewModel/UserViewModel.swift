@@ -1,66 +1,58 @@
-////
-////  UserViewModel.swift
-////  Think
-////
-////  Created by hyungjin kim on 12/22/23.
-////
-//
-//import UIKit
-//
-//class UserViewModel {
-//    private var user: User?
-//    var userName: String {
-//        return user?.name ?? "Loading..."
-//    }
-//
-//    var userId: String {
-//        return user?.id ?? "Loading..."
-//    }
-//
-//    func fetchUserData(completion: @escaping () -> Void) {
-//        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
-//        print("visit")
-//        NetworkManager.shared.fetchData(from: url) { [weak self] data, response, error in
-//            guard let data = data, error == nil else { return }
-//            
-//            do {
-//                let user = try JSONDecoder().decode(User.self, from: data)
-//                self?.user = user
-//                print(self?.userId ?? "null")
-//                completion()
-//            } catch {
-//                print("Error decoding User: \(error)")
-//            }
-//        }
-//    }
-//}
-//
-////class UserViewModel {
-////    private var users = [AppleUser]()
-////
-////    var numberOfUsers: Int {
-////        return users.count
-////    }
-////
-////    func userName(at index: Int) -> String {
-////        return users.indices.contains(index) ? users[index].fullName : "Unknown"
-////    }
-////
-////    func fetchUsersData(completion: @escaping () -> Void) {
-////        guard let url = URL(string: "http://119.202.40.16:8080/api/v1/users/1") else { return }
-////        NetworkManager.shared.fetchData(from: url) { [weak self] data, _, error in
-////            guard let data = data, error == nil else { return }
-////            
-////            do {
-////                print("visit")
-////                let decodedUsers = try JSONDecoder().decode([User].self, from: data)
-////                self?.users = decodedUsers
-////                print(decodedUsers)
-////                print("visit")
-////                completion()
-////            } catch {
-////                print("Error decoding Users: \(error)")
-////            }
-////        }
-////    }
-////}
+import UIKit
+
+class UserViewModel {
+    static let shared = UserViewModel()
+
+    var user: User = User()
+
+    func loadUserData(userId: Int, completion: @escaping (Bool, User?) -> Void) {
+        let urlString = "http://13.125.210.242:8080/api/v1/users/\(userId)"
+                guard let url = URL(string: urlString) else {
+                    completion(false, nil)
+                    return
+                }
+
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET" // GET 요청 명시
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+                // 토큰 매니저에서 액세스 토큰 불러오기
+                if let accessToken = TokenManager.shared.getAccessToken() {
+                    request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                } else {
+                    print("Error: Access token is not available.")
+                    completion(false, nil) // 토큰 없을 경우 콜백 호출
+                    return
+                }
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in // 'request' 사용
+            guard error == nil else {
+                print("오류 발생: \(error!.localizedDescription)")
+                completion(false, nil)
+                return
+            }
+
+            guard let data = data else {
+                print("데이터 없음")
+                completion(false, nil)
+                return
+            }
+
+            if let dataString = String(data: data, encoding: .utf8) {
+                print("받은 데이터: \(dataString)")
+            }
+
+            do {
+                let user = try JSONDecoder().decode(User.self, from: data)
+                self?.user = user
+                completion(true, user)
+            } catch {
+                print("JSON 디코딩 실패: \(error)")
+                completion(false, nil)
+            }
+        }
+        task.resume()
+       
+    }
+}
+

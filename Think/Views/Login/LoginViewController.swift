@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     var loginViewModel = LoginViewModel()
+    let userViewModel = UserViewModel.shared
     
     var name: String = ""
     var email: String = ""
@@ -331,24 +332,43 @@ class LoginViewController: UIViewController {
             print("🚨 Invalid password")
             return
         }
+        
+        print("visit!!")
+        
+        LoginAPICaller.shared.makeLoginRequest(with: email, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    print("success!!")
+                    self.loadUserData()
+                } else {
+                    print("error!!")
+                }
+            }
+        }
 
-        let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email, password: password)
         
-        if isLoginchecked {
-            print("✅ success")
-            
-            let changeViewController = AddClassViewController()
-            let navigationController = UINavigationController(rootViewController: changeViewController)
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
-        }
         
-        else {
-            print("🚨 Invalid Login")
-        }
-        
-        print("Sign Up Button Tapped")
+//        let changeViewController = AddClassViewController()
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
     }
+    
+    func loadUserData() {
+        //userViewModel
+        let userId = userViewModel.user.id // 사용자 ID
+        userViewModel.loadUserData(userId: userId!) { [weak self] success, user in
+                    DispatchQueue.main.async {
+                        if success, let user = user {
+                            print("✅ user")
+                            print(user)
+                        } else {
+                            print("error")
+                        }
+                    }
+                }
+    }
+    
     
     @objc func findCredentialsButtonTapped() {
         print("아이디/비밀번호 찾기 Button Tapped")

@@ -16,6 +16,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let backGroundBox1 = UIView()
     let backGroundBox2 = UIView()
     let confirmButton = UIButton(type: .system)
+    let infoLabel = UILabel()
+    let infoLabel2 = UILabel()
 
     //sorting 관련
     let imageButton = UIButton(type: .system)
@@ -47,12 +49,13 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK: - UI Configuration
     private func configureUI() {
-        view.backgroundColor = .hintGrey
+        view.backgroundColor = UIColor.backgroundGrey
         setupNav()
         setupBackGroundBox()
         setupBackGroundBox2()
         setupTeacherTable()
-
+        setupInfoLabel()
+        setupInfoLabel2()
         setupCollectionView()
 
         if gridColumns % 2 == 0 {
@@ -62,6 +65,37 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         setupImageButton()
         setupConstraints()
     }
+    
+    // MARK: - InfoLabel
+    private func setupInfoLabel() {
+        infoLabel.text = "생성된 좌석 배치도" // Replace with your actual text
+        infoLabel.textColor = UIColor.disabled
+        infoLabel.textAlignment = .center
+        infoLabel.font = UIFont.systemFont(ofSize: 14, weight: .light) // Set the font and size
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(infoLabel)
+        
+        // Constraints for the label to position it above backGroundBox2
+        NSLayoutConstraint.activate([
+            infoLabel.bottomAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: -12),
+            infoLabel.centerXAnchor.constraint(equalTo: backGroundBox2.centerXAnchor),
+        ])
+    }
+
+    private func setupInfoLabel2() {
+        infoLabel2.text = "학생 자리배치 방식을 선택해주세요"
+        infoLabel2.textColor = UIColor.disabled
+        infoLabel2.textAlignment = .center
+        infoLabel2.font = UIFont.systemFont(ofSize: 14, weight: .light) // Set the font and size
+        infoLabel2.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(infoLabel2)
+        
+        NSLayoutConstraint.activate([
+            infoLabel2.bottomAnchor.constraint(equalTo: backGroundBox1.topAnchor, constant: -5),
+            infoLabel2.centerXAnchor.constraint(equalTo: backGroundBox1.centerXAnchor),
+        ])
+    }
+    
     // MARK: - Collection view
     private func setupCollectionView() {
         let layout = CustomGridLayout(columns: gridColumns)
@@ -133,7 +167,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
             else{
                 for i in stride(from: 0, to: gridRows, by: 1){
-                    if i%2==1{
+                    if i%2==0{
                         sorted[i] = Array(sorted[i].reversed())
                     }
                 }
@@ -151,6 +185,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         combinedList = sorted.reduce([],+)
+        studentNames = combinedList
+        print(studentNames)
     }
     
     // MARK: - BackgroundBoxes
@@ -248,7 +284,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func configureButton(_ button: UIButton, title: String) {
         button.setTitle(title, for: .normal)
         // The initial background color will be set by updateButtonAppearance
-        button.setTitleColor(UIColor.black, for: .normal) // Set the text color
+        button.setTitleColor(UIColor.mainText, for: .normal) // Set the text color
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium) // Set the font and size
         button.layer.cornerRadius = 16 // Assuming the height of your button is 44
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -470,6 +506,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // 토큰 매니져에서 불러주기
         if let accessToken = TokenManager.shared.getAccessToken() {
+            print(accessToken)
+            print(studentNames)
             request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         } else {
             print("Error: Access token is not available.")
