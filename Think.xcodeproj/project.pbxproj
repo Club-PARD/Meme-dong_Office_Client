@@ -704,7 +704,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69PT5BP5W8;
+				DEVELOPMENT_TEAM = 7YG4RD83Q9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Think/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
@@ -742,7 +742,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 69PT5BP5W8;
+				DEVELOPMENT_TEAM = 7YG4RD83Q9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Think/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera.";
