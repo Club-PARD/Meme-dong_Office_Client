@@ -77,7 +77,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - ConfirmButton
     private func setupConfirmButton() {
         confirmButton.setTitle("시작하기", for: .normal)
-        confirmButton.backgroundColor = UIColor.systemYellow // Use a custom yellow color if needed
+        confirmButton.backgroundColor = UIColor.mainYellow
         confirmButton.setTitleColor(UIColor.black, for: .normal) // Set the text color
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium) // Set the font and size
         confirmButton.layer.cornerRadius = 22
@@ -231,11 +231,11 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 buttonOne.layer.borderWidth = 1 // Set the width of the border
                 buttonOne.layer.borderColor = UIColor.hintGrey.cgColor // Set the color of the border
                 
-                buttonTwo.backgroundColor = UIColor.systemYellow
+                buttonTwo.backgroundColor = UIColor.mainYellow
                 buttonTwo.layer.borderWidth = 0 // Set the width of the border
             } else {
                 // Case when useAlternatingSpacing is false
-                buttonOne.backgroundColor = UIColor.systemYellow
+                buttonOne.backgroundColor = UIColor.mainYellow
                 buttonOne.layer.borderWidth = 0 // Set the width of the border
 
                 buttonTwo.backgroundColor = UIColor.white
@@ -386,7 +386,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.systemYellow // All cells are highlighted
+        cell.backgroundColor = UIColor.mainYellow // All cells are highlighted
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
@@ -407,7 +407,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    // This struct should match the API request body structure
+    // MARK: - API 연결 (이름 맞추기)
     struct StudentsListRequest: Codable {
         var name: String
         var listRow: Int
@@ -416,7 +416,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var studentsList: [StudentInfo]
     }
 
-    // Each student's information
     struct StudentInfo: Codable {
         var name: String
         var imageURL: String
@@ -427,7 +426,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var caution: Bool
     }
 
-    // Function to create the JSON data
+    // MARK: - JSON으로 변환
     func convertDataToJSON() -> Data? {
         // Assuming you have a method to create an array of StudentInfo from studentNames
         let studentsInfo = studentNames.map { name -> StudentInfo in
@@ -459,6 +458,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    // MARK: - 서버로 보내기
     func sendDataToServer() {
         guard let url = URL(string: "http://13.125.210.242:8080/api/v1/students/list") else { return }
         guard let jsonData = convertDataToJSON() else { return }
@@ -467,8 +467,14 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         request.httpMethod = "POST"
         request.httpBody = jsonData
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        // Add your authorization token here. Replace "YourAuthToken" with the actual token.
-        request.addValue("Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMSIsImlhdCI6MTcwNDI3Mjg4NSwiZXhwIjoxNzA0MzU5Mjg1fQ.555Y-GeNaUn33CHwynxlT02YbLHy6cu3-lleREYt9V5nnVt0pItBR4oTrf0MTjbgwzuVdECr46oyei_kEit2yg", forHTTPHeaderField: "Authorization")
+        
+        // 토큰 매니져에서 불러주기
+        if let accessToken = TokenManager.shared.getAccessToken() {
+            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        } else {
+            print("Error: Access token is not available.")
+            return
+        }
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -485,5 +491,6 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         task.resume()
     }
+
 
 }
