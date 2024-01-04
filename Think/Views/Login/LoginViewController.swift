@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     var loginViewModel = LoginViewModel()
     let userViewModel = UserViewModel.shared
+    let classroomViewModel = ClassroomViewModel.shared
     
     var name: String = ""
     var email: String = ""
@@ -362,11 +363,28 @@ class LoginViewController: UIViewController {
                         if success, let user = user {
                             print("✅ user")
                             print(user)
+                            self?.loadClassroomData()
                         } else {
                             print("error")
                         }
                     }
                 }
+    }
+    
+    func loadClassroomData(){
+        
+        if userViewModel.user.studentsListSimple!.count > 0 {
+            let classId = userViewModel.user.studentsListSimple!.last?.id
+            classroomViewModel.loadClassroomData(classId: classId!){ [weak self] success in
+                DispatchQueue.main.async {
+                    if success  {
+                        print("✅classroom success")
+                    } else {
+                        print("error")
+                    }
+                }
+            }
+        }
     }
     
     
