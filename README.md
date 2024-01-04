@@ -23,11 +23,11 @@
 
 | **김민섭(iOS)** | **김형진(iOS)** | **이신원(iOS)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @Cheorizzang](https://github.com/hyungjin0105) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @yeon1615](https://github.com/mingseobi)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
 
 | **강산길(PM)** | **임예진(Design)** | **서하민(Server)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @heejiyang](https://github.com/heejiyang) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/heejiyang) | 
 
 
 </div>
