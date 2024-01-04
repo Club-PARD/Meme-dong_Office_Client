@@ -2,6 +2,8 @@ import UIKit
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    let userViewModel = UserViewModel.shared
+    
     // MARK: - List of names
     var studentNames: [String] = []
     var oneOrTwo = false
@@ -132,10 +134,42 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         sort()
         let tempDisplayVC = HomePageViewController()
         sendDataToServer()
+        
         // If using a navigation controller
         navigationController?.pushViewController(tempDisplayVC, animated: true)
 
     }
+    
+    //user reload 를 위해서
+    func loadUserData() {
+        //userViewModel
+        let userId = userViewModel.user.id // 사용자 ID
+        userViewModel.loadUserData(userId: userId!) { [weak self] success, user in
+                    DispatchQueue.main.async {
+                        if success, let user = user {
+                            print("✅ user")
+                            print(user)
+//                            self?.loadClassroomData()
+                            
+                            if self?.userViewModel.user.studentsListSimple?.count == 0 {
+                                let changeViewController = AddClassViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }else{
+                                let changeViewController = HomePageViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }
+                        
+                        } else {
+                            print("error")
+                        }
+                    }
+                }
+    }
+    
     
     func sort() {
         let studentList = studentNames
