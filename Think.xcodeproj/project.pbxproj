@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		901052D12B4677B200E4FDC4 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D02B4677B200E4FDC4 /* BottomSheetViewController.swift */; };
+		901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */; };
 		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
 		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
 		9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */; };
@@ -30,7 +30,6 @@
 		CAD34A822B2FF5380004345B /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A812B2FF5380004345B /* ThinkUITests.swift */; };
 		CAD34A842B2FF5380004345B /* ThinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A832B2FF5380004345B /* ThinkUITestsLaunchTests.swift */; };
 		CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A932B3130A60004345B /* ColorSystem.swift */; };
-		CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A952B3130BE0004345B /* ComponentSystem.swift */; };
 		CAD34A982B3130D10004345B /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A972B3130D10004345B /* FontSystem.swift */; };
 		DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48F02B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift */; };
 		DA1A48F32B45476500C86F80 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */; };
@@ -63,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		901052D02B4677B200E4FDC4 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRowsColumnViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +89,6 @@
 		CAD34A812B2FF5380004345B /* ThinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITests.swift; sourceTree = "<group>"; };
 		CAD34A832B2FF5380004345B /* ThinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CAD34A932B3130A60004345B /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
-		CAD34A952B3130BE0004345B /* ComponentSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSystem.swift; sourceTree = "<group>"; };
 		CAD34A972B3130D10004345B /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
 		DA1A48F02B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				CAD34A932B3130A60004345B /* ColorSystem.swift */,
-				CAD34A952B3130BE0004345B /* ComponentSystem.swift */,
 				CAD34A972B3130D10004345B /* FontSystem.swift */,
 			);
 			path = Design;
@@ -275,7 +272,7 @@
 			children = (
 				DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */,
 				DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */,
-				901052D02B4677B200E4FDC4 /* BottomSheetViewController.swift */,
+				901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -427,7 +424,7 @@
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				CA665C9A2B42DF7800F4FD26 /* CustomGridLayout.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
-				901052D12B4677B200E4FDC4 /* BottomSheetViewController.swift in Sources */,
+				901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */,
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
@@ -446,7 +443,6 @@
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,
 				CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */,
 				DA1A48FC2B45DB2900C86F80 /* HomePageViewController.swift in Sources */,
-				CAD34A962B3130BE0004345B /* ComponentSystem.swift in Sources */,
 				908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */,
 				90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */,
 				CAD34A982B3130D10004345B /* FontSystem.swift in Sources */,

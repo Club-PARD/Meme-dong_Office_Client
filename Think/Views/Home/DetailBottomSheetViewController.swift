@@ -1,13 +1,6 @@
-//
-//  BottomSheetViewController.swift
-//  Think
-//
-//  Created by 김민섭 on 1/4/24.
-//
-
 import UIKit
 
-class BottomSheetViewController:UIViewController {
+class DetailBottomSheetViewController:UIViewController {
      
      var bottomSheetPanMinTopConstant: CGFloat = 30.0
      private lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
@@ -38,12 +31,6 @@ class BottomSheetViewController:UIViewController {
      }()
 
 
-     private let dragIndicatorView: UIView = {
-         let view = UIView()
-         view.backgroundColor = .white
-         view.layer.cornerRadius = 3
-         return view
-     }()
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
@@ -54,12 +41,19 @@ class BottomSheetViewController:UIViewController {
         return button
     }()
      
+     var studentNameLabel: UILabel = {
+          let label = UILabel()
+          label.text = "김김김"
+          label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+          return label
+     }()
+     
      private let roundBackgroundView: UIView = {
          let view = UIView()
          // Convert hex color #F0F0F0 to RGB and then to UIColor
-         view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
+          view.backgroundColor = UIColor.white
          // Set the desired corner radius.
-         view.layer.cornerRadius = 20
+         view.layer.cornerRadius = 10
          view.clipsToBounds = true
          return view
      }()
@@ -68,54 +62,56 @@ class BottomSheetViewController:UIViewController {
      private let birthdateLabel: UILabel = {
           let label = UILabel()
           label.text = "생년월일 "
-          label.font = UIFont.boldSystemFont(ofSize: 16)
+          label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
           return label
      }()
 
      private let allergiesLabel: UILabel = {
           let label = UILabel()
           label.text = "알레르기 "
-          label.font = UIFont.boldSystemFont(ofSize: 16)
+          label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
           return label
      }()
 
      private let otherInfoLabel: UILabel = {
           let label = UILabel()
           label.text = "기타 "
-          label.font = UIFont.boldSystemFont(ofSize: 16)
+          label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
           return label
      }()
+    
      
      private let updatedBirthdateLabel: UILabel = {
          let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 16)
+         label.font = UIFont.systemFont(ofSize: 14)
          label.textColor = .black
+          label.text = "birth"
          return label
      }()
 
      private let updatedAllergiesLabel: UILabel = {
          let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 16)
+         label.font = UIFont.systemFont(ofSize: 14)
          label.textColor = .black
+          label.text = "aller"
          return label
      }()
 
      private let updatedOtherInfoLabel: UILabel = {
          let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 16)
+         label.font = UIFont.systemFont(ofSize: 14)
          label.textColor = .black
+          label.text = "ㅁㄴㅇㄹㅁㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ"
+          label.numberOfLines = 0
          return label
      }()
-
-//     private let imageView: UIImageView = {
-//          let imageView = UIImageView()
-//          imageView.image = UIImage(named: "Image")
-//          imageView.contentMode = .scaleAspectFit
-//          imageView.clipsToBounds = true
-//          return imageView
-//     }()
      
-    private let imageButton: UIButton = {
+     let birthView = UIView()
+     let alleView = UIView()
+     let otherInfoView = UIView()
+
+    
+    private var imageButton: UIButton = {
         let button = UIButton()
         if let image = UIImage(named: "Image") {
             button.setImage(image, for: .normal)
@@ -137,12 +133,12 @@ class BottomSheetViewController:UIViewController {
          return button
      }()
 
-     private func configureLabelBackground(for label: UILabel) {
-         label.backgroundColor = UIColor(red: 209/255.0, green: 234/255.0, blue: 255/255.0, alpha: 1.0)
-         label.textColor = .black // 텍스트 색상 설정
-         label.layer.cornerRadius = 5.0 // 둥근 모서리 설정
-         label.clipsToBounds = true
-     }
+//     private func configureLabelBackground(for label: UILabel) {
+//         label.backgroundColor = UIColor(red: 209/255.0, green: 234/255.0, blue: 255/255.0, alpha: 1.0)
+//         label.textColor = .black // 텍스트 색상 설정
+//         label.layer.cornerRadius = 5.0 // 둥근 모서리 설정
+//         label.clipsToBounds = true
+//     }
 
 
      
@@ -157,15 +153,34 @@ class BottomSheetViewController:UIViewController {
      }
      
      private func setupLayout(){
+          
+          bottomSheetView.translatesAutoresizingMaskIntoConstraints = false
+        
+          bottomSheetViewLeadingConstraint = bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        NSLayoutConstraint.activate([
+            bottomSheetView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomSheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomSheetViewLeadingConstraint
+        ])
+          
+          
           bottomSheetView.addSubview(roundBackgroundView)
           bottomSheetView.addSubview(birthdateLabel)
           bottomSheetView.addSubview(allergiesLabel)
           bottomSheetView.addSubview(otherInfoLabel)
           bottomSheetView.addSubview(imageButton)
           bottomSheetView.addSubview(editButton)
+          
+          bottomSheetView.addSubview(birthView)
+          bottomSheetView.addSubview(alleView)
+          bottomSheetView.addSubview(otherInfoView)
+         
           bottomSheetView.addSubview(updatedAllergiesLabel)
           bottomSheetView.addSubview(updatedBirthdateLabel)
           bottomSheetView.addSubview(updatedOtherInfoLabel)
+          
+          bottomSheetView.addSubview(studentNameLabel)
           
 
           birthdateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -174,14 +189,28 @@ class BottomSheetViewController:UIViewController {
           dimmedView.translatesAutoresizingMaskIntoConstraints = false
           roundBackgroundView.translatesAutoresizingMaskIntoConstraints = false
           closeButton.translatesAutoresizingMaskIntoConstraints = false
-
+          
+          birthView.translatesAutoresizingMaskIntoConstraints = false
+          alleView.translatesAutoresizingMaskIntoConstraints = false
+          otherInfoView.translatesAutoresizingMaskIntoConstraints = false
+          
           updatedBirthdateLabel.translatesAutoresizingMaskIntoConstraints = false
           updatedAllergiesLabel.translatesAutoresizingMaskIntoConstraints = false
           updatedOtherInfoLabel.translatesAutoresizingMaskIntoConstraints = false
           
-          configureLabelBackground(for: updatedBirthdateLabel)
-          configureLabelBackground(for: updatedAllergiesLabel)
-          configureLabelBackground(for: updatedOtherInfoLabel)
+//          configureLabelBackground(for: updatedBirthdateLabel)
+//          configureLabelBackground(for: updatedAllergiesLabel)
+//          configureLabelBackground(for: updatedOtherInfoLabel)
+//
+          birthView.backgroundColor = UIColor(red: 219/255, green: 242/255, blue: 255/255, alpha: 1)
+          birthView.layer.cornerRadius = 5
+          
+          alleView.backgroundColor = UIColor(red: 219/255, green: 242/255, blue: 255/255, alpha: 1)
+          alleView.layer.cornerRadius = 5
+          
+          otherInfoView.backgroundColor = UIColor(red: 219/255, green: 242/255, blue: 255/255, alpha: 1)
+          otherInfoView.layer.cornerRadius = 5
+          
           
           NSLayoutConstraint.activate([
               closeButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 20),
@@ -193,41 +222,58 @@ class BottomSheetViewController:UIViewController {
           NSLayoutConstraint.activate([
                   // Constraints for roundBackgroundView to define its position and size
                   roundBackgroundView.centerXAnchor.constraint(equalTo: bottomSheetView.centerXAnchor),
-                  roundBackgroundView.centerYAnchor.constraint(equalTo: bottomSheetView.centerYAnchor, constant: 100), // Adjust this as needed
+                  roundBackgroundView.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -20), // Adjust this as needed
                   roundBackgroundView.widthAnchor.constraint(equalToConstant: 200), // Adjust this as needed
                   roundBackgroundView.heightAnchor.constraint(equalToConstant: 160), // Adjust this based on the content
               ])
 
               // Constraints for birthdateLabel
               NSLayoutConstraint.activate([
-                  birthdateLabel.topAnchor.constraint(equalTo: roundBackgroundView.topAnchor, constant: 20),
-                  birthdateLabel.leadingAnchor.constraint(equalTo: roundBackgroundView.leadingAnchor, constant: 20),
-                  birthdateLabel.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -20),
+                  birthdateLabel.topAnchor.constraint(equalTo: roundBackgroundView.topAnchor, constant: 15),
+                  birthdateLabel.leadingAnchor.constraint(equalTo: roundBackgroundView.leadingAnchor, constant: 15)
               ])
 
               // Constraints for allergiesLabel
               NSLayoutConstraint.activate([
                   allergiesLabel.topAnchor.constraint(equalTo: birthdateLabel.bottomAnchor, constant: 10),
-                  allergiesLabel.leadingAnchor.constraint(equalTo: birthdateLabel.leadingAnchor),
-                  allergiesLabel.trailingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor),
+                  allergiesLabel.leadingAnchor.constraint(equalTo: birthdateLabel.leadingAnchor)
               ])
 
               // Constraints for otherInfoLabel
               NSLayoutConstraint.activate([
-                  otherInfoLabel.topAnchor.constraint(equalTo: allergiesLabel.bottomAnchor, constant: 10),
-                  otherInfoLabel.leadingAnchor.constraint(equalTo: birthdateLabel.leadingAnchor),
-                  otherInfoLabel.trailingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor),
                   
-                  updatedBirthdateLabel.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: -95),
-                  updatedBirthdateLabel.topAnchor.constraint(equalTo: birthdateLabel.topAnchor),
-                     
-                  updatedAllergiesLabel.leadingAnchor.constraint(equalTo: allergiesLabel.trailingAnchor, constant: -95),
-                  updatedAllergiesLabel.topAnchor.constraint(equalTo: allergiesLabel.topAnchor),
-                     
-                  updatedOtherInfoLabel.leadingAnchor.constraint(equalTo: otherInfoLabel.trailingAnchor, constant: -125),
-                  updatedOtherInfoLabel.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor)
+                  otherInfoLabel.topAnchor.constraint(equalTo: allergiesLabel.bottomAnchor, constant: 10),
+                  otherInfoLabel.leadingAnchor.constraint(equalTo: birthdateLabel.leadingAnchor)
+                  
               ])
-
+          
+          NSLayoutConstraint.activate([
+               birthView.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: 10),
+               birthView.topAnchor.constraint(equalTo: birthdateLabel.topAnchor,constant: -2),
+//               birthView.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -10),
+               birthView.heightAnchor.constraint(equalToConstant: 20),
+               birthView.widthAnchor.constraint(equalToConstant: 110),
+               
+               alleView.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: 10),
+               alleView.topAnchor.constraint(equalTo: allergiesLabel.topAnchor,constant: -2),
+               alleView.widthAnchor.constraint(equalToConstant: 110),
+               alleView.heightAnchor.constraint(equalToConstant: 20),
+               
+               otherInfoView.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: 10),
+               otherInfoView.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor,constant: -2),
+               otherInfoView.bottomAnchor.constraint(equalTo: roundBackgroundView.bottomAnchor, constant: -10),
+               otherInfoView.widthAnchor.constraint(equalToConstant: 110),
+               
+               updatedBirthdateLabel.leadingAnchor.constraint(equalTo: birthView.leadingAnchor, constant: 10),
+               updatedBirthdateLabel.topAnchor.constraint(equalTo: birthdateLabel.topAnchor),
+                  
+               updatedAllergiesLabel.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
+               updatedAllergiesLabel.topAnchor.constraint(equalTo: allergiesLabel.topAnchor),
+                  
+               updatedOtherInfoLabel.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
+               updatedOtherInfoLabel.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor),
+               updatedOtherInfoLabel.trailingAnchor.constraint(equalTo: otherInfoView.trailingAnchor, constant: -10),
+          ])
 
           
          NSLayoutConstraint.activate([
@@ -242,29 +288,28 @@ class BottomSheetViewController:UIViewController {
           NSLayoutConstraint.activate([
             imageButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 41),
             imageButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: -40),
-            imageButton.heightAnchor.constraint(equalToConstant: 140)
+            imageButton.heightAnchor.constraint(equalToConstant: 130)
           ])
-
-          bottomSheetView.translatesAutoresizingMaskIntoConstraints = false
-        
-          bottomSheetViewLeadingConstraint = bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        NSLayoutConstraint.activate([
-            bottomSheetView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomSheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomSheetViewLeadingConstraint
-        ])
+          
+          studentNameLabel.translatesAutoresizingMaskIntoConstraints = false
+          
+          NSLayoutConstraint.activate([
+               studentNameLabel.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 10),
+               
+               studentNameLabel.centerXAnchor.constraint(equalTo: bottomSheetView.centerXAnchor),
+          ])
           
           editButton.translatesAutoresizingMaskIntoConstraints = false
                   
                   // 연필 버튼 레이아웃 설정
           // Constraints for editButton
               NSLayoutConstraint.activate([
-                  editButton.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -15),
-                  editButton.bottomAnchor.constraint(equalTo: roundBackgroundView.bottomAnchor, constant: -10),
-                  editButton.widthAnchor.constraint(equalToConstant: 20),
-                  editButton.heightAnchor.constraint(equalToConstant: 20)
+               editButton.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 10),
+               editButton.leadingAnchor.constraint(equalTo: studentNameLabel.trailingAnchor, constant: 10),
+                  editButton.widthAnchor.constraint(equalToConstant: 15),
+                  editButton.heightAnchor.constraint(equalToConstant: 15)
               ])
+          otherInfoView.bringSubviewToFront(editButton)
     }
     
     private func showBottomSheet(){
@@ -280,26 +325,11 @@ class BottomSheetViewController:UIViewController {
          super.viewDidLoad()
          setupUI()
          
-         view.addSubview(dragIndicatorView)
-         
-         dragIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-             NSLayoutConstraint.activate([
-                 dragIndicatorView.widthAnchor.constraint(equalToConstant: 5),
-                 dragIndicatorView.heightAnchor.constraint(equalToConstant: 50),
-                 dragIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                 dragIndicatorView.trailingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: -10)
-             ])
          
          let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
              dimmedView.addGestureRecognizer(dimmedTap)
              dimmedView.isUserInteractionEnabled = true
          
-         // Pan Gesture Recognizer를 view controller의 view에 추가하기 위한 코드
-         let viewPan = UIPanGestureRecognizer(target: self, action: #selector(viewPanned(_:)))
-         
-         viewPan.delaysTouchesBegan = false
-             viewPan.delaysTouchesEnded = false
-             view.addGestureRecognizer(viewPan)
          
          
          
@@ -324,25 +354,6 @@ class BottomSheetViewController:UIViewController {
          }
      }
 
-     
-     @objc private func viewPanned(_ panGestureRecognizer: UIPanGestureRecognizer) {
-         let translation = panGestureRecognizer.translation(in: self.view)
-         let screenWidth = UIScreen.main.bounds.width
-
-         switch panGestureRecognizer.state {
-         case .began:
-             bottomSheetPanStartingTopConstant = bottomSheetViewLeadingConstraint.constant
-         case .changed:
-             let newConstant = bottomSheetPanStartingTopConstant + translation.x
-             if newConstant <= 0 && screenWidth - newConstant >= 30.0 {
-                 bottomSheetViewLeadingConstraint.constant = newConstant
-             }
-         case .ended:
-             print("Drag Ended")
-         default:
-             break
-         }
-     }
 
      @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
          hideBottomSheetAndGoBack()
@@ -389,3 +400,4 @@ class BottomSheetViewController:UIViewController {
     }
 
 }
+

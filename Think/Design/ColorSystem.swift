@@ -1,5 +1,4 @@
 import UIKit
-import UIKit
 
 extension UIColor {
     static let mainYellow = UIColor(red: 255, green: 214/255, blue: 0, alpha: 1.0)
