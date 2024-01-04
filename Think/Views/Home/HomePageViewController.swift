@@ -192,6 +192,7 @@ class HomePageViewController: UIViewController{
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
             
+            
             studyButton.widthAnchor.constraint(equalToConstant: 110),
             studyButton.heightAnchor.constraint(equalToConstant: 40),
             studyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),

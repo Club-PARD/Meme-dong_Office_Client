@@ -77,29 +77,31 @@ class DetailBottomSheetViewController:UIViewController {
      }()
     
      
-     private let updatedBirthdateLabel: UILabel = {
-         let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 14)
-         label.textColor = .black
-          label.text = "birth"
-         return label
+     private let birthTextField: UITextField = {
+         let textField = UITextField()
+         textField.borderStyle = .none
+         textField.clearButtonMode = .whileEditing
+         textField.isEnabled = false
+         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+         return textField
      }()
 
-     private let updatedAllergiesLabel: UILabel = {
-         let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 14)
-         label.textColor = .black
-          label.text = "aller"
-         return label
+     private let alleTextField: UITextField = {
+         let textField = UITextField()
+         textField.borderStyle = .none
+         textField.clearButtonMode = .whileEditing
+         textField.isEnabled = false
+         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+         return textField
      }()
 
-     private let updatedOtherInfoLabel: UILabel = {
-         let label = UILabel()
-         label.font = UIFont.systemFont(ofSize: 14)
-         label.textColor = .black
-          label.text = "ㅁㄴㅇㄹㅁㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ"
-          label.numberOfLines = 0
-         return label
+     private let otherInfoTextField: UITextField = {
+         let textField = UITextField()
+         textField.borderStyle = .none
+         textField.clearButtonMode = .whileEditing
+         textField.isEnabled = false
+         textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+         return textField
      }()
      
      let birthView = UIView()
@@ -119,6 +121,24 @@ class DetailBottomSheetViewController:UIViewController {
 
         return button
     }()
+    
+    let editCompleteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("완료", for: .normal)
+        button.tintColor = .black
+        button.isHidden = true
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(red: 0/255, green: 148/255, blue: 255/255, alpha: 1).cgColor
+        button.backgroundColor = .white
+        button.layer.shadowRadius = 2
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        
+        button.addTarget(self, action: #selector(editCompleteButtonAction), for: .touchUpInside)
+        return button
+    }()
 
      private let editButton: UIButton = {
          let button = UIButton(type: .system)
@@ -129,11 +149,25 @@ class DetailBottomSheetViewController:UIViewController {
          return button
      }()
     
+    var topAnchor = NSLayoutConstraint()
+    var bottomAnchor = NSLayoutConstraint()
+    var centerYAnchor = NSLayoutConstraint()
+    var centerXAnchor = NSLayoutConstraint()
+    var widthAnchor = NSLayoutConstraint()
+    var heightAnchor = NSLayoutConstraint()
+    var trailingAnchor = NSLayoutConstraint()
+    var leadingAnchor = NSLayoutConstraint()
+    
     
     
      private var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
     var index:Int
+    
+    //MARK: layout
+    var initialImageButtonConstraints: [NSLayoutConstraint] = []
+    var roundBackgroundViewConstraints: [NSLayoutConstraint] = []
+    var editCompleteButtonConstraints: [NSLayoutConstraint] = []
     
     // MARK: - Initializer
     init(index: Int) {
@@ -153,7 +187,8 @@ class DetailBottomSheetViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        registerKeyboardNotifications()
+        hideKeyboardWhenTappedAround()
         
         let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
             dimmedView.addGestureRecognizer(dimmedTap)
@@ -166,9 +201,9 @@ class DetailBottomSheetViewController:UIViewController {
      private func setupUI(){
          
          studentNameLabel.text = classroomViewModel.classroom.studentsList?[index].name
-         updatedAllergiesLabel.text = classroomViewModel.classroom.studentsList?[index].allergy
-         updatedBirthdateLabel.text = classroomViewModel.classroom.studentsList?[index].birthday
-         updatedOtherInfoLabel.text = classroomViewModel.classroom.studentsList?[index].etc
+         alleTextField.text = classroomViewModel.classroom.studentsList?[index].allergy
+         birthTextField.text = classroomViewModel.classroom.studentsList?[index].birthday
+         otherInfoTextField.text = classroomViewModel.classroom.studentsList?[index].etc
          view.addSubview(dimmedView)
          view.addSubview(bottomSheetView)
           view.addSubview(closeButton)
@@ -201,11 +236,12 @@ class DetailBottomSheetViewController:UIViewController {
           bottomSheetView.addSubview(alleView)
           bottomSheetView.addSubview(otherInfoView)
          
-          bottomSheetView.addSubview(updatedAllergiesLabel)
-          bottomSheetView.addSubview(updatedBirthdateLabel)
-          bottomSheetView.addSubview(updatedOtherInfoLabel)
+          bottomSheetView.addSubview(alleTextField)
+          bottomSheetView.addSubview(birthTextField)
+          bottomSheetView.addSubview(otherInfoTextField)
           
           bottomSheetView.addSubview(studentNameLabel)
+         bottomSheetView.addSubview(editCompleteButton)
           
 
           birthdateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -219,9 +255,11 @@ class DetailBottomSheetViewController:UIViewController {
           alleView.translatesAutoresizingMaskIntoConstraints = false
           otherInfoView.translatesAutoresizingMaskIntoConstraints = false
           
-          updatedBirthdateLabel.translatesAutoresizingMaskIntoConstraints = false
-          updatedAllergiesLabel.translatesAutoresizingMaskIntoConstraints = false
-          updatedOtherInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+         birthTextField.translatesAutoresizingMaskIntoConstraints = false
+         alleTextField.translatesAutoresizingMaskIntoConstraints = false
+         otherInfoTextField.translatesAutoresizingMaskIntoConstraints = false
+         
+         editCompleteButton.translatesAutoresizingMaskIntoConstraints = false
           
 //          configureLabelBackground(for: updatedBirthdateLabel)
 //          configureLabelBackground(for: updatedAllergiesLabel)
@@ -243,14 +281,22 @@ class DetailBottomSheetViewController:UIViewController {
               closeButton.widthAnchor.constraint(equalToConstant: 17),
               closeButton.heightAnchor.constraint(equalToConstant: 17)
           ])
-          
-          NSLayoutConstraint.activate([
-                  // Constraints for roundBackgroundView to define its position and size
-                  roundBackgroundView.centerXAnchor.constraint(equalTo: bottomSheetView.centerXAnchor),
-                  roundBackgroundView.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -20), // Adjust this as needed
-                  roundBackgroundView.widthAnchor.constraint(equalToConstant: 200), // Adjust this as needed
-                  roundBackgroundView.heightAnchor.constraint(equalToConstant: 160), // Adjust this based on the content
-              ])
+         
+         let centerXAnchorConstraint = roundBackgroundView.centerXAnchor.constraint(equalTo: bottomSheetView.centerXAnchor)
+         let bottomAnchorConstraint =  roundBackgroundView.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -20)
+         let widthAnchorConstraint = roundBackgroundView.widthAnchor.constraint(equalToConstant: 200)
+         let heightAnchorConstraint = roundBackgroundView.heightAnchor.constraint(equalToConstant: 160)
+         roundBackgroundViewConstraints = [centerXAnchorConstraint, bottomAnchorConstraint, widthAnchorConstraint, heightAnchorConstraint]
+        NSLayoutConstraint.activate(roundBackgroundViewConstraints)
+         
+        
+//          NSLayoutConstraint.activate([
+//                  // Constraints for roundBackgroundView to define its position and size
+//                  roundBackgroundView.centerXAnchor.constraint(equalTo: bottomSheetView.centerXAnchor),
+//                  roundBackgroundView.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor, constant: -20), // Adjust this as needed
+//                  roundBackgroundView.widthAnchor.constraint(equalToConstant: 200), // Adjust this as needed
+//                  roundBackgroundView.heightAnchor.constraint(equalToConstant: 160), // Adjust this based on the content
+//              ])
 
               // Constraints for birthdateLabel
               NSLayoutConstraint.activate([
@@ -277,27 +323,30 @@ class DetailBottomSheetViewController:UIViewController {
                birthView.topAnchor.constraint(equalTo: birthdateLabel.topAnchor,constant: -2),
 //               birthView.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -10),
                birthView.heightAnchor.constraint(equalToConstant: 20),
-               birthView.widthAnchor.constraint(equalToConstant: 110),
+               birthView.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -10),
                
                alleView.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: 10),
                alleView.topAnchor.constraint(equalTo: allergiesLabel.topAnchor,constant: -2),
-               alleView.widthAnchor.constraint(equalToConstant: 110),
+               alleView.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -10),
                alleView.heightAnchor.constraint(equalToConstant: 20),
                
                otherInfoView.leadingAnchor.constraint(equalTo: birthdateLabel.trailingAnchor, constant: 10),
                otherInfoView.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor,constant: -2),
                otherInfoView.bottomAnchor.constraint(equalTo: roundBackgroundView.bottomAnchor, constant: -10),
-               otherInfoView.widthAnchor.constraint(equalToConstant: 110),
+               otherInfoView.trailingAnchor.constraint(equalTo: roundBackgroundView.trailingAnchor, constant: -10),
                
-               updatedBirthdateLabel.leadingAnchor.constraint(equalTo: birthView.leadingAnchor, constant: 10),
-               updatedBirthdateLabel.topAnchor.constraint(equalTo: birthdateLabel.topAnchor),
+               birthTextField.leadingAnchor.constraint(equalTo: birthView.leadingAnchor, constant: 10),
+               birthTextField.topAnchor.constraint(equalTo: birthdateLabel.topAnchor),
+               birthTextField.widthAnchor.constraint(equalToConstant: 155),
                   
-               updatedAllergiesLabel.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
-               updatedAllergiesLabel.topAnchor.constraint(equalTo: allergiesLabel.topAnchor),
+               alleTextField.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
+               alleTextField.topAnchor.constraint(equalTo: allergiesLabel.topAnchor),
+               alleTextField.widthAnchor.constraint(equalToConstant: 155),
                   
-               updatedOtherInfoLabel.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
-               updatedOtherInfoLabel.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor),
-               updatedOtherInfoLabel.trailingAnchor.constraint(equalTo: otherInfoView.trailingAnchor, constant: -10),
+               otherInfoTextField.leadingAnchor.constraint(equalTo: alleView.leadingAnchor, constant: 10),
+               otherInfoTextField.topAnchor.constraint(equalTo: otherInfoLabel.topAnchor),
+//               otherInfoTextField.trailingAnchor.constraint(equalTo: otherInfoView.trailingAnchor, constant: -10),
+               otherInfoTextField.widthAnchor.constraint(equalToConstant: 155),
           ])
 
           
@@ -310,11 +359,18 @@ class DetailBottomSheetViewController:UIViewController {
         
          imageButton.translatesAutoresizingMaskIntoConstraints = false
           
-          NSLayoutConstraint.activate([
-            imageButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 41),
-            imageButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: -40),
-            imageButton.heightAnchor.constraint(equalToConstant: 130)
-          ])
+         let topAnchorConstraint = imageButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 41)
+         let leadingAnchorConstraint = imageButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: -40)
+         let heightConstraint = imageButton.heightAnchor.constraint(equalToConstant: 130)
+
+        initialImageButtonConstraints = [topAnchorConstraint, leadingAnchorConstraint, heightConstraint]
+        NSLayoutConstraint.activate(initialImageButtonConstraints)
+         
+//          NSLayoutConstraint.activate([
+//            imageButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 41),
+//            imageButton.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor, constant: -40),
+//            imageButton.heightAnchor.constraint(equalToConstant: 130)
+//          ])
           
           studentNameLabel.translatesAutoresizingMaskIntoConstraints = false
           
@@ -335,6 +391,15 @@ class DetailBottomSheetViewController:UIViewController {
                   editButton.heightAnchor.constraint(equalToConstant: 15)
               ])
           otherInfoView.bringSubviewToFront(editButton)
+         
+         
+         widthAnchor = editCompleteButton.widthAnchor.constraint(equalToConstant: 110)
+         heightAnchor =  editCompleteButton.heightAnchor.constraint(equalToConstant: 40)
+         bottomAnchor = editCompleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+         trailingAnchor = editCompleteButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -30)
+         editCompleteButtonConstraints = [widthAnchor, heightAnchor, bottomAnchor, trailingAnchor]
+        NSLayoutConstraint.activate(editCompleteButtonConstraints)
+         
     }
     
     private func showBottomSheet(){
@@ -372,45 +437,159 @@ class DetailBottomSheetViewController:UIViewController {
      @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
          hideBottomSheetAndGoBack()
      }
+    
+    @objc private func editCompleteButtonAction(){
+        
+        
+    }
 
      @objc private func editButtonTapped() {
-         let alertController = UIAlertController(title: "정보 수정", message: nil, preferredStyle: .alert)
-
-         alertController.addTextField { textField in
-             textField.placeholder = "생년월일"
-             textField.text = ""
-         }
-         alertController.addTextField { textField in
-             textField.placeholder = "알레르기"
-             textField.text = ""
-         }
-         alertController.addTextField { textField in
-             textField.placeholder = "기타"
-             textField.text = ""
-         }
-
-          let saveAction = UIAlertAction(title: "저장", style: .default) { [weak self] _ in
-               guard let self = self else { return }
-               let birthdateText = alertController.textFields?[0].text ?? ""
-               let allergiesText = alertController.textFields?[1].text ?? ""
-               let otherInfoText = alertController.textFields?[2].text ?? ""
-               
-               // 새로운 라벨들 업데이트
-               self.updatedBirthdateLabel.text = birthdateText
-               self.updatedAllergiesLabel.text = allergiesText
-               self.updatedOtherInfoLabel.text = otherInfoText
-          }
-
-         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-
-         alertController.addAction(saveAction)
-         alertController.addAction(cancelAction)
-
-         self.present(alertController, animated: true)
+         self.expandBottomSheetToFullScreen()
+         
+         editButton.isHidden = true
+         birthTextField.isEnabled = true
+         alleTextField.isEnabled = true
+         otherInfoTextField.isEnabled = true
+         editCompleteButton.isHidden = false
+         
+         
+         layoutMiddle()
+         
+         
+         NSLayoutConstraint.activate([
+            studentNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            studentNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+//            imageButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            imageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
+            
+//            roundBackgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+//            roundBackgroundView.leadingAnchor.constraint(equalTo: imageButton.trailingAnchor, constant: 20),
+//            roundBackgroundView.widthAnchor.constraint(equalToConstant: 250),
+//            roundBackgroundView.heightAnchor.constraint(equalToConstant: 160),
+            
+         ])
+         
+         
      }
+    
+    
+    private func expandBottomSheetToFullScreen() {
+        // 화면 전체 너비 설정
+        let screenWidth = UIScreen.main.bounds.width
+        bottomSheetViewLeadingConstraint.constant = -screenWidth
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
+    
+    private func registerKeyboardNotifications() {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+
+        @objc private func keyboardWillShow(notification: NSNotification) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                print("키보드 올라옴")
+                layoutTop()
+            }
+        }
+
+        @objc private func keyboardWillHide(notification: NSNotification) {
+            print("키보드 내려감")
+            layoutMiddle()
+        }
+
+        deinit {
+            NotificationCenter.default.removeObserver(self)
+        }
+    
+    func layoutMiddle(){
+        initialImageButtonConstraints.forEach { $0.priority = .defaultLow }
+        roundBackgroundViewConstraints.forEach { $0.priority = .defaultLow }
+        editCompleteButtonConstraints.forEach { $0.priority = .defaultLow }
+        
+       // `imageButton`의 새로운 제약조건을 생성하고 활성화
+        leadingAnchor = imageButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -170)
+       centerYAnchor = imageButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+       widthAnchor = imageButton.widthAnchor.constraint(equalToConstant: 134)
+        heightAnchor = imageButton.heightAnchor.constraint(equalToConstant: 160)
+        
+        initialImageButtonConstraints = [leadingAnchor, centerYAnchor, widthAnchor, heightAnchor]
+        NSLayoutConstraint.activate(initialImageButtonConstraints)
+        
+
+        leadingAnchor = roundBackgroundView.leadingAnchor.constraint(equalTo: imageButton.trailingAnchor, constant: 20)
+        centerYAnchor = roundBackgroundView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        widthAnchor = roundBackgroundView.widthAnchor.constraint(equalToConstant: 250)
+        heightAnchor = roundBackgroundView.heightAnchor.constraint(equalToConstant: 160)
+
+        roundBackgroundViewConstraints = [leadingAnchor, centerYAnchor, widthAnchor, heightAnchor]
+        NSLayoutConstraint.activate(roundBackgroundViewConstraints)
+        
+        widthAnchor = editCompleteButton.widthAnchor.constraint(equalToConstant: 110)
+        heightAnchor =  editCompleteButton.heightAnchor.constraint(equalToConstant: 40)
+        bottomAnchor = editCompleteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+        trailingAnchor = editCompleteButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -30)
+        editCompleteButtonConstraints = [widthAnchor, heightAnchor, bottomAnchor, trailingAnchor]
+       NSLayoutConstraint.activate(editCompleteButtonConstraints)
+        
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func layoutTop(){
+        initialImageButtonConstraints.forEach { $0.priority = .defaultLow }
+        roundBackgroundViewConstraints.forEach { $0.priority = .defaultLow }
+        editCompleteButtonConstraints.forEach { $0.priority = .defaultLow }
+        
+        
+        // `imageButton`의 새로운 제약조건을 생성하고 활성화
+         leadingAnchor = imageButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: -170)
+        topAnchor = imageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40)
+        widthAnchor = imageButton.widthAnchor.constraint(equalToConstant: 134)
+         heightAnchor = imageButton.heightAnchor.constraint(equalToConstant: 160)
+         
+        initialImageButtonConstraints = [leadingAnchor, topAnchor, widthAnchor,heightAnchor]
+         NSLayoutConstraint.activate(initialImageButtonConstraints)
+         
+         leadingAnchor = roundBackgroundView.leadingAnchor.constraint(equalTo: imageButton.trailingAnchor, constant: 20)
+        topAnchor = roundBackgroundView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40)
+         widthAnchor = roundBackgroundView.widthAnchor.constraint(equalToConstant: 250)
+         heightAnchor = roundBackgroundView.heightAnchor.constraint(equalToConstant: 160)
+
+        roundBackgroundViewConstraints = [leadingAnchor, topAnchor, widthAnchor,heightAnchor]
+         NSLayoutConstraint.activate(roundBackgroundViewConstraints)
+        
+        widthAnchor = editCompleteButton.widthAnchor.constraint(equalToConstant: 110)
+        heightAnchor =  editCompleteButton.heightAnchor.constraint(equalToConstant: 40)
+        centerYAnchor = editCompleteButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        trailingAnchor = editCompleteButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -30)
+        editCompleteButtonConstraints = [widthAnchor, heightAnchor, centerYAnchor, trailingAnchor]
+       NSLayoutConstraint.activate(editCompleteButtonConstraints)
+        
+    
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 
 }
