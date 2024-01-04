@@ -9,6 +9,7 @@ import UIKit
 
 class HomePageViewController: UIViewController{
     
+    let classroomViewModel = ClassroomViewModel.shared
     // MARK: - 교탁
     let rectangleBox = UIView()
     
@@ -35,7 +36,7 @@ class HomePageViewController: UIViewController{
     var spacing: Bool
     var boxes: [Bool]
     var collectionView: UICollectionView!
-    var studentList = ["김지훈", "박서연", "이민준", "최예은", "정지우", "송수연", "윤현우", "한지아", "조성민", "임하은", "오준호", "고유나", "신태현", "류민서", "안지후", "백지윤", "남도윤", "황하윤", "전윤호", "문서현", "양지원", "강수빈", "유준서", "권예지", "우시우", "홍예린", "서승민", "구지연", "허하준", "도유진"]
+    var studentList: [String] = []
     
     
     // MARK: - navigationBar properties
@@ -75,12 +76,11 @@ class HomePageViewController: UIViewController{
     let customView = UIView()
     
     // MARK: - init
-    init(rows: Int, columns: Int, spacing: Bool) {
-        print(rows)
-        self.gridRows = rows
-        self.gridColumns = columns
-        self.spacing = spacing
-        self.boxes = Array(repeating: false, count: rows * columns)
+    init() {
+        self.gridRows = classroomViewModel.classroom.listRow!
+        self.gridColumns = classroomViewModel.classroom.listCol!
+        self.spacing = classroomViewModel.classroom.seatSpacing!
+        self.boxes = Array(repeating: false, count: self.gridRows * self.gridColumns)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -211,7 +211,7 @@ class HomePageViewController: UIViewController{
         backBarButtonItem.tintColor = .black
         navigationItem.backBarButtonItem = backBarButtonItem
         
-        let changeViewController = LearnViewController(rows: 5, columns: 6, spacing: false)
+        let changeViewController = LearnViewController()
         navigationController?.pushViewController(changeViewController, animated: true)
         
     }
@@ -237,7 +237,9 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCustomCollectionViewCell.identifier, for: indexPath) as? HomeCustomCollectionViewCell else {
             fatalError("Unable to dequeue LearnCustomCollectionViewCell")
         }
-        cell.configure(with: studentList[indexPath.row])
+        
+        //cell.configure(with: studentList[indexPath.row])
+        cell.configure(with: classroomViewModel.classroom.studentsList![indexPath.row].name!)
         return cell
     }
 }

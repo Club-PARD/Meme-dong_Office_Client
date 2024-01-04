@@ -9,6 +9,7 @@ import UIKit
 
 class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
+    let classroomViewModel = ClassroomViewModel.shared
     // MARK: - 교탁
     let rectangleBox = UIView()
     
@@ -29,7 +30,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     lazy var quizViewProgressLabel:UILabel = {
         let label = UILabel()
-        label.text = "0/\(studentList.count)"
+        label.text = "0/\(classroomViewModel.classroom.studentsCount!)"
         label.font = UIFont.systemFont(ofSize: 10)
         label.backgroundColor = UIColor(red: 249/255, green: 246/255, blue: 181/255, alpha: 1)
         label.layer.cornerRadius = 15
@@ -125,7 +126,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     var spacing: Bool
     var boxes: [Bool]
     var collectionView: UICollectionView!
-    var studentList = ["김지훈", "박서연", "이민준", "최예은", "정지우", "송수연", "윤현우", "한지아", "조성민", "임하은", "오준호", "고유나", "신태현", "류민서", "안지후", "백지윤", "남도윤", "황하윤", "전윤호", "문서현", "양지원", "강수빈", "유준서", "권예지", "우시우", "홍예린", "서승민", "구지연", "허하준", "도유진"]
+//    var studentList = ["김지훈", "박서연", "이민준", "최예은", "정지우", "송수연", "윤현우", "한지아", "조성민", "임하은", "오준호", "고유나", "신태현", "류민서", "안지후", "백지윤", "남도윤", "황하윤", "전윤호", "문서현", "양지원", "강수빈", "유준서", "권예지", "우시우", "홍예린", "서승민", "구지연", "허하준", "도유진"]
     
     var wrongList:[Int] = []
     var correctList:[Int] = []
@@ -136,12 +137,11 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     
     // MARK: - init
-    init(rows: Int, columns: Int, spacing: Bool) {
-        print(rows)
-        self.gridRows = rows
-        self.gridColumns = columns
-        self.spacing = spacing
-        self.boxes = Array(repeating: false, count: rows * columns)
+    init() {
+        self.gridRows = classroomViewModel.classroom.listRow!
+        self.gridColumns = classroomViewModel.classroom.listCol!
+        self.spacing = classroomViewModel.classroom.seatSpacing!
+        self.boxes = Array(repeating: false, count: self.gridRows * self.gridColumns)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -190,7 +190,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         setupButton(button: buttonB, systemName: "b.circle", color: UIColor.lightGray, index: selectedIndex[1])
         setupButton(button: buttonC, systemName: "c.circle", color: UIColor.lightGray, index: selectedIndex[2])
         
-        quizViewProgressLabel.text = "\(studentList.count - processingList.count)/\(studentList.count)"
+        quizViewProgressLabel.text = "\(classroomViewModel.classroom.studentsCount! - processingList.count)/\(classroomViewModel.classroom.studentsCount!)"
     }
     
     // MARK: - 재실행 버튼 선택시 변수 및 화면 초기화
@@ -284,7 +284,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         button.layer.borderColor = color.cgColor
         
         if color == UIColor.lightGray{
-            button.setTitle(studentList[index], for: .normal)
+            button.setTitle(classroomViewModel.classroom.studentsList![index].name!, for: .normal)
             button.setTitleColor(.black, for: .normal)
         }
         else{
@@ -301,31 +301,31 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     //          1초 뒤에 다음 문제로 넘어감
     @objc func selectionAction(sender: UIButton){
         
-        if String(sender.title(for: .normal) ?? "") == studentList[correctAnswer]{
+        if String(sender.title(for: .normal) ?? "") == classroomViewModel.classroom.studentsList![correctAnswer].name! {
             //정답
             correctList.append(correctAnswer)
             
             setupButton(button: sender, systemName: "checkmark.circle.fill", color: UIColor.systemGreen, index: 0)//index 의미 없음
-            updateLabelInCollectionView(atIndex: correctAnswer,withText: studentList[correctAnswer] , color: UIColor.systemGreen)
+            updateLabelInCollectionView(atIndex: correctAnswer,withText: classroomViewModel.classroom.studentsList![correctAnswer].name! , color: UIColor.systemGreen)
         }
         else{
             //틀림
             wrongList.append(correctAnswer)
             
-            if buttonA.title(for: .normal) == studentList[correctAnswer]{
+            if buttonA.title(for: .normal) == classroomViewModel.classroom.studentsList![correctAnswer].name!{
                 setupButton(button: buttonA, systemName: "checkmark.circle.fill", color: UIColor.systemGreen, index: 0)//index 의미 없음
                 
             }
-            else if buttonB.title(for: .normal) == studentList[correctAnswer]{
+            else if buttonB.title(for: .normal) == classroomViewModel.classroom.studentsList![correctAnswer].name!{
                 setupButton(button: buttonB, systemName: "checkmark.circle.fill", color: UIColor.systemGreen, index: 0)//index 의미 없음
             }
-            else if buttonC.title(for: .normal) == studentList[correctAnswer]{
+            else if buttonC.title(for: .normal) == classroomViewModel.classroom.studentsList![correctAnswer].name!{
                 setupButton(button: buttonC, systemName: "checkmark.circle.fill", color: UIColor.systemGreen, index: 0)//index 의미 없음
             }
             
             setupButton(button: sender, systemName: "x.circle.fill", color: UIColor.systemRed, index: 0)//index 의미 없음
             
-            updateLabelInCollectionView(atIndex: correctAnswer,withText: studentList[correctAnswer] , color: UIColor.systemRed)
+            updateLabelInCollectionView(atIndex: correctAnswer,withText: classroomViewModel.classroom.studentsList![correctAnswer].name! , color: UIColor.systemRed)
         }
         
         
@@ -333,7 +333,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         // 1초 후에 수행할 작업
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
             
-            updateLabelInCollectionView(atIndex: correctAnswer,withText: studentList[correctAnswer] , color: UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0))
+            updateLabelInCollectionView(atIndex: correctAnswer,withText: classroomViewModel.classroom.studentsList![correctAnswer].name! , color: UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0))
             
             self.processingList.shuffle()
             
@@ -380,7 +380,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
                 setupButton(button: buttonC, systemName: "c.circle", color: UIColor.lightGray, index: selectedIndex[2])
                 
                 updateLabelInCollectionView(atIndex: correctAnswer, withText: "" , color: UIColor.systemYellow)
-                quizViewProgressLabel.text = "\(studentList.count - processingList.count)/\(studentList.count)"
+                quizViewProgressLabel.text = "\(classroomViewModel.classroom.studentsCount! - processingList.count)/\(classroomViewModel.classroom.studentsCount!)"
             }
         }
     }
@@ -447,11 +447,17 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
             rectangleBox.widthAnchor.constraint(equalToConstant: 300),
             rectangleBox.heightAnchor.constraint(equalToConstant: 30),
             
+//            collectionView.widthAnchor.constraint(equalToConstant: totalCellWidth),
+//            collectionView.heightAnchor.constraint(equalToConstant: totalCellHeight),
+//            collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -75),
+//            //collectionView.topAnchor.constraint(equalTo: view.topAnchor)
+//            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -10)
+//            
             collectionView.widthAnchor.constraint(equalToConstant: totalCellWidth),
             collectionView.heightAnchor.constraint(equalToConstant: totalCellHeight),
             collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -75),
-            //collectionView.topAnchor.constraint(equalTo: view.topAnchor)
-            collectionView.bottomAnchor.constraint(equalTo: rectangleBox.topAnchor, constant: -10)
+            collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
+            
         ])
         
     }

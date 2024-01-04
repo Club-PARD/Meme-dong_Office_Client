@@ -90,7 +90,7 @@ class HomeViewController: UIViewController {
         backBarButtonItem.tintColor = .black
         navigationItem.backBarButtonItem = backBarButtonItem
         
-        let changeViewController = HomePageViewController(rows: 5, columns: 6, spacing: true)
+        let changeViewController = HomePageViewController()
         navigationController?.pushViewController(changeViewController, animated: true)
     }
     

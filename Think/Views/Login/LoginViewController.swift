@@ -341,7 +341,8 @@ class LoginViewController: UIViewController {
                 if success {
                     print("success!!")
                     self.loadUserData()
-                } else {
+                    
+                    } else {
                     print("error!!")
                 }
             }
@@ -349,10 +350,10 @@ class LoginViewController: UIViewController {
 
         
         
-        let changeViewController = AddClassViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+//        let changeViewController = AddClassViewController()
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        present(navigationController, animated: true, completion: nil)
     }
     
     func loadUserData() {
@@ -379,6 +380,11 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     if success  {
                         print("✅classroom success")
+                        let changeViewController = HomePageViewController()
+                        let navigationController = UINavigationController(rootViewController: changeViewController)
+                        navigationController.modalPresentationStyle = .fullScreen
+                        self?.present(navigationController, animated: true, completion: nil)
+                    
                     } else {
                         print("error")
                     }
