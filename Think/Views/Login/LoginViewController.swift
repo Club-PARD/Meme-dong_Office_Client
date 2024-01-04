@@ -348,10 +348,10 @@ class LoginViewController: UIViewController {
 
         
         
-//        let changeViewController = AddClassViewController()
-//        let navigationController = UINavigationController(rootViewController: changeViewController)
-//        navigationController.modalPresentationStyle = .fullScreen
-//        present(navigationController, animated: true, completion: nil)
+        let changeViewController = AddClassViewController()
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
     }
     
     func loadUserData() {
