@@ -20,8 +20,6 @@
 		90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE46202B42ACB00026E264 /* TokenManager.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
-		CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF22B354C0800E1D140 /* NetworkManager.swift */; };
-		CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EF52B354EA100E1D140 /* Extensions.swift */; };
 		CA665C962B3FC6CE00F4FD26 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */; };
 		CA665C9A2B42DF7800F4FD26 /* CustomGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C992B42DF7800F4FD26 /* CustomGridLayout.swift */; };
 		CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A602B2FF5370004345B /* AppDelegate.swift */; };
@@ -40,12 +38,10 @@
 		DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */; };
 		DA1A49042B46859200C86F80 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49032B46859200C86F80 /* Classroom.swift */; };
 		DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */; };
-		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
 		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
 		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
 		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
 		DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */; };
-		DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37B2B43286F00204063 /* ClassModel.swift */; };
 		DAF0B37E2B432B6800204063 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37D2B432B6800204063 /* Student.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,8 +76,6 @@
 		90CE46202B42ACB00026E264 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		CA505EF22B354C0800E1D140 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CA505EF52B354EA100E1D140 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA665C952B3FC6CE00F4FD26 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		CA665C992B42DF7800F4FD26 /* CustomGridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGridLayout.swift; sourceTree = "<group>"; };
 		CAD34A5D2B2FF5370004345B /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,12 +99,10 @@
 		DA1A49032B46859200C86F80 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
 		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
-		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTextViewController.swift; sourceTree = "<group>"; };
 		DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentNameVIewController.swift; sourceTree = "<group>"; };
-		DAF0B37B2B43286F00204063 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
 		DAF0B37D2B432B6800204063 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,8 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				CA505EED2B354BB700E1D140 /* User.swift */,
-				DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */,
-				DAF0B37B2B43286F00204063 /* ClassModel.swift */,
 				DAF0B37D2B432B6800204063 /* Student.swift */,
 				DA1A49032B46859200C86F80 /* Classroom.swift */,
 			);
@@ -182,22 +172,6 @@
 				908423412B3D27E60023FFA0 /* LoginAPICaller.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CA505EF12B354BF100E1D140 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				CA505EF22B354C0800E1D140 /* NetworkManager.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		CA505EF42B354E8C00E1D140 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				CA505EF52B354EA100E1D140 /* Extensions.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		CA665C942B3FC61700F4FD26 /* Table */ = {
@@ -234,8 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				DAC187682B3AA34C00A397E4 /* Think.entitlements */,
-				CA505EF42B354E8C00E1D140 /* Utilities */,
-				CA505EF12B354BF100E1D140 /* Services */,
 				CA505EEC2B354B9700E1D140 /* ViewModel */,
 				CA505EEB2B354B8A00E1D140 /* Model */,
 				CAD34A922B3130840004345B /* Resources */,
@@ -448,7 +420,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA505EF32B354C0800E1D140 /* NetworkManager.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */,
 				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,
@@ -456,7 +427,6 @@
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				CA665C9A2B42DF7800F4FD26 /* CustomGridLayout.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
-				DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */,
 				901052D12B4677B200E4FDC4 /* BottomSheetViewController.swift in Sources */,
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
@@ -464,9 +434,7 @@
 				DA1A49042B46859200C86F80 /* Classroom.swift in Sources */,
 				DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */,
 				DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */,
-				DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */,
 				DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */,
-				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */,
 				DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */,
 				DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */,
