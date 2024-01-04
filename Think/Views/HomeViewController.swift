@@ -72,10 +72,6 @@ class HomeViewController: UIViewController {
     @objc func button1Tapped(_ sender: UIButton) {
         // Handle button 1 tap actions here
         print("Button 1 tapped")
-        let ViewController = PracticeViewController()
-        let navigationController = UINavigationController(rootViewController: ViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
     }
     
     @objc func button2Tapped(_ sender: UIButton) {
@@ -104,8 +100,6 @@ class HomeViewController: UIViewController {
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        
-        // 필요하다면 여기서 추가적인 네비게이션 바 스타일 설정을 할 수 있습니다.
     }
 
 }
