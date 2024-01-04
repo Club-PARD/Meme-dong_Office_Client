@@ -27,7 +27,7 @@
 
 | **강산길(PM)** | **임예진(Design)** | **서하민(Server)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/heejiyang) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/ggm77) | 
 
 
 </div>
@@ -36,10 +36,10 @@
 
 ## 1. 개발 환경
 
-- Front : HTML, React, styled-components, Recoil
-- Back-end : 제공된 API 활용
+- Front : Swift
+- Back-end : Java 
 - 버전 및 이슈관리 : Github, Github Issues, Github Project
-- 협업 툴 : Discord, Notion, Github Wiki
+- 협업 툴 : Notion, Figma
 - 서비스 배포 환경 : Netlify
 - 디자인 : [Figma](https://www.figma.com/file/fAisC2pEKzxTOzet9CfqML/README(oh-my-code)?node-id=39%3A1814)
 - [커밋 컨벤션](https://github.com/likelion-project-README/README/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98)
