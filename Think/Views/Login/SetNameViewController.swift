@@ -8,7 +8,6 @@
 import UIKit
 
 class SetNameViewController: UIViewController {
-    var loginViewModel = LoginViewModel()
     let userViewModel = UserViewModel.shared
     let classroomViewModel = ClassroomViewModel.shared
     

@@ -8,7 +8,6 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-    var loginViewModel = LoginViewModel()
     
     lazy var welcomeLabel: UILabel = {
         let label = UILabel()
