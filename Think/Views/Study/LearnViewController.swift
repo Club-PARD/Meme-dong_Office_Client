@@ -12,6 +12,10 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     // MARK: - 교탁
     let rectangleBox = UIView()
     
+    // MARK: - Custom pop up initializers
+    let customAlertView = UIView()
+    let overlayView = UIView()
+    
     // MARK: - quizView Properties
     let quizView: UIView = {
         let view = UIView()
@@ -406,6 +410,8 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         initializeRandomUI()
         setupResultView()
         resultView.isHidden = true
+        customizeBackButton()
+
     }
     
     
@@ -563,41 +569,129 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         
     }
     
-    
     // MARK: - 뒤로가기 버튼 관련
-//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-//            if viewController is LearnViewController {
-//                let alertController = UIAlertController(title: "경고", message: "학습을 종료할까요?", preferredStyle: .alert)
-//
-//                let yesAction = UIAlertAction(title: "예", style: .default) { [weak self] _ in
-//                    // 사용자가 '예'를 선택했을 때의 동작을 여기에 작성합니다.
-//                    // 예를 들어, navigationController를 통해 이전 뷰로 이동할 수 있습니다.
-//                    self?.navigationController?.popViewController(animated: true)
-//                }
-//
-//                let noAction = UIAlertAction(title: "아니오", style: .cancel) { [weak self] _ in
-//                    // '아니오'를 선택했을 때는 아무것도 하지 않습니다.
-//                    // 이 부분에서는 viewController가 이미 뒤로 갈 준비가 되어 있으므로,
-//                    // 실제로 이전 화면으로 돌아가지 않도록 현재 뷰 컨트롤러를 다시 푸시합니다.
-//                    navigationController.pushViewController(self!, animated: false)
-//                }
-//
-//                alertController.addAction(noAction)
-//                alertController.addAction(yesAction)
-//
-//                // 팝업 창을 띄웁니다.
-//                self.present(alertController, animated: true, completion: nil)
-//            }
-//        }
-    
-    
-    func goToHomeViewController() {
-        let changeViewController = ViewController()
-        let navigationController = UINavigationController(rootViewController: changeViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
+    private func customizeBackButton() {
+        self.navigationItem.hidesBackButton = true
+        
+        let backImage = UIImage(systemName: "chevron.backward")?.withRenderingMode(.alwaysOriginal)
+        let customBackButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(showCustomAlert))
+        
+        customBackButton.tintColor = .black
+        
+        self.navigationItem.leftBarButtonItem = customBackButton
     }
 
+
+    // MARK: - Custom PopUp
+    private func setupCustomAlert() {
+           overlayView.frame = self.view.bounds
+           overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+           overlayView.alpha = 0
+
+           customAlertView.backgroundColor = .white
+           customAlertView.layer.cornerRadius = 15
+           customAlertView.translatesAutoresizingMaskIntoConstraints = false
+           customAlertView.alpha = 0
+
+           let titleLabel = UILabel()
+           titleLabel.text = "학습을 종료하시겠어요?"
+           titleLabel.translatesAutoresizingMaskIntoConstraints = false
+           
+            let messageLabel = UILabel()
+            messageLabel.text = "진행된 학습 데이터가 사라집니다"
+            messageLabel.textColor = UIColor.lightGray
+            messageLabel.font = UIFont.systemFont(ofSize: 16, weight: .light)
+            messageLabel.translatesAutoresizingMaskIntoConstraints = false
+            messageLabel.numberOfLines = 0
+
+            // Create and configure the icon at the top
+            let iconImageView = UIImageView()
+            iconImageView.image = UIImage(systemName: "exclamationmark.circle.fill")
+            iconImageView.tintColor = .lightGray
+            iconImageView.contentMode = .scaleAspectFit
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
+           
+            let cancelButton = UIButton(type: .system)
+            cancelButton.setTitle("취소", for: .normal)
+            cancelButton.tintColor = UIColor.black
+            cancelButton.backgroundColor = UIColor.lightGray
+            cancelButton.layer.cornerRadius = 15
+            cancelButton.addTarget(self, action: #selector(dismissCustomAlert), for: .touchUpInside)
+            cancelButton.translatesAutoresizingMaskIntoConstraints = false
+
+           
+           let confirmButton = UIButton(type: .system)
+           confirmButton.setTitle("종료", for: .normal)
+           confirmButton.backgroundColor = UIColor.systemYellow
+           confirmButton.tintColor = UIColor.black
+           confirmButton.layer.cornerRadius = 15
+           confirmButton.addTarget(self, action: #selector(confirmAndDismissCustomAlert), for: .touchUpInside)
+           confirmButton.translatesAutoresizingMaskIntoConstraints = false
+
+           customAlertView.addSubview(titleLabel)
+           customAlertView.addSubview(messageLabel)
+           customAlertView.addSubview(cancelButton)
+           customAlertView.addSubview(confirmButton)
+           
+           view.addSubview(overlayView)
+           view.addSubview(customAlertView)
+            customAlertView.addSubview(iconImageView)
+
+           NSLayoutConstraint.activate([
+               customAlertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+               customAlertView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+               customAlertView.widthAnchor.constraint(equalToConstant: 387),
+               customAlertView.heightAnchor.constraint(equalToConstant: 226),
+               
+               iconImageView.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
+               iconImageView.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 14),
+               iconImageView.widthAnchor.constraint(equalToConstant: 34),
+               iconImageView.heightAnchor.constraint(equalToConstant: 34),
+
+               
+               titleLabel.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 77),
+               titleLabel.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
+               
+               messageLabel.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
+               messageLabel.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 109),
+
+               cancelButton.leadingAnchor.constraint(equalTo: customAlertView.leadingAnchor, constant: 67),
+               cancelButton.bottomAnchor.constraint(equalTo: customAlertView.bottomAnchor, constant: -28),
+               cancelButton.widthAnchor.constraint(equalToConstant: 115),
+               cancelButton.heightAnchor.constraint(equalToConstant: 40),
+               
+               confirmButton.trailingAnchor.constraint(equalTo: customAlertView.trailingAnchor, constant: -69),
+               confirmButton.bottomAnchor.constraint(equalTo: customAlertView.bottomAnchor, constant: -28),
+               confirmButton.widthAnchor.constraint(equalToConstant: 115),
+               confirmButton.heightAnchor.constraint(equalToConstant: 40)
+           ])
+       }
+
+       @objc private func dismissCustomAlert() {
+           UIView.animate(withDuration: 0.3) {
+               self.customAlertView.alpha = 0
+               self.overlayView.alpha = 0
+           } completion: { _ in
+               self.customAlertView.removeFromSuperview()
+               self.overlayView.removeFromSuperview()
+           }
+       }
+
+       @objc private func confirmAndDismissCustomAlert() {
+           // Handle the confirmation action here
+           // For example, pop the view controller or reset the quiz
+           navigationController?.popViewController(animated: true)
+       }
+
+        @objc func showCustomAlert() {
+           setupCustomAlert()
+
+           UIView.animate(withDuration: 0.3) {
+               self.customAlertView.alpha = 1
+               self.overlayView.alpha = 1
+           }
+       }
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.shouldSupportAllOrientation = false

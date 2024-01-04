@@ -128,7 +128,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
 
     private func setupConfirmButton() {
         confirmButton.setTitle("완료", for: .normal)
-        confirmButton.backgroundColor = UIColor.systemYellow // Use a custom yellow color if needed
+        confirmButton.backgroundColor = UIColor.mainYellow // Use a custom yellow color if needed
         confirmButton.setTitleColor(UIColor.black, for: .normal) // Set the text color
         confirmButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium) // Set the font and size
 
@@ -230,7 +230,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = boxes[indexPath.row] ? UIColor.systemYellow : UIColor.gray
+        cell.backgroundColor = boxes[indexPath.row] ? UIColor.mainYellow : UIColor.gray
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
