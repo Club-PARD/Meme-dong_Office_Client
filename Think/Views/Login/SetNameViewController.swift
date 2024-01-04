@@ -219,11 +219,11 @@ class SetNameViewController: UIViewController {
             print("✅ success")
             
             // 실제 서버로부터 받은 액세스 토큰과 리프레시 토큰으로 교체
-            let accessToken = "yourAccessToken"
-            let refreshToken = "yourRefreshToken"
-            
-            // `TokenManager`를 사용하여 토큰 저장
-            TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+//            let accessToken = "yourAccessToken"
+//            let refreshToken = "yourRefreshToken"
+//            
+//            // `TokenManager`를 사용하여 토큰 저장
+//            TokenManager.shared.saveTokens(accessToken: accessToken)
             
             let changeViewController = AddClassViewController()
             let navigationController = UINavigationController(rootViewController: changeViewController)

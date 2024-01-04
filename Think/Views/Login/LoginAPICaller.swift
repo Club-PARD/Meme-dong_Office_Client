@@ -42,14 +42,14 @@ class LoginAPICaller {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                     // 토큰 추출
                     let accessToken = jsonResponse["accessToken"] as? String
-                    let refreshToken = jsonResponse["refreshToken"] as? String
+//                    let refreshToken = jsonResponse["refreshToken"] as? String
                     print("✅ success: \(jsonResponse)")
                     print("✅ success: \(accessToken)")
-                    print("✅ success: \(refreshToken)")
+//                    print("✅ success: \(refreshToken)")
                     
                     // 추출된 토큰을 TokenManager를 통해 저장
-                    if let accessToken = accessToken, let refreshToken = refreshToken {
-                        TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    if let accessToken = accessToken {
+                        TokenManager.shared.saveTokens(accessToken: accessToken)
                     }
                 }
             } catch {
@@ -96,14 +96,13 @@ class LoginAPICaller {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                     // 토큰 추출
                     let accessToken = jsonResponse["accessToken"] as? String
-                    let refreshToken = jsonResponse["refreshToken"] as? String
+//                    let refreshToken = jsonResponse["refreshToken"] as? String
                     print("✅ success: \(jsonResponse)")
                     print("✅ success: \(accessToken)")
-                    print("✅ success: \(refreshToken)")
                     
                     // 추출된 토큰을 TokenManager를 통해 저장
-                    if let accessToken = accessToken, let refreshToken = refreshToken {
-                        TokenManager.shared.saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    if let accessToken = accessToken {
+                        TokenManager.shared.saveTokens(accessToken: accessToken)
                     }
                 }
             } catch {
