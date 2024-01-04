@@ -12,7 +12,6 @@ class BottomSheetViewController:UIViewController {
      var bottomSheetPanMinTopConstant: CGFloat = 30.0
      private lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
 
-    // Adjust this property to set the width of the bottom sheet when it's visible
     private let bottomSheetWidth: CGFloat = 200
     
     private var bottomSheetViewLeadingConstraint: NSLayoutConstraint!
@@ -38,23 +37,22 @@ class BottomSheetViewController:UIViewController {
          return view
      }()
 
-     
-     private let closeButton: UIButton = {
-         let button = UIButton(type: .system)
-         let image = UIImage(named: "Xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
-         button.setImage(image, for: .normal)
-         button.tintColor = .black // 필요한 경우 이미지의 색상을 변경
-         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-         return button
-     }()
 
-     
      private let dragIndicatorView: UIView = {
          let view = UIView()
          view.backgroundColor = .white
          view.layer.cornerRadius = 3
          return view
      }()
+    
+    private let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(named: "Xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
+        button.setImage(image, for: .normal)
+        button.tintColor = .black // 필요한 경우 이미지의 색상을 변경
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
      
      private let roundBackgroundView: UIView = {
          let view = UIView()
