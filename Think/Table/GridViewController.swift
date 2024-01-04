@@ -130,7 +130,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //confirm button UI and function
     @objc func confirmTapped() {
         sort()
-        let tempDisplayVC = TempHomeViewController()
+        let tempDisplayVC = HomePageViewController()
         sendDataToServer()
         // If using a navigation controller
         navigationController?.pushViewController(tempDisplayVC, animated: true)

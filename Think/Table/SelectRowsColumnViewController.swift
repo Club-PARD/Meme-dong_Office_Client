@@ -179,119 +179,17 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
         view.addSubview(confirmButton)
     }
     
+    
     //confirm button UI and function
     @objc func confirmTapped() {
         let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
         let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
-        let totalSeats = selectedRow * selectedColumn
 
-        if studentNames.count != totalSeats {
-            // Alert the user about the mismatch
-            showAlertForMismatch(totalSeats: totalSeats, studentCount: studentNames.count)
-            UIView.animate(withDuration: 0.3) {
-                self.customAlertView.alpha = 1
-                self.overlayView.alpha = 1
-            }
-        } else {
-            // Proceed with navigation as the numbers match
-            let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
-            gridDisplayVC.studentNames = studentNames
-            navigationController?.pushViewController(gridDisplayVC, animated: true)
-        }
+        // Proceed to the next view controller with the updated student list
+        let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
+        gridDisplayVC.studentNames = studentNames
+        navigationController?.pushViewController(gridDisplayVC, animated: true)
     }
-
-    private func showAlertForMismatch(totalSeats: Int, studentCount: Int) {
-        let message = "선택하신 학생수 \(studentCount)명과\n자리수 \(totalSeats)가 맞지 않습니다.\n 자리를 알맞게 설정해 주세요"
-
- 
-
-        overlayView.frame = self.view.bounds
-        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        overlayView.alpha = 0
-
-        customAlertView.backgroundColor = .white
-        customAlertView.layer.cornerRadius = 15
-        customAlertView.translatesAutoresizingMaskIntoConstraints = false
-        customAlertView.alpha = 0
-
-        let titleLabel = UILabel()
-        titleLabel.text = "빈자리가 있습니다!"
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Setup message label
-        let messageLabel = UILabel()
-        messageLabel.text = message
-        messageLabel.textColor = UIColor.disabled
-        messageLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.numberOfLines = 4
-        messageLabel.textAlignment = .center
-        
-         // Create and configure the icon at the top
-         let iconImageView = UIImageView()
-         iconImageView.image = UIImage(systemName: "exclamationmark.circle.fill")
-         iconImageView.tintColor = UIColor.wrongRed
-         iconImageView.contentMode = .scaleAspectFit
-         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-         let cancelButton = UIButton(type: .system)
-         cancelButton.setTitle("다시설정", for: .normal)
-         cancelButton.tintColor = UIColor.black
-         cancelButton.backgroundColor = UIColor.lightGray
-         cancelButton.layer.cornerRadius = 15
-         cancelButton.addTarget(self, action: #selector(dismissCustomAlert), for: .touchUpInside)
-         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-
-        customAlertView.addSubview(titleLabel)
-        customAlertView.addSubview(messageLabel)
-        customAlertView.addSubview(cancelButton)
-        
-        view.addSubview(overlayView)
-        view.addSubview(customAlertView)
-         customAlertView.addSubview(iconImageView)
-
-        NSLayoutConstraint.activate([
-            customAlertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            customAlertView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            customAlertView.widthAnchor.constraint(equalToConstant: 300),
-            customAlertView.heightAnchor.constraint(equalToConstant: 226),
-            
-            iconImageView.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
-            iconImageView.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 14),
-            iconImageView.widthAnchor.constraint(equalToConstant: 34),
-            iconImageView.heightAnchor.constraint(equalToConstant: 34),
-
-            
-            titleLabel.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 65),
-            titleLabel.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
-            
-            messageLabel.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
-            messageLabel.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 100),
-
-            cancelButton.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: customAlertView.bottomAnchor, constant: -15),
-            cancelButton.widthAnchor.constraint(equalToConstant: 115),
-            cancelButton.heightAnchor.constraint(equalToConstant: 40),
-            
-        ])
-    }
-
-    @objc private func dismissCustomAlert() {
-        UIView.animate(withDuration: 0.3) {
-            self.customAlertView.alpha = 0
-            self.overlayView.alpha = 0
-        } completion: { _ in
-            self.customAlertView.removeFromSuperview()
-            self.overlayView.removeFromSuperview()
-        }
-    }
-
-    @objc private func confirmAndDismissCustomAlert() {
-        navigationController?.popViewController(animated: true)
-    }
-
-    
-    
 
     private func setupConstraints() {
         let spacing: CGFloat = 2
