@@ -26,7 +26,7 @@ class SetNameViewController: UIViewController {
     
     lazy var confirmPasswordLabel: UILabel = {
         let label = UILabel()
-        label.text = "계정 정보를 입력해주세요 "
+        label.text = "선생님에 대해 소개해주세요"
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 21)

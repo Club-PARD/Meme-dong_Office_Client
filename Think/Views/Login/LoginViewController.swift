@@ -80,32 +80,32 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    lazy var saveLoginCheckbox: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
-        button.setImage(UIImage(named: "checkbox_checked"), for: .selected)
-        button.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
-        button.layer.cornerRadius = 4
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor(red: 0x97 / 255.0, green: 0x97 / 255.0, blue: 0x97 / 255.0, alpha: 1).cgColor
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    lazy var saveLoginCheckbox: UIButton = {
+//        let button = UIButton(type: .custom)
+//        button.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
+//        button.setImage(UIImage(named: "checkbox_checked"), for: .selected)
+//        button.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
+//        button.layer.cornerRadius = 4
+//        button.layer.borderWidth = 1
+//        button.layer.borderColor = UIColor(red: 0x97 / 255.0, green: 0x97 / 255.0, blue: 0x97 / 255.0, alpha: 1).cgColor
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
 
-    lazy var saveLoginLabel: UILabel = {
-        let label = UILabel()
-        label.text = "로그인 정보 저장하기"
-        label.textColor = UIColor(red: 0xAB / 255.0, green: 0xAB / 255.0, blue: 0xAB / 255.0, alpha: 1)
-        
-        if let pretendardFont = UIFont(name: "Pretendard", size: 14) {
-            label.font = pretendardFont
-        } else {
-            label.font = UIFont.systemFont(ofSize: 14)
-        }
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    lazy var saveLoginLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "로그인 정보 저장하기"
+//        label.textColor = UIColor(red: 0xAB / 255.0, green: 0xAB / 255.0, blue: 0xAB / 255.0, alpha: 1)
+//        
+//        if let pretendardFont = UIFont(name: "Pretendard", size: 14) {
+//            label.font = pretendardFont
+//        } else {
+//            label.font = UIFont.systemFont(ofSize: 14)
+//        }
+//        
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
 
 
     lazy var signUpButton: UIButton = {
@@ -188,7 +188,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        setupCheckboxAndLabel()
+//        setupCheckboxAndLabel()
     }
     
     func configureSignUpButtonColor() {
@@ -258,22 +258,23 @@ class LoginViewController: UIViewController {
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
-    func setupCheckboxAndLabel() {
-        view.addSubview(saveLoginCheckbox)
-        view.addSubview(saveLoginLabel)
-        
-        NSLayoutConstraint.activate([
-            saveLoginCheckbox.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            saveLoginCheckbox.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 42),
-            saveLoginCheckbox.widthAnchor.constraint(equalToConstant: 20),
-            saveLoginCheckbox.heightAnchor.constraint(equalToConstant: 20)
-        ])
-        
-        NSLayoutConstraint.activate([
-            saveLoginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 54),
-            saveLoginLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 45)
-        ])
-    }
+    
+//    func setupCheckboxAndLabel() {
+//        view.addSubview(saveLoginCheckbox)
+//        view.addSubview(saveLoginLabel)
+//        
+//        NSLayoutConstraint.activate([
+//            saveLoginCheckbox.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+//            saveLoginCheckbox.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 42),
+//            saveLoginCheckbox.widthAnchor.constraint(equalToConstant: 20),
+//            saveLoginCheckbox.heightAnchor.constraint(equalToConstant: 20)
+//        ])
+//        
+//        NSLayoutConstraint.activate([
+//            saveLoginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 54),
+//            saveLoginLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 45)
+//        ])
+//    }
     
     func setupTextFields() {
         view.addSubview(emailTextField)
@@ -372,9 +373,9 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func toggleCheckbox() {
-        saveLoginCheckbox.isSelected = !saveLoginCheckbox.isSelected
-    }
+//    @objc func toggleCheckbox() {
+//        saveLoginCheckbox.isSelected = !saveLoginCheckbox.isSelected
+//    }
     
 
 }
