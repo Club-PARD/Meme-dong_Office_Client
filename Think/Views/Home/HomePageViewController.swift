@@ -269,5 +269,6 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
         cell.configure(with: classroomViewModel.classroom.studentsList![indexPath.row].name!)
         return cell
     }
+    
 }
 

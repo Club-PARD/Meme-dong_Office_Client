@@ -21,9 +21,7 @@
 		908423422B3D27E60023FFA0 /* LoginAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423412B3D27E60023FFA0 /* LoginAPICaller.swift */; };
 		908423442B3D283F0023FFA0 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423432B3D283F0023FFA0 /* LoginDataModel.swift */; };
 		909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */; };
-		909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */; };
 		90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B5BC722B3D4AF90069046A /* LearnViewController.swift */; };
-		90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE461E2B429E740026E264 /* PracticeViewController.swift */; };
 		90CE46212B42ACB00026E264 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE46202B42ACB00026E264 /* TokenManager.swift */; };
 		CA505EEE2B354BB700E1D140 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EED2B354BB700E1D140 /* User.swift */; };
 		CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA505EEF2B354BD500E1D140 /* UserViewModel.swift */; };
@@ -91,9 +89,7 @@
 		908423412B3D27E60023FFA0 /* LoginAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPICaller.swift; sourceTree = "<group>"; };
 		908423432B3D283F0023FFA0 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		909AE4BA2B3EB0D500C2E501 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
 		90B5BC722B3D4AF90069046A /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
-		90CE461E2B429E740026E264 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		90CE46202B42ACB00026E264 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		CA505EED2B354BB700E1D140 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CA505EEF2B354BD500E1D140 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -194,15 +190,6 @@
 			path = Study;
 			sourceTree = "<group>";
 		};
-		909AE4BC2B3FF5D600C2E501 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				909AE4C12B3FF93800C2E501 /* MainHomeViewController.swift */,
-				90CE461E2B429E740026E264 /* PracticeViewController.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		CA505EEB2B354B8A00E1D140 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +261,6 @@
 		CAD34A5F2B2FF5370004345B /* Think */ = {
 			isa = PBXGroup;
 			children = (
-				CA665C942B3FC61700F4FD26 /* Table */,
 				DAC187682B3AA34C00A397E4 /* Think.entitlements */,
 				CA505EF42B354E8C00E1D140 /* Utilities */,
 				CA505EF12B354BF100E1D140 /* Services */,
@@ -309,14 +295,14 @@
 		CAD34A902B3130710004345B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DA1A48FA2B45DB1A00C86F80 /* Home */,
+				908423382B3C08990023FFA0 /* Login */,
 				DAD9B1952B3FEFD000C9F06C /* AddClass */,
+				CA665C942B3FC61700F4FD26 /* Table */,
+				DA1A48FA2B45DB1A00C86F80 /* Home */,
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423272B3BE9490023FFA0 /* TestViewController.swift */,
 				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
-				909AE4BC2B3FF5D600C2E501 /* Main */,
 				908423452B3D48CE0023FFA0 /* Study */,
-				908423382B3C08990023FFA0 /* Login */,
 				9084232F2B3BEDA40023FFA0 /* Detail */,
 				DAF31B4C2B355C0A002FD471 /* UserViewController.swift */,
 				DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */,
@@ -518,8 +504,6 @@
 				909AE4BB2B3EB0D500C2E501 /* LoginViewModel.swift in Sources */,
 				CA505EF62B354EA100E1D140 /* Extensions.swift in Sources */,
 				DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */,
-				909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */,
-				90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */,
 				DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */,
 				DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */,
 				DAF0B37E2B432B6800204063 /* Student.swift in Sources */,
