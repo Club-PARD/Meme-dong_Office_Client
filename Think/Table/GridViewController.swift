@@ -2,6 +2,9 @@ import UIKit
 
 class GridViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    // MARK: - List of names
+    var studentNames: [String] = []
+    var oneOrTwo = false
     // MARK: - Properties
     let teacherTable = UIView()
     var gridColumns: Int
@@ -19,6 +22,10 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let imageButton2 = UIButton(type: .system)
     var straightOrMixed = false
 
+   
+
+    
+    
     // MARK: - Initializer
     init(rows: Int, columns: Int) {
         self.gridRows = rows
@@ -34,6 +41,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(studentNames)
         configureUI()
     }
     
@@ -87,13 +95,65 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //confirm button UI and function
     @objc func confirmTapped() {
-
+        sort()
         let tempDisplayVC = TempHomeViewController()
-
+        sendDataToServer()
         // If using a navigation controller
         navigationController?.pushViewController(tempDisplayVC, animated: true)
 
     }
+    
+    func sort() {
+        let studentList = studentNames
+        var sorted:[[String]] = []
+        var combinedList:[String] = []
+    
+        //2. col 만큼 자르기
+        for i in stride(from: 0, to: studentList.count, by:gridColumns){
+            let endIndex = i+gridColumns
+            sorted.append(Array(studentList[i..<endIndex]))
+        }
+        
+        sorted = Array(sorted.reversed())
+        
+        if straightOrMixed == true {
+            //case1
+            // ㅎ<---
+            //      |
+            //  ----
+            // |
+            // ---- ㄱ
+            
+            if gridRows%2 == 0{
+                for i in stride(from: 0, to: gridRows, by: 1){
+                    if i%2==1{
+                        sorted[i] = Array(sorted[i].reversed())
+                    }
+                }
+            }
+            else{
+                for i in stride(from: 0, to: gridRows, by: 1){
+                    if i%2==1{
+                        sorted[i] = Array(sorted[i].reversed())
+                    }
+                }
+            }
+
+        }
+        else if straightOrMixed == false {
+            //ㅎ<---
+            //---
+            //---ㄱ
+            for i in stride(from: 0, to: gridRows, by: 1){
+                sorted[i] = Array(sorted[i].reversed())
+            }
+            
+        }
+        
+        combinedList = sorted.reduce([],+)
+    }
+    
+    // MARK: - BackgroundBoxes
     private func setupBackGroundBox() {
         backGroundBox1.backgroundColor = .white
         backGroundBox1.translatesAutoresizingMaskIntoConstraints = false
@@ -148,6 +208,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc private func adjustSpacingForOneButton() {
         if let layout = collectionView.collectionViewLayout as? CustomGridLayout {
             layout.useAlternatingSpacing = false
+            oneOrTwo = false
             collectionView.collectionViewLayout.invalidateLayout()
             updateButtonAppearance()
         }
@@ -156,6 +217,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @objc private func adjustSpacingForTwoButton() {
         if let layout = collectionView.collectionViewLayout as? CustomGridLayout {
             layout.useAlternatingSpacing = true
+            oneOrTwo = true
             collectionView.collectionViewLayout.invalidateLayout()
             updateButtonAppearance()
         }
@@ -332,16 +394,96 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK: - Navigation Bar
     // 전환된 화면에 viewDidLoad 에 추가해줄 nav 함수
-     func setupNav(){
-             navigationItem.title = "추가하기"
-             
-             //ios 15부터 적용
-             let appearance = UINavigationBarAppearance()
-             appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
-             
-             appearance.shadowColor = nil
+    func setupNav() {
+        navigationItem.title = "추가하기"
+        
+        // iOS 15 styling
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.white
+        appearance.shadowColor = nil
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    // This struct should match the API request body structure
+    struct StudentsListRequest: Codable {
+        var name: String
+        var listRow: Int
+        var listCol: Int
+        var seatSpacing: Bool
+        var studentsList: [StudentInfo]
+    }
 
-             navigationController?.navigationBar.standardAppearance = appearance
-             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-         }
+    // Each student's information
+    struct StudentInfo: Codable {
+        var name: String
+        var imageURL: String
+        var birthday: String
+        var allergy: String
+        var studyLevel: String
+        var etc: String
+        var caution: Bool
+    }
+
+    // Function to create the JSON data
+    func convertDataToJSON() -> Data? {
+        // Assuming you have a method to create an array of StudentInfo from studentNames
+        let studentsInfo = studentNames.map { name -> StudentInfo in
+            return StudentInfo(
+                name: name,
+                imageURL: "", // Assuming we don't have image URLs
+                birthday: "",
+                allergy: "",
+                studyLevel: "",
+                etc: "",
+                caution: false // Assuming we don't have this information
+            )
+        }
+
+        let request = StudentsListRequest(
+            name: "YourName", // Replace with actual name if needed
+            listRow: gridRows,
+            listCol: gridColumns,
+            seatSpacing: oneOrTwo,
+            studentsList: studentsInfo
+        )
+
+        do {
+            let jsonData = try JSONEncoder().encode(request)
+            return jsonData
+        } catch {
+            print("Error encoding data: \(error)")
+            return nil
+        }
+    }
+    
+    func sendDataToServer() {
+        guard let url = URL(string: "http://13.125.210.242:8080/api/v1/students/list") else { return }
+        guard let jsonData = convertDataToJSON() else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Add your authorization token here. Replace "YourAuthToken" with the actual token.
+        request.addValue("Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMSIsImlhdCI6MTcwNDI3Mjg4NSwiZXhwIjoxNzA0MzU5Mjg1fQ.555Y-GeNaUn33CHwynxlT02YbLHy6cu3-lleREYt9V5nnVt0pItBR4oTrf0MTjbgwzuVdECr46oyei_kEit2yg", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error sending data to server: \(error)")
+                return
+            }
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                print("HTTP Error: \(httpResponse.statusCode)")
+                return
+            }
+            // Handle response data if needed
+            print("Data sent successfully.")
+        }
+        
+        task.resume()
+    }
+
 }

@@ -244,7 +244,7 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
     
         
         print("Selected text: \(topCandidate.string)")
-        print(studentNameList)
+//        print(studentNameList)
         bottomSheetVC.updateStudentNameLabel(with: studentNameList)
     }
     
