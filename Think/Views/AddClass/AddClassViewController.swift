@@ -11,6 +11,8 @@ import UniformTypeIdentifiers
 
 class AddClassViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    let userViewModel = UserViewModel.shared
+    
     let thinkImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "think")
@@ -74,6 +76,7 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        logoLabel.text = userViewModel.user.name!
         view.addSubview(thinkImage)
         view.addSubview(logoLabel)
         view.addSubview(profileButton)

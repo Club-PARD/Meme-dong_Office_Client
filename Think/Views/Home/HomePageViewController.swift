@@ -8,7 +8,7 @@
 import UIKit
 
 class HomePageViewController: UIViewController{
-    
+    let userViewModel = UserViewModel.shared
     let classroomViewModel = ClassroomViewModel.shared
     // MARK: - 교탁
     let rectangleBox = UIView()
@@ -31,10 +31,10 @@ class HomePageViewController: UIViewController{
     }()
     
     // MARK: - collectionView properties
-    var gridColumns: Int
-    var gridRows: Int
-    var spacing: Bool
-    var boxes: [Bool]
+    var gridColumns: Int = 0
+    var gridRows: Int = 0
+    var spacing: Bool = false
+    var boxes: [Bool] = []
     var collectionView: UICollectionView!
     var studentList: [String] = []
     
@@ -75,30 +75,57 @@ class HomePageViewController: UIViewController{
     
     let customView = UIView()
     
-    // MARK: - init
-    init() {
-        self.gridRows = classroomViewModel.classroom.listRow!
-        self.gridColumns = classroomViewModel.classroom.listCol!
-        self.spacing = classroomViewModel.classroom.seatSpacing!
-        self.boxes = Array(repeating: false, count: self.gridRows * self.gridColumns)
-        super.init(nibName: nil, bundle: nil)
+    
+    //MARK: - initialize
+    func loadClassroomData(completion: @escaping () -> Void) {
+        guard let classId = userViewModel.user.studentsListSimple?.last?.id else {
+            print("No classId available")
+            completion()
+            return
+        }
+
+        classroomViewModel.loadClassroomData(classId: classId) { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    guard let gridRows = self?.classroomViewModel.classroom.listRow,
+                          let gridColumns = self?.classroomViewModel.classroom.listCol,
+                          let spacing = self?.classroomViewModel.classroom.seatSpacing else {
+                        print("Failed to unwrap classroom data")
+                        return
+                    }
+                    
+                    self?.gridRows = gridRows
+                    self?.gridColumns = gridColumns
+                    self?.spacing = spacing
+                    self?.boxes = Array(repeating: false, count: gridRows * gridColumns)
+                    completion()
+                } else {
+                    print("Error loading classroom data")
+                }
+            }
+        }
     }
+
     
     
     // MARK: - viewDidLoad
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        configureUI()
+        loadClassroomData() {
+            self.configureUI()
+        }
+        
     }
     
     // MARK: - UI Configuration
     private func configureUI() {
         view.backgroundColor = .white
+        userNameLabel.text = userViewModel.user.name!
         setupNav()
         setupRectangleBox()
         setupCollectionView()

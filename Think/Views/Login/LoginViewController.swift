@@ -364,7 +364,20 @@ class LoginViewController: UIViewController {
                         if success, let user = user {
                             print("✅ user")
                             print(user)
-                            self?.loadClassroomData()
+//                            self?.loadClassroomData()
+                            
+                            if self?.userViewModel.user.studentsListSimple?.count == 0 {
+                                let changeViewController = AddClassViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }else{
+                                let changeViewController = HomePageViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }
+                        
                         } else {
                             print("error")
                         }
@@ -372,26 +385,26 @@ class LoginViewController: UIViewController {
                 }
     }
     
-    func loadClassroomData(){
-        
-        if userViewModel.user.studentsListSimple!.count > 0 {
-            let classId = userViewModel.user.studentsListSimple!.last?.id
-            classroomViewModel.loadClassroomData(classId: classId!){ [weak self] success in
-                DispatchQueue.main.async {
-                    if success  {
-                        print("✅classroom success")
-                        let changeViewController = HomePageViewController()
-                        let navigationController = UINavigationController(rootViewController: changeViewController)
-                        navigationController.modalPresentationStyle = .fullScreen
-                        self?.present(navigationController, animated: true, completion: nil)
-                    
-                    } else {
-                        print("error")
-                    }
-                }
-            }
-        }
-    }
+//    func loadClassroomData(){
+//        
+//        if userViewModel.user.studentsListSimple!.count > 0 {
+//            let classId = userViewModel.user.studentsListSimple!.last?.id
+//            classroomViewModel.loadClassroomData(classId: classId!){ [weak self] success in
+//                DispatchQueue.main.async {
+//                    if success  {
+//                        print("✅classroom success")
+//                        let changeViewController = HomePageViewController()
+//                        let navigationController = UINavigationController(rootViewController: changeViewController)
+//                        navigationController.modalPresentationStyle = .fullScreen
+//                        self?.present(navigationController, animated: true, completion: nil)
+//                    
+//                    } else {
+//                        print("error")
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     
     @objc func findCredentialsButtonTapped() {
