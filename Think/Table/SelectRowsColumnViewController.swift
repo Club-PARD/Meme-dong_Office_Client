@@ -184,19 +184,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
     @objc func confirmTapped() {
         let selectedRow = rowPicker.selectedRow(inComponent: 0) + 1
         let selectedColumn = columnPicker.selectedRow(inComponent: 0) + 1
-        let totalSeats = selectedRow * selectedColumn
 
-        // Check if the student list needs to be filled with placeholders
-        if studentNames.count < totalSeats {
-            // Calculate the number of placeholders needed
-            let placeholdersNeeded = totalSeats - studentNames.count
-
-            // Append placeholders to the end of the studentNames list
-            for _ in 0..<placeholdersNeeded {
-                studentNames.append("-")
-            }
-        }
-        
         // Proceed to the next view controller with the updated student list
         let gridDisplayVC = GridViewController(rows: selectedRow, columns: selectedColumn)
         gridDisplayVC.studentNames = studentNames
