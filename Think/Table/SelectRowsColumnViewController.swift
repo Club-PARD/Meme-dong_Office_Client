@@ -269,7 +269,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
             messageLabel.topAnchor.constraint(equalTo: customAlertView.topAnchor, constant: 100),
 
             cancelButton.centerXAnchor.constraint(equalTo: customAlertView.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: customAlertView.bottomAnchor, constant: -28),
+            cancelButton.bottomAnchor.constraint(equalTo: customAlertView.bottomAnchor, constant: -15),
             cancelButton.widthAnchor.constraint(equalToConstant: 115),
             cancelButton.heightAnchor.constraint(equalToConstant: 40),
             
