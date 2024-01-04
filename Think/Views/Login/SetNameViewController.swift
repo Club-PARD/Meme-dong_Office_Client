@@ -9,6 +9,8 @@ import UIKit
 
 class SetNameViewController: UIViewController {
     var loginViewModel = LoginViewModel()
+    let userViewModel = UserViewModel.shared
+    let classroomViewModel = ClassroomViewModel.shared
     
     var name: String = ""
     var email: String = ""
@@ -213,26 +215,48 @@ class SetNameViewController: UIViewController {
         
         name = confirmPasswordTextField.text!
         
-        let isChecked = LoginAPICaller.shared.makeSignUpPostRequest(with: email, password: password, name: name)
         
-        if isChecked {
-            print("✅ success")
-            
-            // 실제 서버로부터 받은 액세스 토큰과 리프레시 토큰으로 교체
-//            let accessToken = "yourAccessToken"
-//            let refreshToken = "yourRefreshToken"
-//            
-//            // `TokenManager`를 사용하여 토큰 저장
-//            TokenManager.shared.saveTokens(accessToken: accessToken)
-            
-            let changeViewController = AddClassViewController()
-            let navigationController = UINavigationController(rootViewController: changeViewController)
-            navigationController.modalPresentationStyle = .fullScreen
-            present(navigationController, animated: true, completion: nil)
-
-        } else {
-            print("🚨 Invalid signUp")
+        LoginAPICaller.shared.makeSignUpPostRequest(with: email, password: password, name: name) { success in
+            DispatchQueue.main.async {
+                if success {
+                    print("success!!")
+                    self.loadUserData()
+                    
+                    } else {
+                    print("error!!")
+                }
+            }
         }
+        
+    }
+    
+    func loadUserData() {
+        //userViewModel
+        let userId = userViewModel.user.id // 사용자 ID
+        userViewModel.loadUserData(userId: userId!) { [weak self] success, user in
+                    DispatchQueue.main.async {
+                        if success, let user = user {
+                            print("✅ user")
+                            print(user)
+//                            self?.loadClassroomData()
+                            
+                            if self?.userViewModel.user.studentsListSimple?.count == 0 {
+                                let changeViewController = AddClassViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }else{
+                                let changeViewController = HomePageViewController()
+                                let navigationController = UINavigationController(rootViewController: changeViewController)
+                                navigationController.modalPresentationStyle = .fullScreen
+                                self?.present(navigationController, animated: true, completion: nil)
+                            }
+                        
+                        } else {
+                            print("error")
+                        }
+                    }
+                }
     }
 }
 
