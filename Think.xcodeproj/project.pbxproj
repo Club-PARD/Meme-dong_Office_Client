@@ -47,6 +47,8 @@
 		DA1A48F32B45476500C86F80 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */; };
 		DA1A48FC2B45DB2900C86F80 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */; };
 		DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */; };
+		DA1A49042B46859200C86F80 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49032B46859200C86F80 /* Classroom.swift */; };
+		DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */; };
 		DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */; };
 		DAC1876E2B3AC96400A397E4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */; };
 		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
@@ -54,7 +56,7 @@
 		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
 		DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */; };
 		DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37B2B43286F00204063 /* ClassModel.swift */; };
-		DAF0B37E2B432B6800204063 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37D2B432B6800204063 /* StudentModel.swift */; };
+		DAF0B37E2B432B6800204063 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0B37D2B432B6800204063 /* Student.swift */; };
 		DAF31B4D2B355C0A002FD471 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF31B4C2B355C0A002FD471 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		DA1A48F22B45476500C86F80 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA1A49032B46859200C86F80 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
 		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
 		DAC187692B3AAB7800A397E4 /* AppleLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewController.swift; sourceTree = "<group>"; };
 		DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -128,7 +132,7 @@
 		DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectTextViewController.swift; sourceTree = "<group>"; };
 		DAF0B3792B42FFFB00204063 /* AddStudentNameVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentNameVIewController.swift; sourceTree = "<group>"; };
 		DAF0B37B2B43286F00204063 /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
-		DAF0B37D2B432B6800204063 /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		DAF0B37D2B432B6800204063 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		DAF31B4C2B355C0A002FD471 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,7 +211,8 @@
 				CA505EED2B354BB700E1D140 /* User.swift */,
 				DAC1876D2B3AC96400A397E4 /* LoginResponse.swift */,
 				DAF0B37B2B43286F00204063 /* ClassModel.swift */,
-				DAF0B37D2B432B6800204063 /* StudentModel.swift */,
+				DAF0B37D2B432B6800204063 /* Student.swift */,
+				DA1A49032B46859200C86F80 /* Classroom.swift */,
 			);
 			name = Model;
 			path = "ㅡㅐㅇ디";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				CA505EEF2B354BD500E1D140 /* UserViewModel.swift */,
+				DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -507,6 +513,7 @@
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */,
 				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
+				DA1A49042B46859200C86F80 /* Classroom.swift in Sources */,
 				DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */,
 				DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */,
 				DAF0B37C2B43286F00204063 /* ClassModel.swift in Sources */,
@@ -518,7 +525,8 @@
 				909AE4C22B3FF93800C2E501 /* MainHomeViewController.swift in Sources */,
 				90CE461F2B429E740026E264 /* PracticeViewController.swift in Sources */,
 				DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */,
-				DAF0B37E2B432B6800204063 /* StudentModel.swift in Sources */,
+				DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */,
+				DAF0B37E2B432B6800204063 /* Student.swift in Sources */,
 				DAC1876A2B3AAB7800A397E4 /* AppleLoginViewController.swift in Sources */,
 				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
 				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
