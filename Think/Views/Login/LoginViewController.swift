@@ -80,6 +80,34 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
+    lazy var saveLoginCheckbox: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "checkbox_unchecked"), for: .normal)
+        button.setImage(UIImage(named: "checkbox_checked"), for: .selected)
+        button.addTarget(self, action: #selector(toggleCheckbox), for: .touchUpInside)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(red: 0x97 / 255.0, green: 0x97 / 255.0, blue: 0x97 / 255.0, alpha: 1).cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    lazy var saveLoginLabel: UILabel = {
+        let label = UILabel()
+        label.text = "로그인 정보 저장하기"
+        label.textColor = UIColor(red: 0xAB / 255.0, green: 0xAB / 255.0, blue: 0xAB / 255.0, alpha: 1)
+        
+        if let pretendardFont = UIFont(name: "Pretendard", size: 14) {
+            label.font = pretendardFont
+        } else {
+            label.font = UIFont.systemFont(ofSize: 14)
+        }
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+
     lazy var signUpButton: UIButton = {
         let signUp = UIButton(type: .system)
         signUp.setTitle("로그인", for: .normal)
@@ -124,14 +152,17 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        setupCheckboxAndLabel()
     }
     
     func configureSignUpButtonColor() {
-        let isEmailTextFieldEmpty = emailTextField.text?.isEmpty ?? true
-        let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty ?? true
-        let shouldChangeButtonColor = !isEmailTextFieldEmpty && !isPasswordTextFieldEmpty
+        let isEmailValid = isEmailValid(emailTextField.text ?? "")
+        let isPasswordNotEmpty = !(passwordTextField.text?.isEmpty ?? true)
 
-        // 색상 설정
+        let shouldChangeButtonColor = isEmailValid && isPasswordNotEmpty
+
+        signUpButton.isEnabled = shouldChangeButtonColor
+
         signUpButton.backgroundColor = shouldChangeButtonColor ? UIColor(
             red: 255 / 255.0,
             green: 214 / 255.0,
@@ -147,6 +178,17 @@ class LoginViewController: UIViewController {
         signUpButton.setTitleColor(shouldChangeButtonColor ? .black : .white, for: .normal)
     }
 
+    func isPasswordValid(_ password: String) -> Bool {
+        let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}$"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordTest.evaluate(with: password)
+    }
+    
+    func isEmailValid(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: email)
+    }
     
     func setupWelcomeLabels() {
         view.addSubview(welcomeLabel)
@@ -175,6 +217,22 @@ class LoginViewController: UIViewController {
             lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8), // Adjust the spacing as needed
             lineView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+    }
+    func setupCheckboxAndLabel() {
+        view.addSubview(saveLoginCheckbox)
+        view.addSubview(saveLoginLabel)
+        
+        NSLayoutConstraint.activate([
+            saveLoginCheckbox.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            saveLoginCheckbox.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 42),
+            saveLoginCheckbox.widthAnchor.constraint(equalToConstant: 20),
+            saveLoginCheckbox.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        NSLayoutConstraint.activate([
+            saveLoginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 54),
+            saveLoginLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 45)
         ])
     }
     
@@ -217,8 +275,17 @@ class LoginViewController: UIViewController {
     }
     
     @objc func signUpButtonTapped() {
-        email = emailTextField.text!
-        password = passwordTextField.text!
+        guard let email = emailTextField.text, isEmailValid(email),
+              let password = passwordTextField.text
+                else {
+            print("🚨 Invalid input")
+            return
+        }
+
+        guard isPasswordValid(password) else {
+            print("🚨 Invalid password")
+            return
+        }
 
         let isLoginchecked = LoginAPICaller.shared.makeLoginRequest(with: email, password: password)
         
@@ -257,6 +324,12 @@ class LoginViewController: UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    @objc func toggleCheckbox() {
+        saveLoginCheckbox.isSelected = !saveLoginCheckbox.isSelected
+    }
+    
+
 }
 
 extension LoginViewController: UITextFieldDelegate {
