@@ -13,11 +13,12 @@ let urlLink = "http://13.125.210.242:8080/" // 서버 주소
 class LoginAPICaller {
     static let shared = LoginAPICaller()
     
-    func makeSignUpPostRequest(with email: String, password: String, name: String)-> Bool {
+    func makeSignUpPostRequest(with email: String, password: String, name: String, completion: @escaping (Bool) -> Void) {
         // 서버 링크가 유효한지 확인
         guard let url = URL(string: "http://13.125.210.242:8080/api/v1/auth/users") else {
             print("🚨 Invalid URL")
-            return false
+            completion(false)
+            return
         }
         // request 생성하기
         var request = URLRequest(url: url)
@@ -36,16 +37,16 @@ class LoginAPICaller {
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else {
                 print("🚨 Error: \(error?.localizedDescription ?? "Unknown error")")
+                completion(false)
                 return
             }
             do {
                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                     // 토큰 추출
                     let accessToken = jsonResponse["accessToken"] as? String
-//                    let refreshToken = jsonResponse["refreshToken"] as? String
                     print("✅ success: \(jsonResponse)")
                     print("✅ success: \(accessToken)")
-//                    print("✅ success: \(refreshToken)")
+
                     
                     // 추출된 토큰을 TokenManager를 통해 저장
                     if let accessToken = accessToken {
@@ -53,13 +54,24 @@ class LoginAPICaller {
                     }
                     
                     
+                    let userId = jsonResponse["userId"] as? Int
+                    if let id = userId {
+                        print(id)
+                        UserViewModel.shared.user.id = id
+                        print(UserViewModel.shared.user.id)
+                    }
+                    
+                    
+                    completion(true)
+                    
                 }
             } catch {
                 print("🚨 ", error)
+                completion(false)
+                return
             }
         }
         task.resume()
-        return true
     }
     
     // MARK: - Login -> 로그인 정보를 구현하는 함수

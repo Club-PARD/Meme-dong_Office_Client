@@ -23,11 +23,11 @@
 
 | **김민섭(iOS)** | **김형진(iOS)** | **이신원(iOS)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @hyungjin0105](https://github.com/hyungjin0105) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @mingseobi](https://github.com/mingseobi)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
 
 | **강산길(PM)** | **임예진(Design)** | **서하민(Server)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @heejiyang](https://github.com/heejiyang) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/ggm77) | 
 
 
 </div>
@@ -36,10 +36,10 @@
 
 ## 1. 개발 환경
 
-- Front : HTML, React, styled-components, Recoil
-- Back-end : 제공된 API 활용
+- Front : Swift
+- Back-end : Java 
 - 버전 및 이슈관리 : Github, Github Issues, Github Project
-- 협업 툴 : Discord, Notion, Github Wiki
+- 협업 툴 : Notion, Figma
 - 서비스 배포 환경 : Netlify
 - 디자인 : [Figma](https://www.figma.com/file/fAisC2pEKzxTOzet9CfqML/README(oh-my-code)?node-id=39%3A1814)
 - [커밋 컨벤션](https://github.com/likelion-project-README/README/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98)
@@ -158,7 +158,7 @@
 
 ## 4. 역할 분담
 
-### 🍊고지연
+### 🍊강산길
 
 - **UI**
     - 페이지 : 홈, 검색, 게시글 작성, 게시글 수정, 게시글 상세, 채팅방
@@ -168,7 +168,7 @@
 
 <br>
     
-### 👻김민제
+### 👻임예진
 
 - **UI**
     - 페이지 : 프로필 설정, 프로필 수정, 팔로잉&팔로워 리스트, 상품 등록, 상품 수정, 채팅 목록, 404 페이지
@@ -178,7 +178,7 @@
 
 <br>
 
-### 😎양희지
+### 😎김형진
 
 - **UI**
     - 페이지 : splash 페이지, sns 로그인 페이지, 로그인, 회원가입
@@ -188,7 +188,27 @@
 
 <br>
 
-### 🐬지창언
+### 🐬김민섭
+
+- **UI**
+    - 페이지 : 사용자 프로필 페이지
+    - 공통 컴포넌트 : 탑배너, 하단 모달창
+- **기능**
+    - 팔로우 & 언팔로우, 로그아웃, 하단 모달창, 댓글 삭제, 게시글 삭제, 상품 삭제, 사용자 게시글 앨범형 이미지, 탑 배너 뒤로가기 버튼, Alert 모달
+    
+<br>
+
+### 🐬이신원
+
+- **UI**
+    - 페이지 : 사용자 프로필 페이지
+    - 공통 컴포넌트 : 탑배너, 하단 모달창
+- **기능**
+    - 팔로우 & 언팔로우, 로그아웃, 하단 모달창, 댓글 삭제, 게시글 삭제, 상품 삭제, 사용자 게시글 앨범형 이미지, 탑 배너 뒤로가기 버튼, Alert 모달
+    
+<br>
+
+### 🐬서하민
 
 - **UI**
     - 페이지 : 사용자 프로필 페이지
