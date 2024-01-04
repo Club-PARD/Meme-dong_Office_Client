@@ -270,5 +270,12 @@ extension HomePageViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailVC = DetailBottomSheetViewController(index: indexPath.row)
+        detailVC.modalPresentationStyle = .overFullScreen
+        self.present(detailVC, animated: false, completion: nil)
+    }
+    
 }
 

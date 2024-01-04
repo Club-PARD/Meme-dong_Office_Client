@@ -1,6 +1,7 @@
 import UIKit
 
 class DetailBottomSheetViewController:UIViewController {
+    let classroomViewModel = ClassroomViewModel.shared
      
      var bottomSheetPanMinTopConstant: CGFloat = 30.0
      private lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
@@ -8,11 +9,6 @@ class DetailBottomSheetViewController:UIViewController {
     private let bottomSheetWidth: CGFloat = 200
     
     private var bottomSheetViewLeadingConstraint: NSLayoutConstraint!
-    
-     override func viewDidAppear(_ animated: Bool){
-         super.viewDidAppear(animated)
-         showBottomSheet()
-     }
      
      private let dimmedView: UIView = {
          let view = UIView()
@@ -34,7 +30,7 @@ class DetailBottomSheetViewController:UIViewController {
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
-        let image = UIImage(named: "Xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
+        let image = UIImage(systemName: "xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
         button.setImage(image, for: .normal)
         button.tintColor = .black // 필요한 경우 이미지의 색상을 변경
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -132,25 +128,54 @@ class DetailBottomSheetViewController:UIViewController {
          button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
          return button
      }()
-
-//     private func configureLabelBackground(for label: UILabel) {
-//         label.backgroundColor = UIColor(red: 209/255.0, green: 234/255.0, blue: 255/255.0, alpha: 1.0)
-//         label.textColor = .black // 텍스트 색상 설정
-//         label.layer.cornerRadius = 5.0 // 둥근 모서리 설정
-//         label.clipsToBounds = true
-//     }
-
-
-     
+    
+    
+    
      private var bottomSheetViewTopConstraint: NSLayoutConstraint!
+    
+    var index:Int
+    
+    // MARK: - Initializer
+    init(index: Int) {
+        self.index = index
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        showBottomSheet()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        
+        
+        let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
+            dimmedView.addGestureRecognizer(dimmedTap)
+            dimmedView.isUserInteractionEnabled = true
+        
+        
+    }
+    
      
      private func setupUI(){
+         
+         studentNameLabel.text = classroomViewModel.classroom.studentsList?[index].name
+         updatedAllergiesLabel.text = classroomViewModel.classroom.studentsList?[index].allergy
+         updatedBirthdateLabel.text = classroomViewModel.classroom.studentsList?[index].birthday
+         updatedOtherInfoLabel.text = classroomViewModel.classroom.studentsList?[index].etc
          view.addSubview(dimmedView)
          view.addSubview(bottomSheetView)
           view.addSubview(closeButton)
                   
          setupLayout()
      }
+    
      
      private func setupLayout(){
           
@@ -320,20 +345,9 @@ class DetailBottomSheetViewController:UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+
     
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         setupUI()
-         
-         
-         let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
-             dimmedView.addGestureRecognizer(dimmedTap)
-             dimmedView.isUserInteractionEnabled = true
-         
-         
-         
-         
-     }
+    
      @objc private func closeButtonTapped() {
           hideBottomSheetAndGoBack()
      }
@@ -400,4 +414,3 @@ class DetailBottomSheetViewController:UIViewController {
     }
 
 }
-
