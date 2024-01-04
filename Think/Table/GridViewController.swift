@@ -77,8 +77,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // Constraints for the label to position it above backGroundBox2
         NSLayoutConstraint.activate([
-            infoLabel.bottomAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: -12),
-            infoLabel.centerXAnchor.constraint(equalTo: backGroundBox2.centerXAnchor),
+            infoLabel.bottomAnchor.constraint(equalTo: backGroundBox1.topAnchor, constant: -12),
+            infoLabel.centerXAnchor.constraint(equalTo: backGroundBox1.centerXAnchor),
         ])
     }
 
@@ -91,8 +91,8 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.addSubview(infoLabel2)
         
         NSLayoutConstraint.activate([
-            infoLabel2.bottomAnchor.constraint(equalTo: backGroundBox1.topAnchor, constant: -5),
-            infoLabel2.centerXAnchor.constraint(equalTo: backGroundBox1.centerXAnchor),
+            infoLabel2.bottomAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: -12),
+            infoLabel2.centerXAnchor.constraint(equalTo: backGroundBox2.centerXAnchor),
         ])
     }
     
@@ -208,7 +208,7 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     
     private func setupTeacherTable() {
-        teacherTable.backgroundColor = .darkGray // Change color to dark grey
+        teacherTable.backgroundColor = UIColor.disabled
         teacherTable.translatesAutoresizingMaskIntoConstraints = false
         teacherTable.layer.cornerRadius = 10
         teacherTable.layer.masksToBounds = true
