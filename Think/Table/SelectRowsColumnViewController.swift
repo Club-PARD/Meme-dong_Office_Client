@@ -16,6 +16,9 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
     let rowLabel = UILabel()
     let columnLabel = UILabel()
 
+    let infoLabel = UILabel()
+    let line = UIView()
+
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 2
@@ -47,14 +50,14 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .hintGrey
+        view.backgroundColor = UIColor.backgroundGrey
         print(studentNames)
-        setupNav()
         setupViews()
         setupConstraints()
         // Set initial picker selection to 4
         rowPicker.selectRow(3, inComponent: 0, animated: false)
         columnPicker.selectRow(3, inComponent: 0, animated: false)
+        setupInfoLabel()
 
         // Update the grid based on the initial selection
         updateSelectionFromPickers()
@@ -71,12 +74,14 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
         setupTeacherTable()
         setupLabels()
         setupConfirmButton()
+        setUpLine()
+
         setupNav() // Call the function to setup navigation bar
 
     }
     
     private func setupTeacherTable() {
-        teacherTable.backgroundColor = .darkGray // Change color to dark grey
+        teacherTable.backgroundColor = UIColor.disabled // Change color to dark grey
         teacherTable.translatesAutoresizingMaskIntoConstraints = false
         teacherTable.layer.cornerRadius = 10
         teacherTable.layer.masksToBounds = true
@@ -96,7 +101,14 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
             boxLabel.centerYAnchor.constraint(equalTo: teacherTable.centerYAnchor)
         ])
     }
-
+    
+    private func setUpLine() {
+        line.backgroundColor = UIColor.hintGrey
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.layer.masksToBounds = true
+        view.addSubview(line)
+    }
+    
     private func setupBackGroundBox() {
         backGroundBox1.backgroundColor = .white // Change color to dark grey
         backGroundBox1.translatesAutoresizingMaskIntoConstraints = false
@@ -118,14 +130,33 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
     private func setupLabels() {
         rowLabel.text = "세로"
         rowLabel.textAlignment = .center
+        rowLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         rowLabel.translatesAutoresizingMaskIntoConstraints = false
 
         columnLabel.text = "가로"
         columnLabel.textAlignment = .center
+        columnLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         columnLabel.translatesAutoresizingMaskIntoConstraints = false
 
     }
 
+    // MARK: - InfoLabel
+    private func setupInfoLabel() {
+        infoLabel.text = "좌석 값을 설정해주세요"
+        infoLabel.textColor = UIColor.disabled
+        infoLabel.textAlignment = .center
+        infoLabel.font = UIFont.systemFont(ofSize: 14, weight: .light) // Set the font and size
+        infoLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(infoLabel)
+        
+        // Constraints for the label to position it above backGroundBox2
+        NSLayoutConstraint.activate([
+            infoLabel.bottomAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: -12),
+            infoLabel.centerXAnchor.constraint(equalTo: backGroundBox2.centerXAnchor),
+        ])
+    }
+
+    
     private func setupConfirmButton() {
         confirmButton.setTitle("완료", for: .normal)
         confirmButton.backgroundColor = UIColor.mainYellow // Use a custom yellow color if needed
@@ -177,12 +208,12 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
             
             backGroundBox1.bottomAnchor.constraint(equalTo: teacherTable.bottomAnchor, constant: 25),
             backGroundBox1.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            backGroundBox1.widthAnchor.constraint(equalToConstant: 340), // Set the width as needed
+            backGroundBox1.widthAnchor.constraint(equalToConstant: 343), // Set the width as needed
             backGroundBox1.heightAnchor.constraint(equalToConstant: 340),  // Set the height as needed
             
             backGroundBox2.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 50),
             backGroundBox2.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            backGroundBox2.widthAnchor.constraint(equalToConstant: 340), // Set the width as needed
+            backGroundBox2.widthAnchor.constraint(equalToConstant: 343), // Set the width as needed
             backGroundBox2.heightAnchor.constraint(equalToConstant: 168),  // Set the height as needed
             
             //선생님 박스. 위치가 화면에 고정되어 있어 디바이스마다 다를수도..
@@ -197,25 +228,32 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight),
 
-            rowPicker.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -100),
+            rowLabel.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -125),
+            rowLabel.topAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: 15),
+
+            columnLabel.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 125),
+            columnLabel.topAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: 15),
+            
+            line.topAnchor.constraint(equalTo: backGroundBox2.topAnchor, constant: 38),
+            line.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            line.widthAnchor.constraint(equalToConstant: 294), // Set the width as needed
+            line.heightAnchor.constraint(equalToConstant: 1),  // Set the height as needed
+            
+            
+            rowPicker.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -95),
             rowPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
             rowPicker.heightAnchor.constraint(equalToConstant: pickerHeight),
             rowPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
-
-            rowLabel.trailingAnchor.constraint(equalTo: backGroundBox2.trailingAnchor, constant: -120),
-            rowLabel.bottomAnchor.constraint(equalTo: rowPicker.topAnchor, constant: 5),
-
+            
             columnPicker.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 100),
             columnPicker.widthAnchor.constraint(equalToConstant: pickerWidth),
             columnPicker.heightAnchor.constraint(equalToConstant: pickerHeight),
             columnPicker.topAnchor.constraint(equalTo: backGroundBox1.bottomAnchor, constant: 80),
 
-            columnLabel.leadingAnchor.constraint(equalTo: backGroundBox2.leadingAnchor, constant: 120),
-            columnLabel.bottomAnchor.constraint(equalTo: columnPicker.topAnchor, constant: 5),
-            
+
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            confirmButton.widthAnchor.constraint(equalToConstant: 340), // Width of the button
+            confirmButton.widthAnchor.constraint(equalToConstant: 343), // Width of the button
             confirmButton.heightAnchor.constraint(equalToConstant: 44) // Height of the button
             
            
@@ -230,7 +268,7 @@ class SelectRowsColumnViewController: UIViewController, UICollectionViewDelegate
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = boxes[indexPath.row] ? UIColor.mainYellow : UIColor.gray
+        cell.backgroundColor = boxes[indexPath.row] ? UIColor.mainYellow : UIColor.hintGrey
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
