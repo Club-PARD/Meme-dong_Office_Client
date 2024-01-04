@@ -242,10 +242,11 @@ class DetectTextViewController: UIViewController, UIImagePickerControllerDelegat
                    studentNameList.removeAll { $0 == topCandidate.string }
                }
     
-        
+        bottomSheetVC.updateStudentNameLabel(with: studentNameList)
+        bottomSheetVC.updateCountLabel() // 학생 수 라벨을 업데이트합니다.
+            
         print("Selected text: \(topCandidate.string)")
 //        print(studentNameList)
-        bottomSheetVC.updateStudentNameLabel(with: studentNameList)
     }
     
     func setupBottomSheet(){
@@ -317,6 +318,33 @@ class AddBottomSheetViewController: UIViewController{
         return button
     }()
     
+    let roundedBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2) // 색상과 투명도 조정
+        view.layer.cornerRadius = 20 // 원하는 둥근 모서리 정도 조정
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let countLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .clear
+        label.textAlignment = .right
+
+        // iOS에서 Pretendard 폰트를 사용하기 위해선 앱에 해당 폰트가 포함되어 있어야 하며,
+        // 폰트 이름을 정확히 알아야 합니다. 아래는 예시일 뿐입니다.
+        if let pretendardFont = UIFont(name: "Pretendard-Regular", size: 17) {
+            label.font = pretendardFont
+        } else {
+            label.font = UIFont.systemFont(ofSize: 17) // 폰트가 없을 경우 시스템 폰트 사용
+        }
+
+        label.textColor = UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1)
+        return label
+    }()
+
+    
     var selectedStudentNameLabel:UILabel = UILabel()
     
     @objc func nextButtonAction() {
@@ -328,7 +356,6 @@ class AddBottomSheetViewController: UIViewController{
         navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.pushViewController(changeViewController, animated: true)
     }
-
     
     @objc func additionalAddButtonAction(){
         cameraHandler.currentViewController = self // 현재 뷰 컨트롤러 참조 설정
@@ -360,6 +387,8 @@ class AddBottomSheetViewController: UIViewController{
         super.viewDidLoad()
         setupBottomSheet()
         setupUI()
+        setupRoundedBackground() // 둥근 배경을 설정하는 메소드 호출
+        setupCountLabel() // 학생 수 라벨을 설정하는 메소드 호출
     }
     
     func setupUI(){
@@ -373,13 +402,13 @@ class AddBottomSheetViewController: UIViewController{
         additionalAddButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         
-        selectedStudentNameLabel.numberOfLines = 6
+        selectedStudentNameLabel.numberOfLines = 5
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
-            selectedStudentNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            selectedStudentNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            selectedStudentNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            selectedStudentNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             selectedStudentNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             //selectedStudentNameLabel.heightAnchor.constraint(equalToConstant: 40),
             additionalAddButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
@@ -395,6 +424,34 @@ class AddBottomSheetViewController: UIViewController{
             nextButton.heightAnchor.constraint(equalToConstant: 44),
         ])
         
+    }
+    
+    func setupRoundedBackground() {
+        // roundedBackgroundView를 selectedStudentNameLabel 아래에 추가
+        view.insertSubview(roundedBackgroundView, belowSubview: selectedStudentNameLabel)
+        
+        // 둥근 배경 뷰에 대한 제약 조건 설정
+        NSLayoutConstraint.activate([
+            roundedBackgroundView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            roundedBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 42),
+            roundedBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -42),
+            roundedBackgroundView.heightAnchor.constraint(equalToConstant: 170),
+            roundedBackgroundView.widthAnchor.constraint(equalToConstant: 265)
+        ])
+    }
+    
+    func setupCountLabel() {
+        view.addSubview(countLabel)
+        
+        NSLayoutConstraint.activate([
+            countLabel.trailingAnchor.constraint(equalTo: roundedBackgroundView.trailingAnchor, constant: -10),
+            countLabel.bottomAnchor.constraint(equalTo: roundedBackgroundView.bottomAnchor, constant: -10),
+        ])
+    }
+        
+    func updateCountLabel() {
+        let countText = "\(studentNameList.count)명"
+        countLabel.text = countText
     }
     
     private func setupBottomSheet() {
