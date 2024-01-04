@@ -692,6 +692,15 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
            }
        }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewWillAppear(_ animated: Bool) {
         appDelegate.shouldSupportAllOrientation = false

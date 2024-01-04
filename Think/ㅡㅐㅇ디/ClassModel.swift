@@ -14,6 +14,6 @@ struct ClassModel{
     let col:Int
     let seatSpacing: String
     let studentCount: Int
-    var studentList: [StudentModel]
+    var studentList: [Student]
 }
 
