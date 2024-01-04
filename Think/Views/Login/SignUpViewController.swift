@@ -83,13 +83,23 @@ class SignUpViewController: UIViewController {
     lazy var passwordWarningLabel: UILabel = {
         let label = UILabel()
         label.text = "영문/숫자 필수 1개 이상 포함해주세요"
-        label.textColor = .red
+        
+        label.textColor = UIColor(red: 0xFF / 255.0, green: 0x7A / 255.0, blue: 0x2E / 255.0, alpha: 1.0)
+        
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 11)
+
+        // Pretendard 폰트 설정. 시스템 폰트로 대체하거나 필요 시 다운로드/임베딩
+        if let pretendardFont = UIFont(name: "Pretendard", size: 11) {
+            label.font = pretendardFont
+        } else {
+            label.font = UIFont.systemFont(ofSize: 11)
+        }
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isHidden = true // 처음에는 숨김 상태로 시작
         return label
     }()
+
 
     
     lazy var confirmPasswordCheckLabel: UILabel = {

@@ -95,9 +95,26 @@ class SetNameViewController: UIViewController {
         return signUp
     }()
     
+    func setupBackButton() {
+        let backButton = UIButton(type: .system)
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        backButton.tintColor = .black // 버튼 색상 변경 (옵셔널)
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+
+    @objc func backButtonTapped() {
+        let loginViewcController = SignUpViewController()
+        let navigationController = UINavigationController(rootViewController: loginViewcController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupBackButton()
         setupTextFields()
         setupWelcomeLabels()
         configureSignUpButtonColor()
@@ -124,7 +141,7 @@ class SetNameViewController: UIViewController {
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8), // Adjust the spacing as needed
+            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 12), // Adjust the spacing as needed
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
         

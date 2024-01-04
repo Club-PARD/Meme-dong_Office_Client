@@ -143,9 +143,45 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    func setupBackButton() {
+        let backButton = UIButton(type: .system)
+        backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        backButton.tintColor = .black // 버튼 색상 변경 (옵셔널)
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+
+    @objc func backButtonTapped() {
+        let loginViewcController = WelcomeViewController()
+        let navigationController = UINavigationController(rootViewController: loginViewcController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    lazy var passwordWarningLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이메일/비밀번호를 확인해주세요"
+        
+        label.textColor = UIColor(red: 0xFF / 255.0, green: 0x7A / 255.0, blue: 0x2E / 255.0, alpha: 1.0)
+        
+        label.textAlignment = .left
+
+        // Pretendard 폰트 설정. 시스템 폰트로 대체하거나 필요 시 다운로드/임베딩
+        if let pretendardFont = UIFont(name: "Pretendard", size: 11) {
+            label.font = pretendardFont
+        } else {
+            label.font = UIFont.systemFont(ofSize: 11)
+        }
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true // 처음에는 숨김 상태로 시작
+        return label
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupBackButton()
         setupTextFields()
         setupWelcomeLabels()
         configureSignUpButtonColor()
@@ -181,8 +217,11 @@ class LoginViewController: UIViewController {
     func isPasswordValid(_ password: String) -> Bool {
         let passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,20}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordTest.evaluate(with: password)
+        let isValid = passwordTest.evaluate(with: password)
+        passwordWarningLabel.isHidden = isValid
+        return isValid
     }
+
     
     func isEmailValid(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -215,7 +254,7 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8), // Adjust the spacing as needed
+            lineView.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 12), // Adjust the spacing as needed
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
@@ -240,12 +279,17 @@ class LoginViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(signUpButton)
-        
         view.addSubview(findCredentialsButton)
 
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-
+        view.addSubview(passwordWarningLabel)
+            
+        NSLayoutConstraint.activate([
+            passwordWarningLabel.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
+            passwordWarningLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3),
+            passwordWarningLabel.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor)
+        ])
         
         NSLayoutConstraint.activate([
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
@@ -310,8 +354,11 @@ class LoginViewController: UIViewController {
     }
 
     @objc func textFieldDidChange() {
+        guard let password = passwordTextField.text else { return }
+        _ = isPasswordValid(password)
         configureSignUpButtonColor()
     }
+
     
 
 
