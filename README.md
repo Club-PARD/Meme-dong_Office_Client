@@ -296,13 +296,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 |----------|----------|
 |<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=500> 
 
-
-
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=1000> <br/>
-
-
-
+| 카메라 | 카메라 |
+|----------|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=500> 
 
 <br>
 
