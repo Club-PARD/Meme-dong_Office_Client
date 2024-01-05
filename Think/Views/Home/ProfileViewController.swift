@@ -168,23 +168,13 @@ class ProfileViewController:UIViewController {
     
     
      private var bottomSheetViewTopConstraint: NSLayoutConstraint!
-    
-    var index:Int
+
     
     //MARK: layout
     var initialImageButtonConstraints: [NSLayoutConstraint] = []
     var roundBackgroundViewConstraints: [NSLayoutConstraint] = []
     var editCompleteButtonConstraints: [NSLayoutConstraint] = []
     
-    // MARK: - Initializer
-    init(index: Int) {
-        self.index = index
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
@@ -206,11 +196,7 @@ class ProfileViewController:UIViewController {
     
      
      private func setupUI(){
-         
-         studentNameLabel.text = classroomViewModel.classroom.studentsList?[index].name
-         alleTextField.text = classroomViewModel.classroom.studentsList?[index].allergy
-         birthTextField.text = classroomViewModel.classroom.studentsList?[index].birthday
-         otherInfoTextField.text = classroomViewModel.classroom.studentsList?[index].etc
+        
          view.addSubview(dimmedView)
          view.addSubview(bottomSheetView)
           view.addSubview(closeButton)

@@ -262,8 +262,9 @@ class HomePageViewController: UIViewController{
     @objc func profileButtonAction(){
         print("profileButtonTapped")
         
-//        let changeViewController = 
-//        navigationController?.pushViewController(changeViewController, animated: true)
+        let detailVC = ProfileViewController()
+        detailVC.modalPresentationStyle = .overFullScreen
+        self.present(detailVC, animated: false, completion: nil)
     }
     
     @objc func studyButtonAction(){
