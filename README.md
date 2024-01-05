@@ -313,8 +313,8 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" height=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" height=1000>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>
 
 
 
