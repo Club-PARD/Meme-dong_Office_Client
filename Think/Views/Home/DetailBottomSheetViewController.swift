@@ -230,7 +230,13 @@ class DetailBottomSheetViewController:UIViewController {
          
          studentNameLabel.text = classroomViewModel.classroom.studentsList?[index].name
          alleTextField.text = classroomViewModel.classroom.studentsList?[index].allergy
-         birthTextField.text = classroomViewModel.classroom.studentsList?[index].birthday
+         
+         let dateTimeString = classroomViewModel.classroom.studentsList?[index].birthday
+         let dateString = dateTimeString?.split(separator: "T").first.map(String.init) ?? ""
+         print(dateString)
+         
+         birthTextField.text = dateString
+         
          otherInfoTextField.text = classroomViewModel.classroom.studentsList?[index].etc
          view.addSubview(dimmedView)
          view.addSubview(bottomSheetView)
