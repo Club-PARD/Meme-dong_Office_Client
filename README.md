@@ -68,7 +68,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | **강산길(PM)** | **임예진(Design)** | **서하민(Server)** |
 | :------: |  :------: | :------: |
-| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @yeon1615](https://github.com/yeon1615)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/ggm77) | 
+| [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c153e794-4d15-42ae-bdaf-717bc3177f9b" height=150 width=150> <br/> @Cheorizzang](https://github.com/Cheorizzang) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/b164adbb-b361-47a3-9c87-4800f3fa3840" height=150 width=150> <br/> @I-mYejin](https://github.com/I-mYejin)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/07c37d52-377c-4bf0-8d14-b6f7985996af" height=150 width=150> <br/> @ggm77](https://github.com/ggm77) | 
 
 
 </div>
