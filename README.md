@@ -252,7 +252,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 초기화면 |
 |----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/59d37b23-a490-419f-9555-1fba28dc2fa0" width=1000> <br/>|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/59d37b23-a490-419f-9555-1fba28dc2fa0" height=1000> <br/>|
 
 <br>
 
