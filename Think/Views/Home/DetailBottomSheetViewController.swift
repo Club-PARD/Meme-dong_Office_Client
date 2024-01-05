@@ -439,6 +439,22 @@ class DetailBottomSheetViewController:UIViewController {
      }
     
     @objc private func editCompleteButtonAction(){
+        //modifyStudentDetail(index:Int, completion: @escaping (Bool) -> Void)
+        
+        classroomViewModel.classroom.studentsList?[index].birthday = birthTextField.text
+        classroomViewModel.classroom.studentsList?[index].allergy = alleTextField.text
+        classroomViewModel.classroom.studentsList?[index].etc = otherInfoTextField.text
+        
+        ClassroomViewModel.shared.modifyStudentDetail(index: index) { success in
+            DispatchQueue.main.async {
+                if success {
+                    print("변경 success!!")
+                    
+                    } else {
+                    print("error!!")
+                }
+            }
+        }
         
         
     }
