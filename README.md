@@ -333,7 +333,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
 |----------|----------|
-![simulator_screenshot_EED96E0B-E025-4629-BF0F-C4B1899159C9](https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7)
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7" height=1000> <br/>|
 
 <br>
 
@@ -343,7 +343,8 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 로그아웃 |
 |----------|
-![simulator_screenshot_590075CE-0AA4-4FCF-A252-91BD6DCE1DD1](https://github.com/Club-PARD/Think_Client/assets/122345011/e1d4b3fc-7635-4ccd-9c27-bb1443fa4367)
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e1d4b3fc-7635-4ccd-9c27-bb1443fa4367" height=1000>|
+
 
 <br>
 
