@@ -290,9 +290,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 카메라 | 카메라 | 카메라 |
 |----------|----------|----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=1000> <br/> |
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=1000> <br/> |
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=1000> <br/> |
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=500> <br/> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=500> <br/> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=500> <br/> |
 
 
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=1000> <br/>
