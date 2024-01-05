@@ -138,46 +138,38 @@ Think를 통해 학생들과 더 빨리 친해집시다!
      ├── atoms
      │     ├── LoginData.js
      │     └── LoginState.js
-     ├── common
-     │     ├── alert
-     │     │     ├── Alert.jsx
-     │     │     └── Alert.Style.jsx
-     │     ├── button
-     │     ├── comment
-     │     ├── inputBox
-     │     ├── post
-     │     ├── postModal
-     │     ├── product
-     │     ├── tabMenu
-     │     ├── topBanner
-     │     └── userBanner
-     ├── pages
-     │     ├── addProduct
-     │     │     ├── AddProduct.jsx
-     │     │     └── AddProduct.Style.jsx
-     │     ├── chatList
-     │     ├── chatRoom
-     │     ├── emailLogin
-     │     ├── followerList
-     │     ├── followingList
-     │     ├── home
-     │     ├── join
-     │     ├── page404
-     │     ├── postDetail
-     │     ├── postEdit
-     │     ├── postUpload
-     │     ├── productEdit
-     │     ├── profile
-     │     ├── profileEdit
-     │     ├── profileSetting
-     │     ├── search
-     │     ├── snsLogin
-     │     └── splash
-     ├── routes
-     │     ├── privateRoutes.jsx
-     │     └── privateRoutesRev.jsx  
-     └── styles
-           └── Globalstyled.jsx
+     ├── Model
+     │     ├── User.swift
+     │     ├── Student.swift
+     │     └── Classroom.swift
+     ├── Views
+     │     ├── Login
+     │     │     ├── WelcomViewController.swift
+     │     │     ├── SignUpViewController.swift
+     │     │     ├── SetNameViewController.swift
+     │     │     └── LoginViewController.swift
+     │     ├── AddClass
+     │     │     ├── AddClassViewController.swift
+     │     │     ├── CameraHandler.swift
+     │     │     ├── AddStudentNameVIewController.swift
+     │     │     └── DetectTextViewController.swift
+     │     ├── Table
+     │     │     ├── SelectRowsColumnViewController.swift
+     │     │     ├── GridViewController.swift
+     │     │     └── CustomGridLayout.swift
+     │     ├── AddClass
+     │     │     ├── HomePageViewController.swift
+     │     │     ├── HomeCustomCollectionViewCell.swift
+     │     │     ├── DetailBottomSheetViewController.swift
+     │     │     └── ProfileViewController.swift
+     │     └── Study
+     │           ├── LearnViewController.swift
+     │           ├── LearnCustomCollectionViewCell.swift
+     │           └── CustomCollectionView.swift
+     │
+     └── Design
+           ├── ColorSystem.swift
+           └── FontSystem.swift 
 ```
 
 <br>
