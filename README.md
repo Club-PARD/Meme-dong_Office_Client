@@ -1,6 +1,5 @@
 # 📖 Think_Client 서비스앱 README
-
-![readme_mockup2](https://user-images.githubusercontent.com/112460466/210706312-6a44b60d-a42e-4210-b334-9e5983f70fb3.png)
+![image](https://github.com/Club-PARD/Think_Client/assets/122345011/3c067381-29a9-4f6f-b8c9-ed1d83fdd0ec)
 
 <br>
 
@@ -58,7 +57,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 <div align="center">
 
-| **김민섭(iOS)** | **김형진(iOS)** | **이신원(iOS)** |
+| **김형진(iOS)** | **김민섭(iOS)** | **이신원(iOS)** |
 | :------: |  :------: | :------: |
 | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @hyungjin0105](https://github.com/hyungjin0105) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @mingseobi](https://github.com/mingseobi)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
 
@@ -215,13 +214,13 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 <br>
 
-### 🐬김민섭(Front-End)
+### 🧑🏻‍💻김민섭(Front-End)
 
 - **UI**
-    - 페이지 : 사용자 프로필 페이지
-    - 공통 컴포넌트 : 탑배너, 하단 모달창
+    - 페이지 : 회원가입, 로그인 페이지, 홈페이지(메인페이지), 프로필 페이지, 학생 상세화면
+    - 공통 컴포넌트 : 네비게이션 바 Back Button
 - **기능**
-    - 팔로우 & 언팔로우, 로그아웃, 하단 모달창, 댓글 삭제, 게시글 삭제, 상품 삭제, 사용자 게시글 앨범형 이미지, 탑 배너 뒤로가기 버튼, Alert 모달
+    - 회원가입, 로그인, 로그아웃, token 관리, 가로모드 전환, Bottom sheet
     
 <br>
 
@@ -313,8 +312,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>
+
 
 
 
@@ -356,9 +354,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 팔로우 한 유저가 없거나, 팔로워의 게시글이 없을 경우 검색 버튼이 표시됩니다.
 - 게시글의 상단 유저 배너 클릭 시 게시글을 작성한 유저의 프로필 페이지로, 본문 클릭 시 게시글 상세 페이지로 이동합니다.
 
-| 팔로우하는 유저가 없을 때 | 팔로우하는 유저가 있을 때 |
-|----------|----------|
-|![home0](https://user-images.githubusercontent.com/112460466/210379059-48900aac-3735-45c6-a249-bc9c41b49414.gif)|![home1](https://user-images.githubusercontent.com/112460466/210379110-49153d27-0405-48e6-adfb-62c7818d2f43.gif)|
+| 기본 홈화면 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>|
 
 <br>
 
@@ -370,9 +368,10 @@ Think를 통해 학생들과 더 빨리 친해집시다!
     - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
-|----------|----------|
-|![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
+| 클릭했을 경우 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>|
+
 
 <br>
 
@@ -489,9 +488,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 <br>
 
-### 🐬 김민섭
+### 🧑🏻‍💻 김민섭
 
-컨벤션을 정하는 것부터 Readme 파일 작성까지 전 과정을 진행하려니 처음 생각보다 많은 에너지를 썼어요. 좋은 의미로 많이 썼다기보다, 제 능력을 십분 발휘하지 못해서 아쉬움이 남는 쪽입니다. 개발한다고 개발만 해서는 안 된다는 것을 몸소 느껴보는 기간이었던 것 같습니다. 이번 기회로 프로젝트를 진행하면서, 제가 잘하는 점과 부족한 점을 확실하게 알고 가는 건 정말 좋습니다. 기술적인 부분에 있어서는 리액트의 컴포넌트화가 주는 장점을 알았습니다. 조금 느린 개발이 되었을지라도 코드 가독성 부분에 있어서 좋았고, 오류가 발생해도 전체가 아닌 오류가 난 컴포넌트와 근접한 컴포넌트만 살펴보면 수정할 수 있는 부분이 너무 편했습니다. 모두 고생 참 많으셨고 리팩토링을 통해 더 나은 프로젝트 완성까지 화이팅입니다.
+해커톤에 참여하며 많은 것을 배웠고, 이를 통해 개인적인 성장과 팀워크의 중요성을 깊이 느낄 수 있었습니다. 2학기 정규 수업 후 바로 3주동안 프로젝트 작업에 참여하면서 이론과 실제의 연결 과정에서 처음에는 다소 어려움을 겪었습니다. 하지만 이 과정에서 부족한 부분을 파악하고, 팀원들과 협력하며 해결책을 찾아나가는 경험은 매우 소중했습니다. 또한, 협업을 통해 함께 문제를 해결하면서 팀워크의 중요성과 장점을 체감할 수 있었고 이는 앞으로 제가 참여할 모든 프로젝트에 큰 도움이 될 것입니다. 앞으로는 이러한 경험을 바탕으로 팀 내에서의 소통을 더욱 강화하고, 작업 과정에서 생기는 이슈들을 보다 자세히 기록하여 추후 회고 및 개선에 활용하고 싶습니다. ‘iOS Pard 2기’ 해커톤 프로젝트의 일원이 될 수 있어 영광이었고, 같은 목표를 향해 노력하는 동료들과 함께할 수 있어 기쁘고 감사했습니다. 롱스톤 팀원들의 노력과 협력 덕분에 많은 것을 배울 수 있었고, 앞으로도 이러한 긍정적인 경험을 바탕으로 함께 성장해나가고 싶습니다. 조원 여러분 모두 수고 많으셨고, 앞으로도 함께 힘내어 목표를 달성해 나갑시다!
 
 <br>
 

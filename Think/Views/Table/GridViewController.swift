@@ -540,43 +540,20 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("Error encoding data: \(error)")
             return nil
         }
+        
+        
     }
     
-    // MARK: - 서버로 보내기
-//    func sendDataToServer() {
-//        guard let url = URL(string: "http://13.125.210.242:8080/api/v1/students/list") else { return }
-//        guard let jsonData = convertDataToJSON() else { return }
-//        
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.httpBody = jsonData
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        
-//        // 토큰 매니져에서 불러주기
-//        if let accessToken = TokenManager.shared.getAccessToken() {
-//            print(accessToken)
-//            print(studentNames)
-//            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-//        } else {
-//            print("Error: Access token is not available.")
-//            return
-//        }
-//        
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                print("Error sending data to server: \(error)")
-//                return
-//            }
-//            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
-//                print("HTTP Error: \(httpResponse.statusCode)")
-//                return
-//            }
-//            // Handle response data if needed
-//            print("Data sent successfully.")
-//        }
-//        
-//        task.resume()
-//    }
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    appDelegate.shouldSupportAllOrientation = false
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.shouldSupportAllOrientation = false
+    }
 
 }

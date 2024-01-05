@@ -123,14 +123,14 @@ class DetailBottomSheetViewController:UIViewController {
      let otherInfoView = UIView()
 
     
-    private var imageButton: UIButton = {
+    var imageButton: UIButton = {
         let button = UIButton()
         if let image = UIImage(named: "Image") {
             button.setImage(image, for: .normal)
         }
         button.imageView?.contentMode = .scaleAspectFit
         button.clipsToBounds = true
-
+        button.isEnabled = false
         button.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
 
         return button
@@ -221,6 +221,7 @@ class DetailBottomSheetViewController:UIViewController {
         let dimmedTap = UITapGestureRecognizer(target: self, action: #selector(dimmedViewTapped(_:)))
             dimmedView.addGestureRecognizer(dimmedTap)
             dimmedView.isUserInteractionEnabled = true
+        
         
         
     }
@@ -452,7 +453,8 @@ class DetailBottomSheetViewController:UIViewController {
      }
 
     @objc private func imageButtonTapped() {
-         hideBottomSheetAndGoBack()
+        
+        
     }
 
      private func hideBottomSheetAndGoBack() {
@@ -483,6 +485,9 @@ class DetailBottomSheetViewController:UIViewController {
             DispatchQueue.main.async {
                 if success {
                     print("변경 success!!")
+                    
+                    self.hideBottomSheetAndGoBack()
+                    
                     
                     } else {
                     print("error!!")
@@ -639,6 +644,18 @@ class DetailBottomSheetViewController:UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    appDelegate.shouldSupportAllOrientation = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.shouldSupportAllOrientation = true
     }
     
 
