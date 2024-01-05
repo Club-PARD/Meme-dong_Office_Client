@@ -361,9 +361,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 팔로우 한 유저가 없거나, 팔로워의 게시글이 없을 경우 검색 버튼이 표시됩니다.
 - 게시글의 상단 유저 배너 클릭 시 게시글을 작성한 유저의 프로필 페이지로, 본문 클릭 시 게시글 상세 페이지로 이동합니다.
 
-| 팔로우하는 유저가 없을 때 | 팔로우하는 유저가 있을 때 |
-|----------|----------|
-|![home0](https://user-images.githubusercontent.com/112460466/210379059-48900aac-3735-45c6-a249-bc9c41b49414.gif)|![home1](https://user-images.githubusercontent.com/112460466/210379110-49153d27-0405-48e6-adfb-62c7818d2f43.gif)|
+| 자리에 맞는 이름 학습 |
+|----------|
+|![playgame](https://github.com/Club-PARD/Think_Client/assets/82192923/5dc4eb32-f6c5-43d3-8abd-eda278522a41)|
 
 <br>
 
