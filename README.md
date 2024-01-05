@@ -369,7 +369,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 오답 정리 |
 |----------|
-|![playgame](https://github.com/Club-PARD/Think_Client/assets/82192923/5dc4eb32-f6c5-43d3-8abd-eda278522a41)|
+|![playgame](https://github.com/Club-PARD/Think_Client/issues/4#issuecomment-1878760663)|
 
 <br>
 
