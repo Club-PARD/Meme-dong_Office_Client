@@ -1,6 +1,5 @@
 # 📖 Think_Client 서비스앱 README
-
-![readme_mockup2](https://user-images.githubusercontent.com/112460466/210706312-6a44b60d-a42e-4210-b334-9e5983f70fb3.png)
+![image](https://github.com/Club-PARD/Think_Client/assets/122345011/3c067381-29a9-4f6f-b8c9-ed1d83fdd0ec)
 
 <br>
 
