@@ -313,8 +313,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=1000> <br/>
 <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>
+
 
 
 
@@ -356,9 +355,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 팔로우 한 유저가 없거나, 팔로워의 게시글이 없을 경우 검색 버튼이 표시됩니다.
 - 게시글의 상단 유저 배너 클릭 시 게시글을 작성한 유저의 프로필 페이지로, 본문 클릭 시 게시글 상세 페이지로 이동합니다.
 
-| 팔로우하는 유저가 없을 때 | 팔로우하는 유저가 있을 때 |
-|----------|----------|
-|![home0](https://user-images.githubusercontent.com/112460466/210379059-48900aac-3735-45c6-a249-bc9c41b49414.gif)|![home1](https://user-images.githubusercontent.com/112460466/210379110-49153d27-0405-48e6-adfb-62c7818d2f43.gif)|
+| 기본 홈화면 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>|
 
 <br>
 
@@ -370,9 +369,10 @@ Think를 통해 학생들과 더 빨리 친해집시다!
     - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
-|----------|----------|
-|![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
+| 클릭했을 경우 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>|
+
 
 <br>
 
