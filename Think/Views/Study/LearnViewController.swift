@@ -703,19 +703,20 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     
     
-    
-    
-    
-    
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewWillAppear(_ animated: Bool) {
-        appDelegate.shouldSupportAllOrientation = false
+        super.viewWillAppear(animated)
+    appDelegate.shouldSupportAllOrientation = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         appDelegate.shouldSupportAllOrientation = true
     }
+    
+    
+    
+    
 }
 
 extension LearnViewController: UICollectionViewDelegate, UICollectionViewDataSource {

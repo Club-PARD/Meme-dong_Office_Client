@@ -23,7 +23,6 @@
 		CA665C9A2B42DF7800F4FD26 /* CustomGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA665C992B42DF7800F4FD26 /* CustomGridLayout.swift */; };
 		CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A602B2FF5370004345B /* AppDelegate.swift */; };
 		CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A622B2FF5370004345B /* SceneDelegate.swift */; };
-		CAD34A652B2FF5370004345B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A642B2FF5370004345B /* ViewController.swift */; };
 		CAD34A6A2B2FF5380004345B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD34A692B2FF5380004345B /* Assets.xcassets */; };
 		CAD34A782B2FF5380004345B /* ThinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A772B2FF5380004345B /* ThinkTests.swift */; };
 		CAD34A822B2FF5380004345B /* ThinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD34A812B2FF5380004345B /* ThinkUITests.swift */; };
@@ -78,7 +77,6 @@
 		CAD34A5D2B2FF5370004345B /* Think.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Think.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD34A602B2FF5370004345B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD34A622B2FF5370004345B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CAD34A642B2FF5370004345B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CAD34A692B2FF5380004345B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD34A6E2B2FF5380004345B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAD34A732B2FF5380004345B /* ThinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,7 +237,6 @@
 				DAD9B1952B3FEFD000C9F06C /* AddClass */,
 				CA665C942B3FC61700F4FD26 /* Table */,
 				DA1A48FA2B45DB1A00C86F80 /* Home */,
-				CAD34A642B2FF5370004345B /* ViewController.swift */,
 				908423452B3D48CE0023FFA0 /* Study */,
 			);
 			path = Views;
@@ -424,7 +421,6 @@
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */,
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */,
-				CAD34A652B2FF5370004345B /* ViewController.swift in Sources */,
 				9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */,
 				DA1A49042B46859200C86F80 /* Classroom.swift in Sources */,
 				DAF0B37A2B42FFFB00204063 /* AddStudentNameVIewController.swift in Sources */,

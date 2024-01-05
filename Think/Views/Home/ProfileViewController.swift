@@ -215,6 +215,10 @@ class ProfileViewController:UIViewController {
     
     @objc private func newClassButtonTapped() {
         print("새 학급 만들기 버튼이 눌렸습니다.")
+        
+//        let detailVC = AddClassViewController() // 첫 화면으로 이동
+//        detailVC.modalPresentationStyle = .overFullScreen
+//        self.present(detailVC, animated: false, completion: nil)
     }
     
     @objc private func logoutButtonTapped() {
@@ -232,6 +236,18 @@ class ProfileViewController:UIViewController {
     // Override this method to only allow landscape orientation for this view controller
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
+    }
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    appDelegate.shouldSupportAllOrientation = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        appDelegate.shouldSupportAllOrientation = false
+        super.viewWillDisappear(animated)
     }
 
 }

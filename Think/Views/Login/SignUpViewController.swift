@@ -329,6 +329,17 @@ class SignUpViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         dismissKeyboard()
     }
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    appDelegate.shouldSupportAllOrientation = false
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.shouldSupportAllOrientation = false
+    }
 }
 
 // UITextFieldDelegate 프로토콜을 준수하는 부분을 확장하여 구현합니다.
@@ -342,4 +353,6 @@ extension SignUpViewController: UITextFieldDelegate {
         textFieldDidChange()
         return true
     }
+    
+    
 }

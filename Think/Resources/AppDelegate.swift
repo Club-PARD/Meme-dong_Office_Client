@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
         
 #if DEBUG
@@ -37,13 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    var shouldSupportAllOrientation = true //화면회전을 잠그고 고정할 목적의 플래그 변수를 추가한다.
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if (shouldSupportAllOrientation == true){
-            return UIInterfaceOrientationMask.all//  모든방향 회전 가능
+    var shouldSupportAllOrientation = false
+
+        func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+            return shouldSupportAllOrientation ? .landscape : .portrait//landscape: 가로, portrait: 세로
         }
-        return UIInterfaceOrientationMask.landscapeRight//  세로방향으로 고정.
-    }
 }
 
