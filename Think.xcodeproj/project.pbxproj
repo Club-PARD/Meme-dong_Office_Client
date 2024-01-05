@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */; };
 		901052D72B47B39A00E4FDC4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D62B47B39A00E4FDC4 /* ProfileViewController.swift */; };
-		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
-		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
 		9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */; };
 		9084233A2B3C08A70023FFA0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423392B3C08A70023FFA0 /* LoginViewController.swift */; };
 		9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084233B2B3C09890023FFA0 /* SignUpViewController.swift */; };
@@ -65,8 +63,6 @@
 /* Begin PBXFileReference section */
 		901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomSheetViewController.swift; sourceTree = "<group>"; };
 		901052D62B47B39A00E4FDC4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRowsColumnViewController.swift; sourceTree = "<group>"; };
 		908423392B3C08A70023FFA0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9084233B2B3C09890023FFA0 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -244,8 +240,6 @@
 				CA665C942B3FC61700F4FD26 /* Table */,
 				DA1A48FA2B45DB1A00C86F80 /* Home */,
 				CAD34A642B2FF5370004345B /* ViewController.swift */,
-				908423272B3BE9490023FFA0 /* TestViewController.swift */,
-				908423292B3BE9790023FFA0 /* HomeViewController.swift */,
 				908423452B3D48CE0023FFA0 /* Study */,
 			);
 			path = Views;
@@ -440,8 +434,6 @@
 				DA1A48F12B4546EC00C86F80 /* LearnCustomCollectionViewCell.swift in Sources */,
 				DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */,
 				DAF0B37E2B432B6800204063 /* Student.swift in Sources */,
-				908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */,
-				9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */,
 				DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */,
 				CAD34A612B2FF5370004345B /* AppDelegate.swift in Sources */,
 				CAD34A632B2FF5370004345B /* SceneDelegate.swift in Sources */,

@@ -11,8 +11,9 @@ class CameraHandler: NSObject{
     static let shared = CameraHandler()
     weak var currentViewController: UIViewController?
     weak var detectTextViewController: DetectTextViewController?
+//    weak var detailBottomSheetViewController: DetailBottomSheetViewController?
     
-    var pickedImage: ((UIImage) -> Void)?
+    var imagePicked: ((UIImage) -> Void)?
     
     func openCamera() {
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -38,12 +39,17 @@ extension CameraHandler: UIImagePickerControllerDelegate, UINavigationController
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         picker.dismiss(animated: true)
-        print("실행")
+        
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imagePicked?(image)
+            
             if currentViewController is AddBottomSheetViewController {
                 if let detectVC = detectTextViewController {
                     detectVC.updateImageView(with: image)
                 }
+            }
+            else if currentViewController is DetailBottomSheetViewController {
+                //none
             }
             else{
                 let detectTextVC = DetectTextViewController()
@@ -56,6 +62,8 @@ extension CameraHandler: UIImagePickerControllerDelegate, UINavigationController
             }
             
         }
+        
+    
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
