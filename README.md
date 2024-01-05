@@ -304,9 +304,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
 
-| 리스트형 & 앨범형 게시글 | 
+| 자리 갯수 선택 | 
 |----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7" height=500>|
+|![RPReplay_Final1704463819 3](https://github.com/Club-PARD/Think_Client/assets/82192923/4a3ed57a-826d-423d-8e53-5b506422187f)|
 
 <br>
 
