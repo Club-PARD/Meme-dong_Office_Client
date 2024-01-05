@@ -257,8 +257,6 @@ class HomePageViewController: UIViewController{
     
     }
     
-
-    
     @objc func profileButtonAction(){
         print("profileButtonTapped")
         
