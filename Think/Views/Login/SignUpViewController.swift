@@ -29,6 +29,17 @@ class SignUpViewController: UIViewController {
         return label
     }()
     
+    lazy var warningLabel: UILabel = {
+        let label = UILabel()
+        label.text = "이메일/비밀번호를 확인해주세요"
+        label.textColor = UIColor(red: 0xFF / 255.0, green: 0x7A / 255.0, blue: 0x2E / 255.0, alpha: 1.0)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        return label
+    }()
+    
     func makeTextField(withPlaceholder placeholder: String) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
@@ -86,7 +97,7 @@ class SignUpViewController: UIViewController {
         label.textColor = UIColor(red: 0xFF / 255.0, green: 0x7A / 255.0, blue: 0x2E / 255.0, alpha: 1.0)
         
         label.textAlignment = .left
-
+        
         // Pretendard 폰트 설정. 시스템 폰트로 대체하거나 필요 시 다운로드/임베딩
         if let pretendardFont = UIFont(name: "Pretendard", size: 11) {
             label.font = pretendardFont
@@ -98,8 +109,8 @@ class SignUpViewController: UIViewController {
         label.isHidden = true // 처음에는 숨김 상태로 시작
         return label
     }()
-
-
+    
+    
     
     lazy var confirmPasswordCheckLabel: UILabel = {
         let label = UILabel()
@@ -138,10 +149,10 @@ class SignUpViewController: UIViewController {
         backButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         backButton.tintColor = .black // 버튼 색상 변경 (옵셔널)
-
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
-
+    
     @objc func backButtonTapped() {
         let loginViewcController = WelcomeViewController()
         let navigationController = UINavigationController(rootViewController: loginViewcController)
@@ -164,11 +175,11 @@ class SignUpViewController: UIViewController {
         let doPasswordsMatch = passwordTextField.text == confirmPasswordTextField.text
         let isPasswordNotEmpty = !(passwordTextField.text?.isEmpty ?? true)
         let isConfirmPasswordNotEmpty = !(confirmPasswordTextField.text?.isEmpty ?? true)
-
+        
         let shouldChangeButtonColor = isEmailValid && doPasswordsMatch && isPasswordNotEmpty && isConfirmPasswordNotEmpty
-
+        
         signUpButton.isEnabled = shouldChangeButtonColor
-
+        
         signUpButton.backgroundColor = shouldChangeButtonColor ? UIColor(
             red: 255 / 255.0,
             green: 214 / 255.0,
@@ -180,11 +191,11 @@ class SignUpViewController: UIViewController {
             blue: 208 / 255.0,
             alpha: 1.0
         )
-
+        
         signUpButton.setTitleColor(shouldChangeButtonColor ? .black : .white, for: .normal)
     }
-
-
+    
+    
     
     func setupWelcomeLabels() {
         view.addSubview(welcomeLabel)
@@ -223,14 +234,14 @@ class SignUpViewController: UIViewController {
         passwordWarningLabel.isHidden = isValid
         return isValid
     }
-
+    
     
     func isEmailValid(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: email)
     }
-
+    
     
     func setupTextFields() {
         view.addSubview(emailTextField)
@@ -240,8 +251,10 @@ class SignUpViewController: UIViewController {
         view.addSubview(signUpButton)
         
         view.addSubview(passwordWarningLabel)
-    
-                                                       
+        view.addSubview(warningLabel)
+        
+        
+        
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         confirmPasswordTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
@@ -251,6 +264,11 @@ class SignUpViewController: UIViewController {
             emailTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 235),
             emailTextField.widthAnchor.constraint(equalToConstant: 343),
             emailTextField.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        NSLayoutConstraint.activate([
+            warningLabel.leadingAnchor.constraint(equalTo: confirmPasswordTextField.leadingAnchor),
+            warningLabel.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor, constant: 3)
         ])
         
         NSLayoutConstraint.activate([
@@ -295,7 +313,7 @@ class SignUpViewController: UIViewController {
             print("🚨 Invalid input")
             return
         }
-
+        
         guard isPasswordValid(password) else {
             print("🚨 Invalid password")
             return
@@ -321,7 +339,13 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func textFieldDidChange() {
-        guard let password = passwordTextField.text else { return }
+        guard let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text else { return }
+        
+        let isEmailValid = self.isEmailValid(email)
+        let doPasswordsMatch = password == confirmPassword
+        
+        warningLabel.isHidden = isEmailValid && doPasswordsMatch
+        
         _ = isPasswordValid(password)
         configureSignUpButtonColor()
     }

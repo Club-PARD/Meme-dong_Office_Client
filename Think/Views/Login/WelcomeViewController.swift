@@ -101,7 +101,7 @@ class WelcomeViewController: UIViewController {
         view.addSubview(imageView)
 
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 110),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 263),
             imageView.widthAnchor.constraint(equalToConstant: 173),
             imageView.heightAnchor.constraint(equalToConstant: 209)
@@ -109,12 +109,12 @@ class WelcomeViewController: UIViewController {
 
         
         NSLayoutConstraint.activate([
-            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70), // 좌측을 기준으로 70
-            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 790), // 상단을 기준으로 790
+            welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            welcomeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 790)
         ])
 
         NSLayoutConstraint.activate([
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 79),
+            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 187)
         ])
     }
@@ -124,14 +124,14 @@ class WelcomeViewController: UIViewController {
         view.addSubview(signUpButton)
 
         NSLayoutConstraint.activate([
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 534),
             loginButton.widthAnchor.constraint(equalToConstant: 343),
             loginButton.heightAnchor.constraint(equalToConstant: 43)
         ])
 
         NSLayoutConstraint.activate([
-            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 16),
             signUpButton.widthAnchor.constraint(equalToConstant: 343),
             signUpButton.heightAnchor.constraint(equalToConstant: 43)

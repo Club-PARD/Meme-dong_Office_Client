@@ -30,31 +30,17 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
         return label
     }()
     
-    let profileButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .white
-        
-        let symbolImage = UIImage(named: "profileIconCircle")
-        button.setImage(symbolImage, for: .normal)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
-        
-        return button
-    }()
-    
     let addButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
-        
-        //SF symbol에서 camera 아이콘 사용
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 122,weight: .ultraLight)
-        let symbolImage = UIImage(systemName: "plus.circle", withConfiguration: symbolConfig)
-        button.setImage(symbolImage, for: .normal)
-        button.tintColor = UIColor.mainYellow
-        button.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
-        
+        let image = UIImage(named: "plus") // 'plus'라는 이름의 이미지를 불러옵니다.
+        button.setImage(image, for: .normal) // 버튼에 이미지를 설정합니다.
+        button.tintColor = UIColor.mainYellow // 버튼의 tint 색상을 설정합니다.
+        button.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside) // 버튼에 액션을 추가합니다.
+
         return button
     }()
+
+
     
     let addLabel:UILabel = {
         let label = UILabel()
@@ -76,10 +62,9 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        logoLabel.text = userViewModel.user.name! + " 선생님"
+        logoLabel.text = userViewModel.user.name! + " 선생님 안녕하세요"
         view.addSubview(thinkImage)
         view.addSubview(logoLabel)
-        view.addSubview(profileButton)
         view.addSubview(addButton)
         view.addSubview(addLabel)
         view.addSubview(backgroundImage)
@@ -90,31 +75,26 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     func setupConstraints(){
         thinkImage.translatesAutoresizingMaskIntoConstraints = false
         logoLabel.translatesAutoresizingMaskIntoConstraints = false
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addLabel.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            thinkImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            thinkImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            thinkImage.widthAnchor.constraint(equalToConstant: 68),
-            thinkImage.heightAnchor.constraint(equalToConstant: 18),
-            
-            profileButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
-            profileButton.widthAnchor.constraint(equalToConstant: 32),
-            profileButton.heightAnchor.constraint(equalToConstant: 32),
-            
-            logoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            logoLabel.topAnchor.constraint(equalTo: thinkImage.bottomAnchor, constant: 70),
+            thinkImage.topAnchor.constraint(equalTo: view.topAnchor,constant: 73),
+            thinkImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            thinkImage.widthAnchor.constraint(equalToConstant: 105),
+            thinkImage.heightAnchor.constraint(equalToConstant: 28),
+    
+            logoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            logoLabel.topAnchor.constraint(equalTo: thinkImage.bottomAnchor, constant: 24),
             
             addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            addButton.widthAnchor.constraint(equalToConstant: 122),
+            addButton.heightAnchor.constraint(equalToConstant: 122),
             
             addLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addLabel.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 10),
-            
+            addLabel.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 25),
             
             backgroundImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -123,10 +103,6 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
         
     }
     
-    
-    @objc func profileButtonAction() {
-        
-    }
     
     @objc func addButtonAction(){
         

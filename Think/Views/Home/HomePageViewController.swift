@@ -214,7 +214,7 @@ class HomePageViewController: UIViewController{
         let totalCellHeight = (layout.cellHeight * CGFloat(gridRows)) + (layout.baseHeight * CGFloat(gridRows - 1))
         
         NSLayoutConstraint.activate([
-            rectangleBox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            rectangleBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -46),
             rectangleBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             rectangleBox.widthAnchor.constraint(equalToConstant: 300),
             rectangleBox.heightAnchor.constraint(equalToConstant: 30),
@@ -227,8 +227,8 @@ class HomePageViewController: UIViewController{
             
             studyButton.widthAnchor.constraint(equalToConstant: 110),
             studyButton.heightAnchor.constraint(equalToConstant: 40),
-            studyButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            studyButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30)
+            studyButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -41),
+            studyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -38)
             
         ])
         
@@ -236,11 +236,26 @@ class HomePageViewController: UIViewController{
     
     
     private func setupRectangleBox() {
-        rectangleBox.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
-        rectangleBox.layer.cornerRadius = 10
+        rectangleBox.backgroundColor = UIColor(red: 208/255, green: 208/255, blue: 208/255, alpha: 1.0)
+        rectangleBox.layer.cornerRadius = 5
         rectangleBox.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rectangleBox)
+
+
+        let label = UILabel()
+        label.text = "교탁"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 17.166, weight: .regular)
+        label.textColor = UIColor(white: 107/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        rectangleBox.addSubview(label)
+
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: rectangleBox.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: rectangleBox.centerYAnchor)
+        ])
     }
+
     
     private func setupStudyButton(){
         view.addSubview(studyButton)
