@@ -114,30 +114,21 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 ```
 ├── README.md
-├── .eslintrc.js
-├── .gitignore
-├── .prettierrc.json
-├── package-lock.json
-├── package.json
-│
-├── public
-│    └── index.html
-└── src
-     ├── App.jsx
-     ├── index.jsx
-     ├── api
-     │     └── mandarinAPI.js
+└── Think
+     ├── AppDelegate.swift
+     ├── SceneDelegate.swift
      ├── asset
-     │     ├── fonts
-     │     ├── css_sprites.png
-     │     ├── logo-404.svg
-     │     └── logo-home.svg
+     │     ├── Logo.png
+     │     ├── think.png
+     │     └── system_home.png
      │          .
      │          .
      │          .
-     ├── atoms
-     │     ├── LoginData.js
-     │     └── LoginState.js
+     ├── ViewModel
+     │     ├── UserViewModel.swift
+     │     ├── ClassroomViewModel.swift
+     │     ├── TokenManager.swift
+     │     └── LoginAPICaller.swift
      ├── Model
      │     ├── User.swift
      │     ├── Student.swift
