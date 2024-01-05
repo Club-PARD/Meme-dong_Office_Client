@@ -288,17 +288,13 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 계정 ID에는 형식 및 중복 검사가 진행됩니다.
 - 프로필 사진은 등록하지 않을 경우 기본 이미지가 등록됩니다.
 
-| 카메라 | 카메라 | 카메라 |
+| 카메라 열기 | 카메라 열기 | 카메라 열기 |
 |----------|----------|----------|
 |<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=500> |
 
-| 카메라 | 카메라 |
+| 이미지에서 텍스트 추출 | 이미지에서 텍스트 추출 |
 |----------|----------|
 |<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=500> 
-
-| 카메라 | 카메라 |
-|----------|----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=500> 
 
 <br>
 
@@ -313,9 +309,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
-|----------|----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7" height=1000> <br/>|
+| 리스트형 & 앨범형 게시글 | 
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7" height=500>|
 
 <br>
 
@@ -323,10 +319,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 상단 의 kebab menu를 클릭 후 나타나는 모달창의 로그아웃 버튼을 클릭하면 확인창이 뜹니다.
 - 로그아웃시 로컬 저장소의 토큰 값과 사용자 정보를 삭제하고 초기화면으로 이동합니다.
 
-| 로그아웃 |
-|----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e1d4b3fc-7635-4ccd-9c27-bb1443fa4367" height=1000>|
-
+| 자리배치 1줄간격 | 자리배치 2줄간격 |
+|----------|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=500> 
 
 <br>
 
