@@ -11,8 +11,7 @@ class ProfileViewController:UIViewController {
      var bottomSheetPanMinTopConstant: CGFloat = 30.0
      private lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
 
-    // Adjust this property to set the width of the bottom sheet when it's visible
-    private let bottomSheetWidth: CGFloat = 300
+    private let bottomSheetWidth: CGFloat = 200
     
     private var bottomSheetViewLeadingConstraint: NSLayoutConstraint!
     
@@ -21,21 +20,51 @@ class ProfileViewController:UIViewController {
          showBottomSheet()
      }
      
-     private let dimmedView: UIView = {
+    private let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(systemName: "xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
+        button.setImage(image, for: .normal)
+        button.tintColor = .black // 필요한 경우 이미지의 색상을 변경
+        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("로그아웃", for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    private let newClassButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("새 학급 만들기", for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(newClassButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private let dimmedView: UIView = {
          let view = UIView()
          view.backgroundColor = UIColor.clear
          return view
-     }()
+    }()
      
-     private let bottomSheetView:UIView = {
-         let view = UIView()
-         view.backgroundColor = UIColor(red: 156/255, green: 197/255, blue: 231/255, alpha: 1.0)
-         
-         view.layer.cornerRadius = 10
-         view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-         view.clipsToBounds
-         return view
-     }()
+    private let bottomSheetView:UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 156/255, green: 197/255, blue: 231/255, alpha: 1.0)
+        
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        view.clipsToBounds
+        return view
+    }()
 
      
      
@@ -44,13 +73,21 @@ class ProfileViewController:UIViewController {
      private func setupUI(){
          view.addSubview(dimmedView)
          view.addSubview(bottomSheetView)
-         
+         view.addSubview(closeButton)
+         view.addSubview(logoutButton)
+         view.addSubview(newClassButton)
+
          setupLayout()
      }
      
     
     private func setupLayout(){
-         dimmedView.translatesAutoresizingMaskIntoConstraints = false
+        dimmedView.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        newClassButton.translatesAutoresizingMaskIntoConstraints = false
+
+        
          NSLayoutConstraint.activate([
              dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
              dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -66,6 +103,27 @@ class ProfileViewController:UIViewController {
             bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomSheetViewLeadingConstraint
+        ])
+        
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: 20),
+            closeButton.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor, constant: -30),
+            closeButton.widthAnchor.constraint(equalToConstant: 17),
+            closeButton.heightAnchor.constraint(equalToConstant: 17)
+        ])
+        
+        NSLayoutConstraint.activate([
+            logoutButton.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 270),
+            logoutButton.trailingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: 0),
+            logoutButton.widthAnchor.constraint(equalToConstant: 200),
+            logoutButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        NSLayoutConstraint.activate([
+            newClassButton.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: 80),
+            newClassButton.trailingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: 0),
+            newClassButton.widthAnchor.constraint(equalToConstant: 200),
+            newClassButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -129,12 +187,27 @@ class ProfileViewController:UIViewController {
 //         }
 //     }
 
-
-
-
-     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+    
+    
+    @objc private func closeButtonTapped() {
          hideBottomSheetAndGoBack()
-     }
+    }
+    
+    @objc private func newClassButtonTapped() {
+        print("새 학급 만들기 버튼이 눌렸습니다.")
+    }
+    
+    @objc private func logoutButtonTapped() {
+        print("로그아웃 버튼이 눌렸습니다.")
+        TokenManager.shared.clearTokens() // 현재 토큰 삭제
+        let detailVC = WelcomeViewController() // 첫 화면으로 이동
+        detailVC.modalPresentationStyle = .overFullScreen
+        self.present(detailVC, animated: false, completion: nil)
+    }
+    
+    @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
+        hideBottomSheetAndGoBack()
+    }
     
     // Override this method to only allow landscape orientation for this view controller
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
