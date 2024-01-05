@@ -58,23 +58,36 @@ class HomePageViewController: UIViewController{
         return label
     }()
     
+//    let profileButton: UIButton = {
+//        let button = UIButton()
+//        button.backgroundColor = .white
+//        let symbolImage = UIImage(systemName: "person.icon.circle")
+//        let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
+//        let largeSymbolImage = symbolImage?.applyingSymbolConfiguration(largeConfig)
+//        button.setImage(largeSymbolImage, for: .normal)
+//        button.tintColor = .black
+//        
+//        button.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
+//        
+//        return button
+//    }()
+    
     let profileButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
-        
-        let symbolImage = UIImage(systemName: "person.crop.circle")
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .default)
-        let largeSymbolImage = symbolImage?.applyingSymbolConfiguration(largeConfig)
-        button.setImage(largeSymbolImage, for: .normal)
-        button.tintColor = .black
-        
+        if let image = UIImage(named: "profileIconCircle") {
+            button.setImage(image, for: .normal)
+        }
+        button.tintColor = .black // 필요에 따라 틴트 색상을 설정하세요.
+
         button.addTarget(self, action: #selector(profileButtonAction), for: .touchUpInside)
-        
+
         return button
     }()
-    
-    let customView = UIView()
-    
+
+//    let customView = UIView()
+    let separatorLine = UIView()
+
     
     //MARK: - initialize
     func loadClassroomData(completion: @escaping () -> Void) {
@@ -119,7 +132,7 @@ class HomePageViewController: UIViewController{
         loadClassroomData() {
             self.configureUI()
         }
-        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     // MARK: - UI Configuration
@@ -137,35 +150,52 @@ class HomePageViewController: UIViewController{
     // MARK: - navigationBar 설정
     func setupNav() {
         // 로고 이미지 뷰와 사용자 이름 레이블을 customView에 추가
-        customView.addSubview(logoImageView)
-        customView.addSubview(userNameLabel)
+        view.addSubview(logoImageView)
+        view.addSubview(userNameLabel)
+        view.addSubview(profileButton)
+        view.addSubview(separatorLine)
         
-        // 로고와 레이블에 대한 Auto Layout 설정
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        separatorLine.translatesAutoresizingMaskIntoConstraints = false
+
+        separatorLine.backgroundColor = UIColor(red: 151/255, green: 151/255, blue: 151/255, alpha: 1.0)
+
         
         NSLayoutConstraint.activate([
-            logoImageView.leadingAnchor.constraint(equalTo: customView.leadingAnchor),
-            logoImageView.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
+            logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65),
+            logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 14),
             logoImageView.widthAnchor.constraint(equalToConstant: 90),
             logoImageView.heightAnchor.constraint(equalToConstant: 24),
             
-            userNameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 20),
-            userNameLabel.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
+            userNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 170),
+            userNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 14),
+            
+            profileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 720),
+            profileButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 14),
+            profileButton.widthAnchor.constraint(equalToConstant: 34),
+            profileButton.heightAnchor.constraint(equalToConstant: 34)
         ])
         
-        // customView를 왼쪽 바 버튼 아이템으로 설정
-        let leftBarButtonItem = UIBarButtonItem(customView: customView)
-        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+        NSLayoutConstraint.activate([
+                separatorLine.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 15),
+                separatorLine.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                separatorLine.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                separatorLine.heightAnchor.constraint(equalToConstant: 0.5)
+        ])
+        //         customView를 왼쪽 바 버튼 아이템으로 설정
+        //        let leftBarButtonItem = UIBarButtonItem(customView: customView)
+        //        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+        //
+        //        let rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+        //        self.navigationItem.rightBarButtonItem = rightBarButtonItem
         
-        let rightBarButtonItem = UIBarButtonItem(customView: profileButton)
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        
-        // 네비게이션 바 스타일 설정
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .white // 배경색을 흰색으로 설정
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        //         네비게이션 바 스타일 설정
+        //        let appearance = UINavigationBarAppearance()
+        //        appearance.backgroundColor = .white // 배경색을 흰색으로 설정
+        //        navigationController?.navigationBar.standardAppearance = appearance
+        //        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
     }
     
     private func setupConstraints() {
@@ -230,8 +260,10 @@ class HomePageViewController: UIViewController{
 
     
     @objc func profileButtonAction(){
+        print("profileButtonTapped")
         
-        
+//        let profileViewController = BottomSheetViewController()
+//        navigationController?.pushViewController(profileViewController, animated: true)
     }
     
     @objc func studyButtonAction(){

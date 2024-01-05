@@ -358,6 +358,7 @@ class LoginViewController: UIViewController {
     func loadUserData() {
         //userViewModel
         let userId = userViewModel.user.id // 사용자 ID
+
         userViewModel.loadUserData(userId: userId!) { [weak self] success, user in
                     DispatchQueue.main.async {
                         if success, let user = user {
