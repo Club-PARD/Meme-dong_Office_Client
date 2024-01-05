@@ -388,8 +388,8 @@ Think를 통해 학생들과 더 빨리 친해집시다!
     - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
-|----------|----------|
+| 리스트형 & 앨범형 게시글 |
+|----------|
 |![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
 
 <br>
