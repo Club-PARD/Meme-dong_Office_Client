@@ -273,8 +273,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 로그인 |
 |----------|
-|![login](https://user-images.githubusercontent.com/112460466/210177956-c716414e-01c2-4c1e-b1f7-6562b9b7a857.gif)|
-
+|![login](https://github.com/Club-PARD/Think_Client/issues/4#issuecomment-1878746743)|
 <br>
 
 ### [카메라로 이름 추가]
