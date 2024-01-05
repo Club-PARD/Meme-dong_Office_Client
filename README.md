@@ -265,7 +265,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 회원가입 |
 |----------|
-|![join](https://user-images.githubusercontent.com/112460466/210173571-490f5beb-5791-4a4a-8c5e-510cdcb5f1fe.gif)|
+|![RPReplay_Final1704462043 2](https://github.com/Club-PARD/Think_Client/assets/82192923/d219c9bf-70fd-4005-bc8b-0d92fa82cbcd)|
 
 <br>
 
