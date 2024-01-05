@@ -78,11 +78,25 @@ class DetailBottomSheetViewController:UIViewController {
     
      
      private let birthTextField: UITextField = {
+         
+         let datePicker = UIDatePicker()
+         datePicker.datePickerMode = .date
+
+         // iOS 14 이상에서는 datePicker의 스타일을 compact, inline 또는 wheels 중 하나로 설정할 수 있습니다.
+         if #available(iOS 13.4, *) {
+             datePicker.preferredDatePickerStyle = .wheels
+         }
+         
+         
          let textField = UITextField()
+         textField.inputView = datePicker
          textField.borderStyle = .none
          textField.clearButtonMode = .whileEditing
          textField.isEnabled = false
          textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+         // UIDatePicker에 대한 액션 추가
+         datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+
          return textField
      }()
 
@@ -164,6 +178,16 @@ class DetailBottomSheetViewController:UIViewController {
     
     var index:Int
     
+    @objc func dateChanged(_ datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        birthTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     //MARK: layout
     var initialImageButtonConstraints: [NSLayoutConstraint] = []
     var roundBackgroundViewConstraints: [NSLayoutConstraint] = []
@@ -186,6 +210,10 @@ class DetailBottomSheetViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
         setupUI()
         registerKeyboardNotifications()
         hideKeyboardWhenTappedAround()

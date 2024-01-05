@@ -150,26 +150,27 @@ class ClassroomViewModel{
         
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
-        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let updateData: [String: Any] = [
-            "id": studentId,
-            "birthday" : birthday,
+            "birthday": birthday+"T00:00:00.000",//
             "allergy": allergy,
             "etc": etc
         ]
-        
+
         do {
-            
-            let jsonData = try? JSONSerialization.data(withJSONObject: updateData, options: .fragmentsAllowed)
-            
+            let jsonData = try JSONSerialization.data(withJSONObject: updateData)
             request.httpBody = jsonData
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
+            print("Request Data: \(String(data: jsonData, encoding: .utf8) ?? "")")
         } catch {
             print("JSON Data encoding error: \(error)")
             completion(false)
             return
         }
+
+        // 이하 코드는 동일...
+
+
 
         
         // 토큰 매니져에서 불러주기
@@ -193,8 +194,13 @@ class ClassroomViewModel{
             // HTTP 응답 상태 코드 확인
             if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
                 print("HTTP Error: \(httpResponse.statusCode)")
+                if let responseData = data, let responseString = String(data: responseData, encoding: .utf8) {
+                    print("Response data: \(responseString)")
+                }
+                completion(false)
                 return
             }
+
 
             // 응답 데이터 처리
             if let data = data {
