@@ -126,6 +126,8 @@ class HomePageViewController: UIViewController{
 //        fatalError("init(coder:) has not been implemented")
 //    }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -266,6 +268,7 @@ class HomePageViewController: UIViewController{
     }
     
     @objc func studyButtonAction(){
+        self.navigationController?.isNavigationBarHidden = false
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .black
         navigationItem.backBarButtonItem = backBarButtonItem
@@ -278,12 +281,11 @@ class HomePageViewController: UIViewController{
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
         appDelegate.shouldSupportAllOrientation = false
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        appDelegate.shouldSupportAllOrientation = true
-    }
+    
+    
 }
 
 extension HomePageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
