@@ -417,30 +417,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 <br>
 
-## 8. 개선 목표
-
-- API 모듈화 : API를 불러오는 코드의 반복이 많아 모듈화할 예정
-- lighthouse Performance 증진
-    - 모든 페이지에서 특히 Best Practices & SEO 점수는 90~100으로 우수
-    - Performance 점수가 대체적으로 미흡한 문제
-    
-    ![KakaoTalk_Photo_2023-01-04-16-55-30](https://user-images.githubusercontent.com/112460466/210591134-09bf8efd-3c34-4b99-a3d7-895ca99e1457.png)
-    
-- **23-01-17 성능 개선 내용**
-    
-    ![성능개선 후](https://user-images.githubusercontent.com/106502312/212872369-7ceeb2cf-d551-41d2-bfb0-01e35e9903fe.png)
-    
-    - 이미지 최적화
-        - `<img>` 요소에 `width` , `height` 속성값을 명시해 불필요한 Reflow를 방지했습니다.
-        - browser-image-compression 라이브러리를 사용해 유저가 업로드하는 이미지를 압축했습니다.
-        - Intersection Observer API를 사용해 Lazy Loading 기법을 적용하여 홈 피드의 게시글 이미지가 viewport 내에 들어오는 순간 로딩되도록 변경했습니다.
-    - 웹폰트 최적화
-        - WOFF2 포맷을 추가하고 가장 우선적으로 적용되도록 선언했습니다.
-        - 서브셋 폰트로 교체해 용량을 줄였습니다.
-    
-<br>
-
-## 9. 프로젝트 후기
+## 8. 프로젝트 후기
 
 ### 🍊 강산길
 
