@@ -57,7 +57,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 <div align="center">
 
-| **김민섭(iOS)** | **김형진(iOS)** | **이신원(iOS)** |
+| **김형진(iOS)** | **김민섭(iOS)** | **이신원(iOS)** |
 | :------: |  :------: | :------: |
 | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4169266c-e98e-47b8-8dae-2381fe522fe0" height=150 width=150> <br/> @hyungjin0105](https://github.com/hyungjin0105) | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/ee4cea68-4b33-4d38-9aea-b31793f524c5" height=150 width=150> <br/> @mingseobi](https://github.com/mingseobi)  | [<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/48862bf8-6815-43c5-914c-5371eeb05ab1" height=150 width=150> <br/> @shinwonLee](https://github.com/LeeShinwon) | 
 
