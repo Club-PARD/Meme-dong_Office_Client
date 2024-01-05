@@ -7,7 +7,9 @@
 
 import UIKit
 class ProfileViewController:UIViewController {
-     
+    let userViewModel = UserViewModel.shared
+
+    
      var bottomSheetPanMinTopConstant: CGFloat = 30.0
      private lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
 
@@ -19,7 +21,15 @@ class ProfileViewController:UIViewController {
          super.viewDidAppear(animated)
          showBottomSheet()
      }
-     
+    
+    private let teacherNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "김땡땡 선생님" // 선생님 이름을 여기에 설정하세요.
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(systemName: "xmark") // "closeIcon"은 에셋 카탈로그에 있는 이미지의 이름입니다
@@ -76,6 +86,8 @@ class ProfileViewController:UIViewController {
          view.addSubview(closeButton)
          view.addSubview(logoutButton)
          view.addSubview(newClassButton)
+         view.addSubview(teacherNameLabel)
+         teacherNameLabel.text = userViewModel.user.name! + "  선생님"
 
          setupLayout()
      }
@@ -86,7 +98,7 @@ class ProfileViewController:UIViewController {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         newClassButton.translatesAutoresizingMaskIntoConstraints = false
-
+        teacherNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
          NSLayoutConstraint.activate([
              dimmedView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -103,6 +115,13 @@ class ProfileViewController:UIViewController {
             bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomSheetViewLeadingConstraint
+        ])
+        
+        NSLayoutConstraint.activate([
+            teacherNameLabel.topAnchor.constraint(equalTo: closeButton.topAnchor),
+            teacherNameLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: 10),
+            teacherNameLabel.widthAnchor.constraint(equalToConstant: 200),
+            teacherNameLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
@@ -125,6 +144,7 @@ class ProfileViewController:UIViewController {
             newClassButton.widthAnchor.constraint(equalToConstant: 200),
             newClassButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+
     }
     
     private func showBottomSheet(){

@@ -265,9 +265,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 ## 6. 페이지별 기능
 
 ### [초기화면]
-- 서비스 접속 초기화면으로 splash 화면이 잠시 나온 뒤 다음 페이지가 나타납니다.
-    - 로그인이 되어 있지 않은 경우 : SNS 로그인 페이지
-    - 로그인이 되어 있는 경우 : README 홈 화면
+- 서비스 접속 초기화면으로 로고와 함께 로그인과 회원가입 버튼들이 있습니다. 
 - SNS(카카오톡, 구글, 페이스북) 로그인 기능은 구현되어 있지 않습니다.
 
 | 초기화면 |
@@ -278,8 +276,10 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 ### [회원가입]
 - 이메일 주소와 비밀번호를 입력하면 입력창에서 바로 유효성 검사가 진행되고 통과하지 못한 경우 각 경고 문구가 입력창 하단에 표시됩니다.
-- 이메일 주소의 형식이 유효하지 않거나 이미 가입된 이메일일 경우 또는 비밀번호가 6자 미만일 경우에는 각 입력창 하단에 경구 문구가 나타납니다.
-- 작성이 완료된 후, 유효성 검사가 통과된 경우 다음 버튼이 활성화되며, 버튼을 클릭하면 프로필 설정 화면이 나타납니다.
+- 이메일 주소의 형식이 유효하지 않거나 이미 가입된 이메일일 경우 또는 비밀번호의 영문/숫자 조합이 8자 미만 경우에는 각 입력창 하단에 경구 문구가 나타납니다.
+- 작성이 완료된 후, 유효성 검사가 통과된 경우 회원가입 버튼이 활성화되며, 버튼을 클릭하면 이름 설정 화면이 나타납니다.
+- 이름을 적은 후 활성화 된 시작버튼을 누르면 회원가입이 완료되면서 학생 추가 단계로 넘어갑니다
+
 
 | 회원가입 |
 |----------|
@@ -306,9 +306,16 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 계정 ID에는 형식 및 중복 검사가 진행됩니다.
 - 프로필 사진은 등록하지 않을 경우 기본 이미지가 등록됩니다.
 
-| 프로필 설정 |
-|----------|
-|![setProfile](https://user-images.githubusercontent.com/112460466/210173749-2da6c9af-eb93-4eea-9663-1a03e19299ec.gif)|
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/9d9561a9-fa6e-4735-abec-ea46d22c5513" height=1000> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/3066e59c-9bd5-4022-b075-ee162d420db1" height=1000> <br/>
+
+
+
 
 <br>
 
@@ -322,9 +329,10 @@ Think를 통해 학생들과 더 빨리 친해집시다!
     - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
+
 | 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
 |----------|----------|
-|![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/a959bf98-9050-45ae-899c-772aec24eef7" height=1000> <br/>|
 
 <br>
 
@@ -334,7 +342,8 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 로그아웃 |
 |----------|
-|![logout](https://user-images.githubusercontent.com/112460466/210178009-11225733-7af5-4b8b-aa1c-fe264af01797.gif)|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e1d4b3fc-7635-4ccd-9c27-bb1443fa4367" height=1000>|
+
 
 <br>
 
@@ -346,9 +355,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 팔로우 한 유저가 없거나, 팔로워의 게시글이 없을 경우 검색 버튼이 표시됩니다.
 - 게시글의 상단 유저 배너 클릭 시 게시글을 작성한 유저의 프로필 페이지로, 본문 클릭 시 게시글 상세 페이지로 이동합니다.
 
-| 팔로우하는 유저가 없을 때 | 팔로우하는 유저가 있을 때 |
-|----------|----------|
-|![home0](https://user-images.githubusercontent.com/112460466/210379059-48900aac-3735-45c6-a249-bc9c41b49414.gif)|![home1](https://user-images.githubusercontent.com/112460466/210379110-49153d27-0405-48e6-adfb-62c7818d2f43.gif)|
+| 기본 홈화면 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/b5391ca3-d322-4f2d-8cd5-37fcc7027203" width=1000> <br/>|
 
 <br>
 
@@ -360,9 +369,10 @@ Think를 통해 학생들과 더 빨리 친해집시다!
     - 앨범형의 경우, 사용자 게시글 중 이미지가 있는 글만 필터링해 바둑판 배열로 보여줍니다.
 - 게시글을 클릭하면 각 게시글의 상세페이지로 이동합니다.
 
-| 리스트형 & 앨범형 게시글 | 팔로잉 & 팔로워 리스트 |
-|----------|----------|
-|![myProfile](https://user-images.githubusercontent.com/112460466/210380492-40560e0b-c306-4e69-8939-cc3e7dc3d8fe.gif)|![followList](https://user-images.githubusercontent.com/112460466/210380539-d09b0bd7-0b61-4b22-85fa-f75e6bcecb68.gif)|
+| 클릭했을 경우 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>|
+
 
 <br>
 
