@@ -273,7 +273,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 로그인 |
 |----------|
-|![RPReplay_Final1704463714](https://github.com/Club-PARD/Think_Client/assets/82192923/d578b549-827a-43b5-a3d9-13237b6e62b9)|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/d578b549-827a-43b5-a3d9-13237b6e62b9" height=500> |
 <br>
 
 ### [카메라로 이름 추가]
@@ -283,9 +283,9 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 사진을 추가 후 학생 이름을 직접 터치하여 추가 및 삭제를 할 수 있습니다.
 - 해당 정보는 이후 자리배치에서 사용 될 데이터에 반영됩니다.
 
-| 카메라 열기 | 카메라 열기 | 카메라 열기 |
-|----------|----------|----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=500> | <img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=500> |
+| 카메라 열기 |
+|----------|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/c101a268-69eb-4a9a-835d-67085c5f72f9" height=500> |
 
 | 이미지에서 텍스트 추출 |
 |----------|
@@ -305,7 +305,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 자리 갯수 선택 | 
 |----------|
-|![RPReplay_Final1704463819 3](https://github.com/Club-PARD/Think_Client/assets/82192923/4a3ed57a-826d-423d-8e53-5b506422187f)|
+|<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/4a3ed57a-826d-423d-8e53-5b506422187f" height=500>| 
 
 <br>
 
