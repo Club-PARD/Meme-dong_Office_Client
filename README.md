@@ -344,7 +344,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 클릭했을 경우 |
 |----------|
-|<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/eb61ebe3-3161-44bb-a812-424d005b2b08" width=1000>|
+|![RPReplay_Final1704464486](https://github.com/Club-PARD/Think_Client/assets/82192923/1a8f97ce-a3d1-4162-aa83-9c0023706b2e)|
 
 
 <br>
