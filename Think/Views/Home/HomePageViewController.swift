@@ -138,7 +138,7 @@ class HomePageViewController: UIViewController{
     // MARK: - UI Configuration
     private func configureUI() {
         view.backgroundColor = .white
-        userNameLabel.text = userViewModel.user.name!
+        userNameLabel.text = userViewModel.user.name! + "  선생님"
         setupNav()
         setupRectangleBox()
         setupCollectionView()

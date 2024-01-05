@@ -76,7 +76,7 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        logoLabel.text = userViewModel.user.name!
+        logoLabel.text = userViewModel.user.name! + " 선생님"
         view.addSubview(thinkImage)
         view.addSubview(logoLabel)
         view.addSubview(profileButton)
