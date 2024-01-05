@@ -306,11 +306,12 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - 계정 ID에는 형식 및 중복 검사가 진행됩니다.
 - 프로필 사진은 등록하지 않을 경우 기본 이미지가 등록됩니다.
 
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=150 > <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=150 > <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=150 > <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=150 > <br/>
-<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=150 >
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/ed41e39d-b794-49a2-8657-d20a36bc1c53" height=1200> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/8c553dca-c679-480e-8479-50d914c4cd59" height=1200> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/e6a9bfed-6aa4-4170-88c5-5795abfd7449" height=1200> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/fa27b323-8418-4649-9414-650e6b2aaa30" height=1200> <br/>
+<img src="https://github.com/Club-PARD/Think_Client/assets/122345011/04178f7b-34cc-4c04-9d92-ecae0d096466" height=1200>
+
 
 <br>
 
