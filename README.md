@@ -289,7 +289,7 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 
 | 이미지에서 텍스트 추출 |
 |----------|
-|![RPReplay_Final1704464671 2](https://github.com/Club-PARD/Think_Client/assets/82192923/45ccee5b-a878-4ebe-bff2-d3c96545e0e3)| 
+|<img src="https://github.com/Club-PARD/Think_Client/assets/82192923/d578b549-827a-43b5-a3d9-13237b6e62b9" height=500>| 
 <br>
 
 ### [자리배치 선택]
