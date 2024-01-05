@@ -687,6 +687,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
            // Handle the confirmation action here
            // For example, pop the view controller or reset the quiz
            navigationController?.popViewController(animated: true)
+           
        }
 
         @objc func showCustomAlert() {
