@@ -83,31 +83,27 @@ Think를 통해 학생들과 더 빨리 친해집시다!
 - [스프라이트](https://github.com/likelion-project-README/README/wiki/%EC%8A%A4%ED%94%84%EB%9D%BC%EC%9D%B4%ED%8A%B8)
 <br>
 
-## 2. 채택한 개발 기술과 브랜치 전략
+## 2. 채택한 개발 기술
 
 ### URL Session
 
-- React
-    - 컴포넌트화를 통해 추후 유지보수와 재사용성을 고려했습니다.
-    - 유저 배너, 상단과 하단 배너 등 중복되어 사용되는 부분이 많아 컴포넌트화를 통해 리소스 절약이 가능했습니다.
-- styled-component
-    - props를 이용한 조건부 스타일링을 활용하여 상황에 알맞은 스타일을 적용시킬 수 있었습니다.
-    - 빌드될 때 고유한 클래스 이름이 부여되어 네이밍 컨벤션을 정하는 비용을 절약할 수 있었습니다.
-    - S dot naming을 통해 일반 컴포넌트와 스타일드 컴포넌트를 쉽게 구별하도록 했습니다.
+- 서버와 통신을 위해, URL Session을 사용하였습니다.
+- Json 형식으로 데이터를 구조화하여, POST, GET, PATCH, DELETE 를 진행하였습니다.
+
+    
+### Singleton Pattern + MVVM Pattern 사용
+
+- Model + View + ViewModel 로 로직을 분리하여 개발하였습니다.
+- ViewModel에서 Model과 Model과 관련된 데이터를 주고받을 메서드를 정의하여 사용하였습니다.
+- ViewModel 의 경우 Singleton 을 사용하여 하나의 인스턴스로 여러 View 가 데이터에 접근할 수 있도록 관리하였습니다.
+
 
 ### Camera
 
-- Vision 사용.
+- UIImagePicker 를 사용하여, camera 와 photoLibrary 에 접근하고 사진을 가져올 수 있도록 하였습니다.
+- Vision Framework 의 VNRecognizedTextObservation를 통해, 사진에서 텍스트를 추출할 수 있도록 하였습니다.
 
-    
-### Single tone Pattern + MVVM Pattern 사용
 
-- 최상위 컴포넌트를 만들어 props로 유저 정보를 내려주는 방식의 경우 불필요한 props 전달이 발생합니다. 따라서, 필요한 컴포넌트 내부에서만 상태 값을 가져다 사용하기 위해 상태 관리 라이브러리를 사용하기로 했습니다.
-- Redux가 아닌 Recoil을 채택한 이유
-    - Recoil은 React만을 위한 라이브러리로, 사용법도 기존의 useState 훅을 사용하는 방식과 유사해 학습비용을 낮출 수 있었습니다.
-    - 또한 Redux보다 훨씬 적은 코드라인으로 작동 가능하다는 장점이 있었습니다.
-- 로그인과 최초 프로필 설정 시 유저 정보를 atom에 저장하여 필요한 컴포넌트에서 구독하는 방식으로 사용했습니다.
-  
 <br>
 
 ## 3. 프로젝트 구조
