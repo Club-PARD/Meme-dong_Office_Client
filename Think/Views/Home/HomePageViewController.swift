@@ -262,8 +262,8 @@ class HomePageViewController: UIViewController{
     @objc func profileButtonAction(){
         print("profileButtonTapped")
         
-//        let profileViewController = BottomSheetViewController()
-//        navigationController?.pushViewController(profileViewController, animated: true)
+//        let changeViewController = 
+//        navigationController?.pushViewController(changeViewController, animated: true)
     }
     
     @objc func studyButtonAction(){

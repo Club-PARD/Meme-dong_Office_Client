@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */; };
+		901052D72B47B39A00E4FDC4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901052D62B47B39A00E4FDC4 /* ProfileViewController.swift */; };
 		908423282B3BE9490023FFA0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423272B3BE9490023FFA0 /* TestViewController.swift */; };
 		9084232A2B3BE9790023FFA0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908423292B3BE9790023FFA0 /* HomeViewController.swift */; };
 		9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomSheetViewController.swift; sourceTree = "<group>"; };
+		901052D62B47B39A00E4FDC4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		908423272B3BE9490023FFA0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		908423292B3BE9790023FFA0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9084232B2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRowsColumnViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				DA1A48FB2B45DB2900C86F80 /* HomePageViewController.swift */,
 				DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */,
 				901052D02B4677B200E4FDC4 /* DetailBottomSheetViewController.swift */,
+				901052D62B47B39A00E4FDC4 /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				9084233C2B3C09890023FFA0 /* SignUpViewController.swift in Sources */,
 				CA505EF02B354BD500E1D140 /* UserViewModel.swift in Sources */,
 				CA665C9A2B42DF7800F4FD26 /* CustomGridLayout.swift in Sources */,
+				901052D72B47B39A00E4FDC4 /* ProfileViewController.swift in Sources */,
 				CAD34A942B3130A60004345B /* ColorSystem.swift in Sources */,
 				901052D12B4677B200E4FDC4 /* DetailBottomSheetViewController.swift in Sources */,
 				9084232C2B3BE99E0023FFA0 /* SelectRowsColumnViewController.swift in Sources */,
