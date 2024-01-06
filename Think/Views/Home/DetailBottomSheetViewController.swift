@@ -538,9 +538,6 @@ class DetailBottomSheetViewController:UIViewController {
         }
     }
 
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
     
     private func registerKeyboardNotifications() {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -646,16 +643,8 @@ class DetailBottomSheetViewController:UIViewController {
         view.endEditing(true)
     }
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    appDelegate.shouldSupportAllOrientation = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate.shouldSupportAllOrientation = true
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
     }
     
 

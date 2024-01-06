@@ -368,15 +368,25 @@ class LoginViewController: UIViewController {
 //                            self?.loadClassroomData()
                             
                             if self?.userViewModel.user.studentsListSimple?.count == 0 {
-                                let changeViewController = AddClassViewController()
-                                let navigationController = UINavigationController(rootViewController: changeViewController)
-                                navigationController.modalPresentationStyle = .fullScreen
-                                self?.present(navigationController, animated: true, completion: nil)
+//                                let changeViewController = AddClassViewController()
+//                                let navigationController = UINavigationController(rootViewController: changeViewController)
+//                                navigationController.modalPresentationStyle = .fullScreen
+//                                self?.present(navigationController, animated: true, completion: nil)
+                                
+                                if let window = self?.view.window {
+                                    window.rootViewController = AddClassViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+                                    UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+                                }
+                                
                             }else{
-                                let changeViewController = HomePageViewController()
-                                let navigationController = UINavigationController(rootViewController: changeViewController)
-                                navigationController.modalPresentationStyle = .fullScreen
-                                self?.present(navigationController, animated: true, completion: nil)
+                                if let window = self?.view.window {
+                                    window.rootViewController = HomePageViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+                                    UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+                                }
+//                                let changeViewController = HomePageViewController()
+//                                let navigationController = UINavigationController(rootViewController: changeViewController)
+//                                navigationController.modalPresentationStyle = .fullScreen
+//                                self?.present(navigationController, animated: true, completion: nil)
                             }
                         
                         } else {
@@ -435,15 +445,8 @@ class LoginViewController: UIViewController {
 //        saveLoginCheckbox.isSelected = !saveLoginCheckbox.isSelected
 //    }
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    appDelegate.shouldSupportAllOrientation = false
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate.shouldSupportAllOrientation = false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 
 }

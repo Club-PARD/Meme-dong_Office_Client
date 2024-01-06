@@ -258,15 +258,8 @@ class SetNameViewController: UIViewController {
                 }
     }
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    appDelegate.shouldSupportAllOrientation = false
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate.shouldSupportAllOrientation = false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 

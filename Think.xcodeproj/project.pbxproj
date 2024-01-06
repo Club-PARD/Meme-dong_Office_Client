@@ -35,6 +35,7 @@
 		DA1A48FE2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */; };
 		DA1A49042B46859200C86F80 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49032B46859200C86F80 /* Classroom.swift */; };
 		DA1A49062B4687C100C86F80 /* ClassroomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */; };
+		DA991E2A2B48C8100036774C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA991E292B48C8100036774C /* LaunchScreenViewController.swift */; };
 		DAD9B1972B3FEFE500C9F06C /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */; };
 		DAD9B1992B3FEFF900C9F06C /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */; };
 		DAD9B19B2B3FF00900C9F06C /* DetectTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD9B19A2B3FF00900C9F06C /* DetectTextViewController.swift */; };
@@ -92,6 +93,7 @@
 		DA1A48FD2B45DB3F00C86F80 /* HomeCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA1A49032B46859200C86F80 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		DA1A49052B4687C100C86F80 /* ClassroomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomViewModel.swift; sourceTree = "<group>"; };
+		DA991E292B48C8100036774C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		DAC187682B3AA34C00A397E4 /* Think.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Think.entitlements; sourceTree = "<group>"; };
 		DAD9B1962B3FEFE500C9F06C /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		DAD9B1982B3FEFF900C9F06C /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				CAD34A902B3130710004345B /* Views */,
 				CAD34A692B2FF5380004345B /* Assets.xcassets */,
 				CAD34A6E2B2FF5380004345B /* Info.plist */,
+				DA991E292B48C8100036774C /* LaunchScreenViewController.swift */,
 			);
 			path = Think;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA991E2A2B48C8100036774C /* LaunchScreenViewController.swift in Sources */,
 				CA505EEE2B354BB700E1D140 /* User.swift in Sources */,
 				9084233E2B3C09AA0023FFA0 /* SetNameViewController.swift in Sources */,
 				90B5BC732B3D4AF90069046A /* LearnViewController.swift in Sources */,

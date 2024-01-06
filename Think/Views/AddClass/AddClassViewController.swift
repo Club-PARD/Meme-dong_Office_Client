@@ -106,22 +106,21 @@ class AddClassViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @objc func addButtonAction(){
         
+//        let changeViewController = AddStudentNameVIewController()
+//        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+//        backBarButtonItem.tintColor = .black
+//        navigationItem.backBarButtonItem = backBarButtonItem
+//        navigationController?.pushViewController(changeViewController, animated: true)
+        
         let changeViewController = AddStudentNameVIewController()
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        navigationController?.pushViewController(changeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+        
     }
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    appDelegate.shouldSupportAllOrientation = false
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate.shouldSupportAllOrientation = false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
 }

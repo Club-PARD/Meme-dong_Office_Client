@@ -82,14 +82,20 @@ class AddStudentNameVIewController:UIViewController, UIImagePickerControllerDele
     func setupNav(){
         navigationItem.title = "추가하기"
         
+//                let changeViewController = AddStudentNameVIewController()
+//                let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+//                backBarButtonItem.tintColor = .black
+//                navigationItem.backBarButtonItem = backBarButtonItem
+        
         //ios 15부터 적용
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.white // 배경색을 흰색으로 설정
-        
+       
         appearance.shadowColor = nil
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        
         
     }
     
@@ -139,14 +145,7 @@ class AddStudentNameVIewController:UIViewController, UIImagePickerControllerDele
         
     }
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    appDelegate.shouldSupportAllOrientation = false
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        appDelegate.shouldSupportAllOrientation = false
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }

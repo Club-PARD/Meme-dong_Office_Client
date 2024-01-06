@@ -216,6 +216,17 @@ class ProfileViewController:UIViewController {
     @objc private func newClassButtonTapped() {
         print("새 학급 만들기 버튼이 눌렸습니다.")
         
+        if let window = self.view.window {
+            window.rootViewController = AddClassViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+            UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+        }
+        
+//        let changeViewController = AddClassViewController()
+//        let navigationController = UINavigationController(rootViewController: changeViewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        self.present(navigationController, animated: true, completion: nil)
+//        
+        
 //        let detailVC = AddClassViewController() // 첫 화면으로 이동
 //        detailVC.modalPresentationStyle = .overFullScreen
 //        self.present(detailVC, animated: false, completion: nil)
@@ -224,31 +235,21 @@ class ProfileViewController:UIViewController {
     @objc private func logoutButtonTapped() {
         print("로그아웃 버튼이 눌렸습니다.")
         TokenManager.shared.clearTokens() // 현재 토큰 삭제
-        let detailVC = WelcomeViewController() // 첫 화면으로 이동
-        detailVC.modalPresentationStyle = .overFullScreen
-        self.present(detailVC, animated: false, completion: nil)
+//        let detailVC = WelcomeViewController() // 첫 화면으로 이동
+//        detailVC.modalPresentationStyle = .overFullScreen
+//        self.present(detailVC, animated: false, completion: nil)
+        
+        if let window = self.view.window {
+            window.rootViewController = WelcomeViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+            UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+        }
     }
     
     @objc private func dimmedViewTapped(_ tapRecognizer: UITapGestureRecognizer) {
         hideBottomSheetAndGoBack()
     }
     
-    // Override this method to only allow landscape orientation for this view controller
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    appDelegate.shouldSupportAllOrientation = true
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        appDelegate.shouldSupportAllOrientation = false
-        super.viewWillDisappear(animated)
-    }
 
 }
 

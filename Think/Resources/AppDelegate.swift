@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        window?.rootViewController = WelcomeViewController()
+        window?.rootViewController = LaunchScreenViewController()
         window?.makeKeyAndVisible()
         
 #if DEBUG
@@ -37,10 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    var shouldSupportAllOrientation = false
-
-        func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-            return shouldSupportAllOrientation ? .landscape : .portrait//landscape: 가로, portrait: 세로
-        }
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        // 모든 뷰 컨트롤러에 대한 기본 방향 설정
+        return .all
+    }
 }
 
