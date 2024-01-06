@@ -48,4 +48,7 @@ class LaunchScreenViewController: UIViewController {
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {}, completion: nil)
         }
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
 }

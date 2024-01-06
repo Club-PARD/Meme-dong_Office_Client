@@ -37,8 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    var shouldSupportAllOrientation = false
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         // 모든 뷰 컨트롤러에 대한 기본 방향 설정
+        if shouldSupportAllOrientation{
+            print("실행")
+            return .landscape
+        }
         return .all
     }
 }

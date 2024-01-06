@@ -263,8 +263,7 @@ class HomePageViewController: UIViewController{
     }
     
     
-    private func setupCollectionView() {
-        let layout = CustomCollectionView(columns: gridColumns, spacing: spacing, cellHeight:40, cellWidth:80)
+    private func setupCollectionView() {        let layout = CustomCollectionView(columns: gridColumns, spacing: spacing, cellHeight:40, cellWidth:80)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HomeCustomCollectionViewCell.self, forCellWithReuseIdentifier: HomeCustomCollectionViewCell.identifier)
         collectionView.delegate = self
@@ -283,13 +282,19 @@ class HomePageViewController: UIViewController{
     }
     
     @objc func studyButtonAction(){
-        self.navigationController?.isNavigationBarHidden = false
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
-        
+//        self.navigationController?.isNavigationBarHidden = false
+//        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+//        backBarButtonItem.tintColor = .black
+//        navigationItem.backBarButtonItem = backBarButtonItem
+//        
+//        let changeViewController = LearnViewController()
+//        navigationController?.pushViewController(changeViewController, animated: true)
+//        
         let changeViewController = LearnViewController()
-        navigationController?.pushViewController(changeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: changeViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+        
         
     }
     
@@ -297,6 +302,7 @@ class HomePageViewController: UIViewController{
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
+    
 
     
     

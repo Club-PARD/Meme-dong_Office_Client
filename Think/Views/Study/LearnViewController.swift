@@ -170,6 +170,7 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     // MARK: - collectionView 랜덤 설정 초기화
     func initializeRandomUI(){
+
         processingList.shuffle()
         self.selectedIndex = Array(self.processingList.prefix(3))
         self.processingList = processingList.filter{$0 != selectedIndex[0]}
@@ -213,7 +214,10 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
     
     // MARK: - 홈으로 이동
     @objc func goHomeButtonAction(){
-        
+        if let window = self.view.window {
+            window.rootViewController = HomePageViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+            UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+        }
     }
     
 
@@ -686,7 +690,11 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
        @objc private func confirmAndDismissCustomAlert() {
            // Handle the confirmation action here
            // For example, pop the view controller or reset the quiz
-           navigationController?.popViewController(animated: true)
+//           navigationController?.popViewController(animated: true)
+           if let window = self.view.window {
+               window.rootViewController = HomePageViewController() // MainViewController는 메인 뷰 컨트롤러 클래스 이름
+               UIView.transition(with: window, duration: 0.01, options: .transitionCrossDissolve, animations: {}, completion: nil)
+           }
            
        }
 
@@ -707,8 +715,18 @@ class LearnViewController: UIViewController, UINavigationControllerDelegate{
         return .landscape
     }
     
+//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//    appDelegate.shouldSupportAllOrientation = true
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        appDelegate.shouldSupportAllOrientation = false
+//    }
     
-    
+
     
 }
 
