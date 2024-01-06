@@ -192,49 +192,52 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func sort() {
+        var adjustedStudentList = studentNames
         let totalSeats = gridRows * gridColumns
-        let numberOfStudents = studentNames.count
+        let numberOfStudents = adjustedStudentList.count
 
         // Add "-" for remaining seats
         if numberOfStudents < totalSeats {
             let remainingSeats = totalSeats - numberOfStudents
-            studentNames.append(contentsOf: Array(repeating: "-", count: remainingSeats))
+            adjustedStudentList.append(contentsOf: Array(repeating: "-", count: remainingSeats))
         }
 
-        var sorted:[[String]] = []
-        print(studentNames)
+        var sorted: [[String]] = []
 
-        // Split the student list into grid rows
-        for i in stride(from: 0, to: studentNames.count, by: gridColumns) {
-            let endIndex = i + gridColumns
-            sorted.append(Array(studentNames[i..<min(endIndex, studentNames.count)]))
+        // Split the adjusted student list into grid rows
+        for i in stride(from: 0, to: adjustedStudentList.count, by: gridColumns) {
+            let endIndex = min(i + gridColumns, adjustedStudentList.count)
+            sorted.append(Array(adjustedStudentList[i..<endIndex]))
         }
 
+        // Reverse the array to start filling from the bottom row
         sorted = Array(sorted.reversed())
 
         if straightOrMixed {
-            if gridRows % 2 == 0 {
-                for i in 0..<gridRows {
+            // Apply specific sorting logic based on 'straightOrMixed' and 'gridRows'
+            for i in 0..<gridRows {
+                if gridRows % 2 == 0 {
                     if i % 2 == 1 {
                         sorted[i] = Array(sorted[i].reversed())
                     }
-                }
-            } else {
-                for i in 0..<gridRows {
+                } else {
                     if i % 2 == 0 {
                         sorted[i] = Array(sorted[i].reversed())
                     }
                 }
             }
         } else {
+            // Reverse every row
             for i in 0..<gridRows {
                 sorted[i] = Array(sorted[i].reversed())
             }
         }
 
+        // Combine the sorted rows back into a single list
         studentNames = sorted.reduce([], +)
         print(studentNames)
     }
+
 
     
     // MARK: - BackgroundBoxes
