@@ -192,56 +192,50 @@ class GridViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func sort() {
-        let studentList = studentNames
-        var sorted:[[String]] = []
-        var combinedList:[String] = []
-    
-        //2. col 만큼 자르기
-        for i in stride(from: 0, to: studentList.count, by:gridColumns){
-            let endIndex = i+gridColumns
-            sorted.append(Array(studentList[i..<endIndex]))
-        }
-        
-        sorted = Array(sorted.reversed())
-        
-        if straightOrMixed == true {
-            //case1
-            // ㅎ<---
-            //      |
-            //  ----
-            // |
-            // ---- ㄱ
-            
-            if gridRows%2 == 0{
-                for i in stride(from: 0, to: gridRows, by: 1){
-                    if i%2==1{
-                        sorted[i] = Array(sorted[i].reversed())
-                    }
-                }
-            }
-            else{
-                for i in stride(from: 0, to: gridRows, by: 1){
-                    if i%2==0{
-                        sorted[i] = Array(sorted[i].reversed())
-                    }
-                }
-            }
+        let totalSeats = gridRows * gridColumns
+        let numberOfStudents = studentNames.count
 
+        // Add "-" for remaining seats
+        if numberOfStudents < totalSeats {
+            let remainingSeats = totalSeats - numberOfStudents
+            studentNames.append(contentsOf: Array(repeating: "-", count: remainingSeats))
         }
-        else if straightOrMixed == false {
-            //ㅎ<---
-            //---
-            //---ㄱ
-            for i in stride(from: 0, to: gridRows, by: 1){
+
+        var sorted:[[String]] = []
+        print(studentNames)
+
+        // Split the student list into grid rows
+        for i in stride(from: 0, to: studentNames.count, by: gridColumns) {
+            let endIndex = i + gridColumns
+            sorted.append(Array(studentNames[i..<min(endIndex, studentNames.count)]))
+        }
+
+        sorted = Array(sorted.reversed())
+
+        if straightOrMixed {
+            if gridRows % 2 == 0 {
+                for i in 0..<gridRows {
+                    if i % 2 == 1 {
+                        sorted[i] = Array(sorted[i].reversed())
+                    }
+                }
+            } else {
+                for i in 0..<gridRows {
+                    if i % 2 == 0 {
+                        sorted[i] = Array(sorted[i].reversed())
+                    }
+                }
+            }
+        } else {
+            for i in 0..<gridRows {
                 sorted[i] = Array(sorted[i].reversed())
             }
-            
         }
-        
-        combinedList = sorted.reduce([],+)
-        studentNames = combinedList
+
+        studentNames = sorted.reduce([], +)
         print(studentNames)
     }
+
     
     // MARK: - BackgroundBoxes
     private func setupBackGroundBox() {

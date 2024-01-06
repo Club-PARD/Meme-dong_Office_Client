@@ -26,7 +26,7 @@ class LaunchScreenViewController: UIViewController {
             NSLayoutConstraint.activate([
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7), // 이미지 뷰의 너비를 뷰 너비의 30%로 설정
+                imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4), // 이미지 뷰의 너비를 뷰 너비의 30%로 설정
                 imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor) // 이미지 뷰의 높이를 너비와 동일하게 설정
             ])
         }
